@@ -53,34 +53,36 @@ const ProjectsLists = ({ projects }: { projects: ProjectsType }) => {
   return (
     <section className="flex-1 flex flex-col items-center justify-between w-full h-fit">
       <div className="flex justify-center items-center w-full px-4 lg:w-3/5 lg:px-0 h-fit">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-4 w-full h-fit items-start justify-start">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 w-full h-fit items-start justify-start">
           {projects &&
-            Object.entries(projects).map(([key, project], index) => (
-              <figure
-                key={key}
-                onClick={() => openModal(<ProjectInfo portfolio={project} />)}
-                ref={(el) => {
-                  projectItemRefs.current[index] = el;
-                }}
-                className="group flex flex-col justify-between items-center w-full h-full transition-all duration-300 cursor-pointer"
-              >
-                <div className="flex items-center justify-center w-full aspect-[3/2] rounded-t-2xl overflow-hidden">
-                  <img
-                    src={project.project.thumbnail}
-                    alt="Project"
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <figcaption className="flex-1 flex flex-col justify-start w-full h-full gap-1.5 px-6 py-4 rounded-b-2xl bg-black/5">
-                  <div className="flex items-start justify-between w-full h-fit">
-                    <span className="text-xl text-text font-pre-bold">{project.project.title}</span>
-                    <span className="text-sm text-content font-pre-medium">{project.project["mini-duration"]}</span>
+            Object.entries(projects)
+              .reverse()
+              .map(([key, project], index) => (
+                <figure
+                  key={key}
+                  onClick={() => openModal(<ProjectInfo portfolio={project} />)}
+                  ref={(el) => {
+                    projectItemRefs.current[index] = el;
+                  }}
+                  className="group flex flex-col justify-between items-center w-full h-full transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center justify-center w-full aspect-[3/2] rounded-t-2xl overflow-hidden">
+                    <img
+                      src={project.project.thumbnail}
+                      alt="Project"
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
-                  <p className="text-content font-pre-medium">{project.project.description}</p>
-                </figcaption>
-              </figure>
-            ))}
+
+                  <figcaption className="flex-1 flex flex-col justify-start w-full h-full gap-1.5 px-6 py-4 rounded-b-2xl bg-black/5">
+                    <div className="flex items-start justify-between w-full h-fit">
+                      <span className="text-xl text-text font-pre-bold">{project.project.title}</span>
+                      <span className="text-sm text-content font-pre-medium">{project.project["mini-duration"]}</span>
+                    </div>
+                    <p className="text-content font-pre-medium">{project.project.description}</p>
+                  </figcaption>
+                </figure>
+              ))}
         </div>
       </div>
     </section>

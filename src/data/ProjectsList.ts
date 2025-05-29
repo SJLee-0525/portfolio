@@ -36,6 +36,8 @@ import recipediaThumbnail from "@assets/portfolio/recipedia/thumbnail.png";
 
 import mailAtLogo from "@assets/portfolio/mailAt/logo.png";
 
+import portfolioThumbnail from "@assets/portfolio/portfolio/thumbnail.png";
+
 export const PROJECTS: ProjectsType = {
   aidap: {
     project: {
@@ -411,6 +413,72 @@ export const PROJECTS: ProjectsType = {
         solution: "그래프 렌더링 최적화를 위해 React.memo와 useCallback을 적극적으로 활용",
       },
     ],
+    retrospective: [],
+  },
+  portfolio: {
+    project: {
+      title: "개인 포트폴리오",
+      name: "개인 프로젝트",
+      description: "개인 포트폴리오 웹사이트",
+      background:
+        "개발자로서의 성장과 경험을 정리하고, 나의 기술 스택과 프로젝트를 소개하기 위해 개인 포트폴리오 웹사이트를 제작하게 되었습니다.",
+      logo: "",
+      thumbnail: portfolioThumbnail,
+      "mini-duration": "2025. 05 ~ 현재",
+      duration: "2025. 05. 23. ~ 현재",
+      team: [["Frontend", 1]],
+      collaboration_tools: ["GitHub", "GitLab"],
+      usage_tools: [
+        "TypeScript",
+        "HTML5",
+        "CSS",
+        "React.js",
+        "Vite",
+        "Zustand",
+        "React Router",
+        "ESLint",
+        "Prettier",
+        "GSAP",
+        "clsx",
+      ],
+      award: "",
+      github: "https://github.com/SJLee-0525/portfolio",
+      presentation: "",
+      imgSrc: [],
+    },
+    responsibilities: {
+      role: "Frontend",
+      tasks: {
+        "포트폴리오 메인 페이지 제작": [
+          "나의 기술 스택과 프로젝트를 소개하는 메인 페이지 제작",
+          "애니메이션 효과와 반응형 디자인 적용",
+        ],
+        "프로젝트 상세 페이지 제작": [
+          "모달 기반의 페이지로 각 프로젝트를 소개하는 페이지 제작",
+          "프로젝트 이미지 및 동영상 삽입",
+          "프로젝트의 개요 및 기술 스택 소개",
+          "프로젝트의 문제 해결 과정 및 결과 공유",
+        ],
+        "기술 스택 소개 페이지 제작": [
+          "사용한 기술 스택을 소개하는 페이지 제작",
+          "각 기술 스택에 대한 설명 및 사용 예시 제공",
+        ],
+        "연락처 페이지 제작": [
+          "나와 연락할 수 있는 방법을 제공하는 페이지 제작",
+          "소셜 미디어 링크 및 이메일 주소 제공",
+        ],
+      },
+    },
+    technologies: {
+      "Program Language": ["TypeScript", "HTML5", "TailwindCSS"],
+      "Language Engine": ["Node.js"],
+      "Web SPA Library": ["React.js"],
+      "Bundling Tool": ["Vite"],
+      "State Management": ["Zustand"],
+      "Code Analysis Tool": ["ESLint", "Prettier"],
+      etc: ["clsx", "GSAP"],
+    },
+    troubleshooting: [],
     retrospective: [],
   },
   // aidap1: {

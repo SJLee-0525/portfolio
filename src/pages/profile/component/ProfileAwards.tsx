@@ -2,7 +2,7 @@ import { AwardItem } from "@/types/profileTypes";
 
 const ProfileAwards = ({ awards }: { awards: AwardItem[] }) => {
   return (
-    <section className="flex flex-col w-5/6 lg:w-3/4 h-fit p-4 gap-2">
+    <section className="flex flex-col w-full h-fit p-4 gap-2">
       <h1 className="text-3xl text-start font-pre-bold">Awards</h1>
 
       <div className="flex flex-col w-full h-full gap-4 mt-6">

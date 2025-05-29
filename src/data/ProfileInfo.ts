@@ -23,7 +23,7 @@ import zustandIcon from "@assets/stacks/Zustand.svg";
 export const PROFILE_INFO: ProfileInfoData = {
   innerProfile: {
     title: "프론트엔드 개발자 이성준입니다",
-    introduction: "선율을 만들던 손끝으로 인터페이스를 빚어내는,",
+    introduction: "건반에서 키보드로, 손끝으로 경험을 빚어내는",
     description:
       "연세대학교 피아노과를 졸업하고, 삼성 청년 SW 아카데미에서 프론트엔드 개발을 배우고 있습니다. " +
       "프론트엔드 개발에 대한 열정과 호기심이 가득하며, 새로운 기술을 배우고 적용하는 것을 즐깁니다.",
@@ -45,14 +45,14 @@ export const PROFILE_INFO: ProfileInfoData = {
     {
       type: "Github",
       label: "Github",
-      value: "github.com/sungjoon25",
-      link: "https://github.com/sungjoon25",
+      value: "github.com/SJLee-0525",
+      link: "https://github.com/SJLee-0525",
     },
     {
       type: "Notion",
       label: "Notion",
-      value: "sungjoon25.tistory.com",
-      link: "https://sungjoon25.tistory.com",
+      value: "sungjoon25.notion.site",
+      link: "https://www.notion.so/30b6e8951fbe4d608c0167503eb07155",
     },
   ],
   educations: [

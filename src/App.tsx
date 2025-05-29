@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Profile from "@pages/profile/Profile";
 import Projects from "@pages/projects/Projects";
 import Interview from "@pages/Interview/Interview";
+import Stacks from "@pages/stacks/Stacks";
 import Footer from "@pages/footer/Footer";
 import Modal from "@components/modal/Modal";
 
@@ -66,13 +67,14 @@ const App = () => {
   }, [mainRef, profileRef, interviewRef]);
 
   return (
-    <main ref={mainRef} className="relative flex flex-col justify-start items-center w-full h-fit bg-white">
+    <main ref={mainRef} className="relative flex flex-col justify-start items-center w-screen h-fit bg-white">
       <section ref={profileRef} className="w-full h-screen relative z-[1] bg-gray-100">
         <Profile />
       </section>
 
-      <section ref={interviewRef} className="w-full h-fit relative z-[2] bg-gray-100">
+      <section ref={interviewRef} className="w-full h-fit relative z-[2] bg-white">
         <Interview />
+        <Stacks />
         <Projects />
         <Footer />
       </section>

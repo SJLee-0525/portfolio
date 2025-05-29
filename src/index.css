@@ -56,11 +56,6 @@
     url("./assets/fonts/Pretendard-ExtraBold.woff2") format("woff2");
 }
 
-html {
-  /* 신형 브라우저 (Chrome 94+, Safari 15+, Edge 93+) */
-  scrollbar-gutter: stable;
-}
-
 @theme {
   --font-pre-extra-light: "Pretendard-ExtraLight";
   --font-pre-light: "Pretendard-Light";
@@ -72,7 +67,7 @@ html {
 
   /* Colors */
   --color-white: #ffffff;
-  --color-light: #ededed;
+  --color-light: #f4f4f4;
   --color-light1: #edeef7;
   --color-light2: #dfe0e2;
   --color-light3: #bcc0c3;

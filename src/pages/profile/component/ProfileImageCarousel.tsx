@@ -23,7 +23,7 @@ const ProfileImageCarousel = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-2/5 lg:w-2/5 lg:min-w-lg lg:h-full">
+    <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
       <div className="w-full h-full">
         <img
           src={PROFILE_IMAGES[currentIndex].src}

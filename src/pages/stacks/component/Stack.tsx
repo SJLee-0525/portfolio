@@ -1,10 +1,54 @@
+import { useEffect, useRef } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import clsx from "clsx";
 
 import { StackItem } from "@/types/profileTypes";
 
 import StarIcon from "@assets/icon/StarIcon";
 
-const ProfileStack = ({ stackType, stackItems }: { stackType: string; stackItems: StackItem[] }) => {
+const Stack = ({ stackType, stackItems }: { stackType: string; stackItems: StackItem[] }) => {
+  const stackItemRefs = useRef<(HTMLElement | null)[]>([]);
+  const stackAnimRefs = useRef<gsap.core.Tween[]>([]);
+
+  useEffect(() => {
+    stackAnimRefs.current.forEach((anim) => anim.kill());
+    stackAnimRefs.current = [];
+
+    stackItemRefs.current.forEach((el) => {
+      if (el) {
+        const anim = gsap.fromTo(
+          el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              end: "bottom 70%",
+              scrub: true,
+              toggleActions: "play none none none",
+            },
+            clearProps: "transform", // 애니메이션 종료 후 transform 속성 제거
+          }
+        );
+
+        stackAnimRefs.current.push(anim);
+      }
+    });
+
+    ScrollTrigger.refresh();
+
+    return () => {
+      stackAnimRefs.current.forEach((anim) => anim.kill());
+      stackAnimRefs.current = [];
+    };
+  }, [stackItems]);
+
   function getStackType(stackType: string): string {
     switch (stackType) {
       case "Languages":
@@ -21,9 +65,10 @@ const ProfileStack = ({ stackType, stackItems }: { stackType: string; stackItems
   const stackTypeKor = getStackType(stackType);
 
   return (
-    <div className="mb-6">
-      <h1 className="text-xl text-start font-pre-bold mb-4">{stackTypeKor}</h1>
-      <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-6">
+    <div className="mb-16">
+      <h1 className="text-3xl text-center font-pre-regular mb-8">{stackTypeKor}</h1>
+
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-6">
         {stackItems &&
           stackItems.map((stack, i) => {
             const imageClass = clsx("flex items-center justify-center", {
@@ -36,14 +81,19 @@ const ProfileStack = ({ stackType, stackItems }: { stackType: string; stackItems
             return (
               <figure
                 key={i}
+                ref={(el) => {
+                  stackItemRefs.current[i] = el;
+                }}
                 className="flex flex-col items-center justify-center w-fit h-fit gap-1 transform-all duration-300 ease-in-out hover:scale-110"
               >
-                <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-[#fff] aspect-[1] overflow-hidden">
+                <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-light aspect-[1] overflow-hidden">
                   <div className={imageClass}>
                     <img src={stack.icon} alt={stack.name} className="w-full h-full object-contain" />
                   </div>
                 </div>
-                <figcaption className="text-sm text-text text-center font-pre-semi-bold">{stack.name}</figcaption>
+
+                <figcaption className="mt-1 text-sm text-text text-center font-pre-semi-bold">{stack.name}</figcaption>
+
                 <figure className="flex items-center justify-center w-full h-4 p-1">
                   {stack.level &&
                     Array(stack.level)
@@ -62,4 +112,4 @@ const ProfileStack = ({ stackType, stackItems }: { stackType: string; stackItems
   );
 };
 
-export default ProfileStack;
+export default Stack;
