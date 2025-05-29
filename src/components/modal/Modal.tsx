@@ -1,6 +1,7 @@
 import "@components/modal/Modal.css";
 
 import { useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 import useModalStore from "@stores/modalStore";
 
@@ -8,23 +9,26 @@ import CloseIcon from "@assets/icon/CloseIcon";
 
 const Modal = () => {
   const { isOpen, isClosing, modalContent, closeModal } = useModalStore();
+
   const dialog = useRef<HTMLDialogElement>(null);
+  const contentRef = useRef<HTMLElement>(null); // section ref 추가
 
   useEffect(() => {
     if (isClosing) return; // 모달이 닫히는 중이면 아무것도 하지 않음
 
     if (isOpen && dialog.current) {
       dialog.current.showModal(); // 모달 열기
-      document.body.style.overflow = "hidden"; // 스크롤 막기
     } else if (!isOpen && dialog.current) {
-      if (document.body.style.overflow === "hidden") {
-        document.body.style.overflow = ""; // 스크롤 복원
+      // 모달 닫힐 때 스크롤 위치 초기화
+      if (contentRef.current) {
+        contentRef.current.scrollTop = 0;
       }
     }
 
     return () => {
-      if (document.body.style.overflow === "hidden") {
-        document.body.style.overflow = ""; // 스크롤 복원
+      // 모달 닫힐 때 스크롤 위치 초기화
+      if (contentRef.current) {
+        contentRef.current.scrollTop = 0;
       }
     };
   }, [isOpen, isClosing]);
@@ -33,13 +37,14 @@ const Modal = () => {
     if (!isOpen && dialog.current) {
       dialog.current.close(); // 모달 닫기
 
-      if (document.body.style.overflow === "hidden") {
-        document.body.style.overflow = ""; // 스크롤 복원
+      // 모달 닫힐 때 스크롤 위치 초기화
+      if (contentRef.current) {
+        contentRef.current.scrollTop = 0;
       }
     }
   }, [isOpen]);
 
-  return (
+  return createPortal(
     <dialog
       ref={dialog}
       onClose={() => {
@@ -61,10 +66,14 @@ const Modal = () => {
         <CloseIcon />
       </button>
 
-      <section className="w-full h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ">
+      <section
+        ref={contentRef}
+        className="w-full h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden "
+      >
         {modalContent}
       </section>
-    </dialog>
+    </dialog>,
+    document.getElementById("modal") as HTMLElement
   );
 };
 

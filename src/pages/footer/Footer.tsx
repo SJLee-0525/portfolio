@@ -94,8 +94,8 @@ const Footer = () => {
       </section>
 
       <footer className="w-full h-fit text-center z-10 mt-auto">
-        <p className="text-xs sm:text-sm font-pre-regular">Copyright 2025. Sungjoon Lee all rights reserved.</p>
-        <p className="text-xs sm:text-sm font-pre-regular">React, Tailwind CSS, GSAP 기반으로 제작된 웹 사이트입니다</p>
+        <p className="text-xs sm:text-sm font-pre-regular">Copyright 2025. Sungjoon Lee All Rights Reserved</p>
+        <p className="text-xs sm:text-sm font-pre-regular">React, Tailwind CSS, GSAP을 기반으로 제작되었습니다</p>
       </footer>
     </section>
   );

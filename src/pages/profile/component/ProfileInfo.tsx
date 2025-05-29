@@ -74,7 +74,7 @@ const ProfileInfo = ({ onProfileInfoReady }: ProfileInfoProps) => {
       ref={scrollSectionRef}
       className="flex-1 flex flex-col items-center w-full h-full gap-2 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden relative"
     >
-      <section className="flex flex-col items-center justify-between w-full h-fit py-8 gap-16 lg:h-screen lg:py-20 flex-shrink-0">
+      <section className="flex flex-col items-center justify-between w-full h-fit py-8 gap-16 xl:h-screen xl:py-20 flex-shrink-0">
         <div ref={innerRef} className="w-full h-fit flex justify-center items-center">
           <ProfileInnerProfile innerProfile={PROFILE_INFO.innerProfile} onAnimationEnd={() => setProfileReady(true)} />
         </div>
@@ -84,10 +84,10 @@ const ProfileInfo = ({ onProfileInfoReady }: ProfileInfoProps) => {
       </section>
 
       <section className="flex flex-col items-center w-full h-fit py-8 pb-16 gap-32">
-        <div ref={educationRef} className="w-5/6 lg:w-3/4 h-fit">
+        <div ref={educationRef} className="w-5/6 xl:w-3/4 h-fit">
           <ProfileEducation educations={PROFILE_INFO.educations} />
         </div>
-        <div ref={awardsRef} className="w-5/6 lg:w-3/4 h-fit">
+        <div ref={awardsRef} className="w-5/6 xl:w-3/4 h-fit">
           <ProfileAwards awards={PROFILE_INFO.awards} />
         </div>
       </section>

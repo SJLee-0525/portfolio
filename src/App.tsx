@@ -1,7 +1,9 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import LoadingSpinner from "@components/spinner/LoadingSpinner";
 
 import Profile from "@pages/profile/Profile";
 import Projects from "@pages/projects/Projects";
@@ -13,6 +15,7 @@ import Modal from "@components/modal/Modal";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
   const mainRef = useRef<HTMLElement>(null);
   const profileRef = useRef<HTMLElement>(null);
   const interviewRef = useRef<HTMLElement>(null);
@@ -22,7 +25,10 @@ const App = () => {
     const profileElement = profileRef.current;
     const interviewElement = interviewRef.current;
 
-    if (!scopeElement || !profileElement || !interviewElement) return;
+    if (!scopeElement || !profileElement || !interviewElement) {
+      setLoading(false);
+      return;
+    }
 
     let ctx: gsap.Context | undefined;
     let pinTrigger: ScrollTrigger | undefined;
@@ -30,7 +36,6 @@ const App = () => {
     let showTween: gsap.core.Tween | undefined;
 
     ctx = gsap.context(() => {
-      // profile이 끝나고 interview가 등장할 때 전환 효과
       gsap.set(interviewElement, { opacity: 0, y: 60 });
       gsap.set(profileElement, { opacity: 1, y: 0 });
 
@@ -56,6 +61,7 @@ const App = () => {
           });
         },
       });
+      setLoading(false);
     }, scopeElement);
 
     return () => {
@@ -66,8 +72,10 @@ const App = () => {
     };
   }, [mainRef, profileRef, interviewRef]);
 
+  if (loading) return <LoadingSpinner />;
+
   return (
-    <main ref={mainRef} className="relative flex flex-col justify-start items-center w-screen h-fit bg-white">
+    <main ref={mainRef} className="relative flex flex-col justify-start items-center w-full h-fit bg-white">
       <section ref={profileRef} className="w-full h-screen relative z-[1] bg-gray-100">
         <Profile />
       </section>

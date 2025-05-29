@@ -1,5 +1,3 @@
-/* styles.css */
-
 @import "tailwindcss";
 
 @font-face {
@@ -166,123 +164,56 @@ container.center 설정, 스크롤바 숨기기 플러그인(scrollbarHide) 등
 Tailwind 자체 플러그인 설정은 여전히 JS config에서 해 주셔야 합니다.
 */
 
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE, Edge */
-  scrollbar-width: none; /* Firefox */
+/* .hide-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a8a8a8 #00000000; 
 }
+
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  width: 8px;
+  background: #00000000;
 }
 
-/* 애니메이션 추가 - 이메일 자동완성 기능을 위한 효과 */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: #a8a8a8;
+  border-radius: 10px;
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-}
-
-@keyframes spaceBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* #root {
-  background: linear-gradient(270deg, #022a44, #011725, #000);
-  background-size: 600% 600%;
-  animation: spaceBackground 16s ease infinite;
+.hide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #432532;
 } */
 
-.animate-fade-out {
-  animation: fadeOut 0.3s ease-in-out;
+.inter-200 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
-/* Quill 에디터 스타일 오버라이드 - 더 깔끔한 UI를 위해 */
-.ql-toolbar.ql-snow {
-  border-color: #edeef7 !important;
-  border-radius: 4px 4px 0 0;
+.inter-300 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
-.ql-container.ql-snow {
-  border-color: #edeef7 !important;
-  border-radius: 0 0 4px 4px;
-  min-height: 150px;
+.inter-500 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
-.ql-editor {
-  font-family: "Pretendard-Regular", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
+.inter-700 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
-.ql-editor:focus {
-  outline: 2px solid rgba(2, 45, 72, 0.1);
-}
-
-/* AI 로딩 애니메이션 */
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 0.6s infinite;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(100%);
-  }
-}
-
-.slide-up {
-  animation: slideUp 0.3s ease-out forwards;
-}
-
-.slide-down {
-  animation: slideDown 0.3s ease-out forwards;
+.inter-900 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }

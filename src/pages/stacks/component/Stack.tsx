@@ -66,7 +66,7 @@ const Stack = ({ stackType, stackItems }: { stackType: string; stackItems: Stack
 
   return (
     <div className="mb-16">
-      <h1 className="text-3xl text-center font-pre-regular mb-8">{stackTypeKor}</h1>
+      <h1 className="text-2xl text-center font-pre-medium mb-8">{stackTypeKor}</h1>
 
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-6">
         {stackItems &&

@@ -29,9 +29,9 @@ const Stacks = () => {
   }, []);
 
   return (
-    <section className="relative flex flex-col justify-between items-center w-full min-h-screen h-fit py-24 gap-24 bg-white">
+    <section className="relative flex flex-col justify-between items-center w-full min-h-screen h-fit py-24 gap-18 bg-white">
       <header className="w-full h-fit bg-white" ref={SkillHeaderRef}>
-        <h1 className="text-5xl lg:text-6xl font-pre-light text-center">SKILLS</h1>
+        <h1 className="text-5xl lg:text-6xl inter-300 text-center">SKILLS</h1>
       </header>
 
       <section className="flex-1 flex flex-col items-center justify-start w-full lg:w-3/5 h-fit gap-4">

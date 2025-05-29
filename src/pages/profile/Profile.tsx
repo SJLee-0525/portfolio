@@ -22,12 +22,12 @@ const Profile = () => {
   }, [infoReady]);
 
   return (
-    <section className="flex flex-col-reverse lg:flex-row justify-between items-center w-full h-full">
+    <section className="flex flex-col-reverse xl:flex-row justify-between items-center w-full h-full overflow-x-hidden">
       <ProfileInfo onProfileInfoReady={() => setInfoReady(true)} />
 
       <div
         ref={carouselRef}
-        className="flex flex-col items-center justify-center w-full h-2/5 lg:w-2/5 lg:min-w-lg lg:h-full"
+        className="flex flex-col items-center justify-center w-full h-2/5 xl:w-2/5 xl:min-w-lg xl:h-full"
       >
         <ProfileImageCarousel />
       </div>
