@@ -4,8 +4,16 @@ import gsap from "gsap";
 import ProfileImageCarousel from "@pages/profile/component/ProfileImageCarousel";
 import ProfileInfo from "@pages/profile/component/ProfileInfo";
 
-const Profile = () => {
-  const [infoReady, setInfoReady] = useState(false);
+const Profile = ({
+  infoReady,
+  setInfoReady,
+  onScrollToInterview,
+}: {
+  infoReady: boolean;
+  setInfoReady: (info: boolean) => void;
+  onScrollToInterview: () => void;
+}) => {
+  const [showScroll, setShowScroll] = useState(false);
 
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +31,12 @@ const Profile = () => {
 
   return (
     <section className="flex flex-col-reverse xl:flex-row justify-between items-center w-full h-full overflow-x-hidden">
-      <ProfileInfo onProfileInfoReady={() => setInfoReady(true)} />
+      <ProfileInfo
+        showScroll={showScroll}
+        setShowScroll={setShowScroll}
+        onScrollToInterview={onScrollToInterview}
+        onProfileInfoReady={() => setInfoReady(true)}
+      />
 
       <div
         ref={carouselRef}

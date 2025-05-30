@@ -112,7 +112,7 @@ const Footer = ({ onScrollToTop }: { onScrollToTop: () => void }) => {
 
         <button
           ref={buttonRef}
-          className="rounded-full mt-2 px-2.5 py-1.5 bg-black/80 text-white text-sm font-pre-regular transtion-all duration-300 ease-in-out hover:bg-black/100 hover:scale-110 opacity-0"
+          className="rounded-full mt-2 px-3.5 py-1.5 bg-black/80 text-white text-sm font-pre-regular transtion-all duration-300 ease-in-out hover:bg-black/100 hover:scale-110 opacity-0"
           onClick={onScrollToTop}
         >
           표지로 돌아가기

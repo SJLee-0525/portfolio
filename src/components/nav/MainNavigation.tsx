@@ -38,10 +38,10 @@ const MainNavigation = ({
 
       <button
         onClick={onScrollToTop}
-        className="flex justify-center items-center gap-2.5 pe-4 rounded-full text-black/80 hover:bg-black/50 hover:text-white transition-colors"
+        className="flex justify-center items-center gap-2.5 ps-0.5 py-0.5 pe-4 rounded-full text-black/80 hover:bg-black/15 transition-all duration-300 ease-in-out"
         aria-label="Scroll to top"
       >
-        <figure className="p-1.5 bg-black/60 rounded-full">
+        <figure className="p-1.5 bg-content rounded-full">
           <ArrowUpIcon width={28} height={28} strokeColor="white" />
         </figure>
         <span className="inter-300">TOP</span>

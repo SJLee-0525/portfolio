@@ -16,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [animationReady, setAnimationReady] = useState(false);
 
   const mainRef = useRef<HTMLElement>(null);
   const profileRef = useRef<HTMLElement>(null);
@@ -90,9 +91,24 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  // 페이지 로드 시 강제로 맨 위로 이동
+  useEffect(() => {
+    if (window.location.hash) window.location.hash = ""; // 강제로 hash 제거 (SPA 라우터가 아니라면)
+
+    function handleBeforeUnload() {
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   useEffect(() => {
     const sections = [
-      { name: "interview", ref: interviewRef }, // Uses the new specific interviewRef
+      { name: "interview", ref: interviewRef },
       { name: "stacks", ref: stacksRef },
       { name: "projects", ref: projectsRef },
     ];
@@ -129,43 +145,84 @@ const App = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [profileRef, interviewRef, stacksRef, projectsRef]);
 
+  useEffect(() => {
+    if (!animationReady) {
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      if (scrollBarWidth > 0) {
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+        document.body.style.backgroundColor = "#f3f4f6";
+      }
+
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.paddingRight = "";
+      document.body.style.backgroundColor = ""; // 원래 배경색으로 되돌리기
+
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.paddingRight = "";
+      document.body.style.backgroundColor = "";
+
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [animationReady]);
+
   return (
-    <main ref={mainRef} className="flex flex-col justify-start items-center w-full h-fit bg-white ">
-      <section ref={profileRef} className="w-full h-screen relative z-[1] bg-gray-100">
-        <Profile />
-      </section>
+    <>
+      {/* 로딩 중일 때 스크롤 방지 */}
+      {!animationReady && (
+        <div
+          className="fixed inset-0 w-full h-full bg-transparent z-[9999] pointer-events-auto"
+          style={{ overscrollBehavior: "none", touchAction: "none" }}
+        />
+      )}
 
-      <section
-        ref={contentWrapperRef}
-        className="w-full min-h-fit flex justify-between z-[2] bg-white lg:px-12 xl:px-32"
-      >
-        <aside className="relative hidden xl:block xl:relative w-1/4 min-h-full py-24">
-          <MainNavigation
-            activeSection={activeSection}
+      <main ref={mainRef} className="flex flex-col justify-start items-center w-full h-fit bg-white ">
+        <section ref={profileRef} className="relative w-full h-screen z-[1] bg-gray-100">
+          <Profile
+            infoReady={animationReady}
+            setInfoReady={setAnimationReady}
             onScrollToInterview={() => scrollToSection(interviewRef)}
-            onScrollToSkills={() => scrollToSection(stacksRef)}
-            onScrollToMyWorks={() => scrollToSection(projectsRef)}
-            onScrollToTop={scrollToTop}
           />
-        </aside>
+        </section>
 
-        <section className="flex-1 w-full h-fit relative lg:px-16">
-          <section ref={interviewRef} className="w-full">
-            <Interview />
-          </section>
-          <section ref={stacksRef} className="w-full">
-            <Stacks />
-          </section>
-          <section ref={projectsRef} className="w-full">
-            <Projects />
+        <section
+          ref={contentWrapperRef}
+          className="w-full min-h-fit flex justify-between z-[2] bg-white lg:px-12 xl:px-32"
+        >
+          <aside className="relative hidden xl:block xl:relative w-1/4 min-h-full py-24">
+            <MainNavigation
+              activeSection={activeSection}
+              onScrollToInterview={() => scrollToSection(interviewRef)}
+              onScrollToSkills={() => scrollToSection(stacksRef)}
+              onScrollToMyWorks={() => scrollToSection(projectsRef)}
+              onScrollToTop={scrollToTop}
+            />
+          </aside>
+
+          <section className="flex-1 w-full h-fit relative lg:px-16">
+            <section ref={interviewRef} className="w-full">
+              <Interview />
+            </section>
+            <section ref={stacksRef} className="w-full">
+              <Stacks />
+            </section>
+            <section ref={projectsRef} className="w-full">
+              <Projects />
+            </section>
           </section>
         </section>
-      </section>
 
-      <Footer onScrollToTop={scrollToTop} />
+        <Footer onScrollToTop={scrollToTop} />
 
-      <Modal />
-    </main>
+        <Modal />
+      </main>
+    </>
   );
 };
 
