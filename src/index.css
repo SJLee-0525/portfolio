@@ -126,35 +126,6 @@ html.theme-night #root {
   animation: spaceBackground 16s ease infinite;
 }
 
-/* 주황색 따뜻한 테마 */
-html.theme-orange-warm {
-  --color-white: #ffffff;
-  --color-light: #fdf3ed;
-  --color-light1: #fae7dc;
-  --color-light2: #f1d6c4;
-  --color-light3: #d9b7a6;
-  --color-bg: #fffaf6;
-  --color-bg-dark: #f5eae0;
-  --color-icon: #a78c80;
-  --color-theme: #c1562e; /* 따뜻한 브릭/테라코타 오렌지 */
-  --color-theme-dark: #8b3b20;
-  --color-title: #5c4033;
-  --color-content: #7a5b4b;
-  --color-default: #d9b7a6;
-  --color-accept: #a8451e;
-  --color-disable: #e0d3ca;
-  --color-cancel: #b32222;
-  --color-success: #ff8b5c;
-  --color-warning: #ffb45c;
-  --color-error: #ee5c5c;
-}
-
-html.theme-orange-warm #root {
-  background: linear-gradient(270deg, #ffd180, #ffab40, #ffd180);
-  background-size: 600% 600%;
-  animation: spaceBackground 16s ease infinite;
-}
-
 /*
 이 파일 하나만 import("tailwindcss") 하시면,
 Tailwind 플러그인이 자동으로 @theme 블록을 읽어
