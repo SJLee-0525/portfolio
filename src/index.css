@@ -197,6 +197,13 @@ Tailwind 자체 플러그인 설정은 여전히 JS config에서 해 주셔야 �
   font-style: normal;
 }
 
+.inter-350 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
 .inter-500 {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

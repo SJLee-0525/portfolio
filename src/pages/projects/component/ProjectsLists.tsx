@@ -52,7 +52,7 @@ const ProjectsLists = ({ projects }: { projects: ProjectsType }) => {
 
   return (
     <section className="flex-1 flex flex-col items-center justify-between w-full h-fit">
-      <div className="flex justify-center items-center w-full px-4 lg:w-3/5 lg:px-0 h-fit">
+      <div className="flex justify-center items-center w-full px-4 h-fit">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-4 w-full h-fit items-start justify-start">
           {projects &&
             Object.entries(projects)

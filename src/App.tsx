@@ -1,34 +1,35 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import LoadingSpinner from "@components/spinner/LoadingSpinner";
 
 import Profile from "@pages/profile/Profile";
 import Projects from "@pages/projects/Projects";
 import Interview from "@pages/Interview/Interview";
 import Stacks from "@pages/stacks/Stacks";
 import Footer from "@pages/footer/Footer";
+
+import MainNavigation from "@components/nav/MainNavigation";
 import Modal from "@components/modal/Modal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
   const mainRef = useRef<HTMLElement>(null);
   const profileRef = useRef<HTMLElement>(null);
+  const contentWrapperRef = useRef<HTMLElement>(null);
   const interviewRef = useRef<HTMLElement>(null);
+  const stacksRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
     const scopeElement = mainRef.current;
     const profileElement = profileRef.current;
-    const interviewElement = interviewRef.current;
+    const contentElement = contentWrapperRef.current;
 
-    if (!scopeElement || !profileElement || !interviewElement) {
-      setLoading(false);
-      return;
-    }
+    if (!scopeElement || !profileElement || !contentElement) return;
 
     let ctx: gsap.Context | undefined;
     let pinTrigger: ScrollTrigger | undefined;
@@ -36,7 +37,7 @@ const App = () => {
     let showTween: gsap.core.Tween | undefined;
 
     ctx = gsap.context(() => {
-      gsap.set(interviewElement, { opacity: 0, y: 60 });
+      gsap.set(contentElement, { opacity: 0, y: 60 });
       gsap.set(profileElement, { opacity: 1, y: 0 });
 
       pinTrigger = ScrollTrigger.create({
@@ -53,7 +54,7 @@ const App = () => {
             overwrite: "auto",
           });
 
-          gsap.to(interviewElement, {
+          gsap.to(contentElement, {
             opacity: self.progress,
             y: 60 * (1 - self.progress),
             duration: 0.1,
@@ -61,7 +62,6 @@ const App = () => {
           });
         },
       });
-      setLoading(false);
     }, scopeElement);
 
     return () => {
@@ -70,22 +70,99 @@ const App = () => {
       if (showTween) showTween.kill();
       if (ctx) ctx.revert();
     };
-  }, [mainRef, profileRef, interviewRef]);
+  }, [mainRef, profileRef, contentWrapperRef]);
 
-  if (loading) return <LoadingSpinner />;
+  // 네비게이션바 스크롤 이동 함수 (정확한 위치로 이동, 스크롤 보정)
+  function scrollToSection(ref: React.RefObject<HTMLElement | null>) {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      window.scrollTo({
+        top: rect.top + scrollTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  // 맨 위로 이동
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  useEffect(() => {
+    const sections = [
+      { name: "interview", ref: interviewRef }, // Uses the new specific interviewRef
+      { name: "stacks", ref: stacksRef },
+      { name: "projects", ref: projectsRef },
+    ];
+
+    function handleScroll() {
+      // 활성 로직
+      const viewportCenterY = window.innerHeight / 2;
+      let newActiveSection: string | null = null;
+      let minDistanceToCenter = Infinity;
+
+      for (const section of sections) {
+        if (section.ref.current) {
+          const rect = section.ref.current.getBoundingClientRect();
+          const sectionCenterY = rect.top + rect.height / 2;
+          const distance = Math.abs(sectionCenterY - viewportCenterY);
+
+          const visibleTop = Math.max(0, rect.top);
+          const visibleBottom = Math.min(window.innerHeight, rect.bottom);
+          const visibleHeight = visibleBottom - visibleTop;
+
+          // 섹션이 화면에 보이고, 최소 10% 이상 보이거나, 높이가 0보다 클 때 활성 후보로 간주
+          if (visibleHeight > 0 && visibleHeight >= rect.height * 0.1 && distance < minDistanceToCenter) {
+            minDistanceToCenter = distance;
+            newActiveSection = section.name;
+          }
+        }
+      }
+      setActiveSection(newActiveSection);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // 초기 로드 시 한 번 실행하여 상태 설정
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [profileRef, interviewRef, stacksRef, projectsRef]);
 
   return (
-    <main ref={mainRef} className="relative flex flex-col justify-start items-center w-full h-fit bg-white">
+    <main ref={mainRef} className="flex flex-col justify-start items-center w-full h-fit bg-white ">
       <section ref={profileRef} className="w-full h-screen relative z-[1] bg-gray-100">
         <Profile />
       </section>
 
-      <section ref={interviewRef} className="w-full h-fit relative z-[2] bg-white">
-        <Interview />
-        <Stacks />
-        <Projects />
-        <Footer />
+      <section
+        ref={contentWrapperRef}
+        className="w-full min-h-fit flex justify-between z-[2] bg-white lg:px-12 xl:px-32"
+      >
+        <aside className="relative hidden xl:block xl:relative w-1/4 min-h-full py-24">
+          <MainNavigation
+            activeSection={activeSection}
+            onScrollToInterview={() => scrollToSection(interviewRef)}
+            onScrollToSkills={() => scrollToSection(stacksRef)}
+            onScrollToMyWorks={() => scrollToSection(projectsRef)}
+            onScrollToTop={scrollToTop}
+          />
+        </aside>
+
+        <section className="flex-1 w-full h-fit relative lg:px-16">
+          <section ref={interviewRef} className="w-full">
+            <Interview />
+          </section>
+          <section ref={stacksRef} className="w-full">
+            <Stacks />
+          </section>
+          <section ref={projectsRef} className="w-full">
+            <Projects />
+          </section>
+        </section>
       </section>
+
+      <Footer onScrollToTop={scrollToTop} />
 
       <Modal />
     </main>

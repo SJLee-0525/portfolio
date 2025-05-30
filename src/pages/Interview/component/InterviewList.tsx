@@ -49,7 +49,7 @@ const InterviewLists = () => {
   }, [INTERVIEWS]);
 
   return (
-    <section className="flex-1 flex flex-col items-center justify-start w-full lg:w-3/5 h-fit gap-4">
+    <section className="flex-1 flex flex-col items-center justify-start w-full h-fit gap-4">
       {INTERVIEWS &&
         INTERVIEWS.map((interview, index) => (
           <article
@@ -60,7 +60,7 @@ const InterviewLists = () => {
             className="group flex flex-col justify-start items-start w-full h-fit p-6 gap-4 transition-all duration-300"
           >
             <h3 className="text-2xl font-pre-bold">Q. {interview.question}</h3>
-            <p className="lg:ps-7 text-lg font-pre-light" style={{ whiteSpace: "pre-line" }}>
+            <p className="lg:ps-7 text-lg font-pre-light" style={{ whiteSpace: "pre-line", lineHeight: "1.68" }}>
               {interview.answer}
             </p>
           </article>

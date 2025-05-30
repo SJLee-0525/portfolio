@@ -5,18 +5,24 @@ const ProjectDescription = ({ portfolio }: { portfolio: Portfolio }) => {
     <section className="flex flex-col items-start justify-start w-full h-fit gap-10">
       <article className="flex flex-col items-start justify-start w-full h-fit gap-2">
         <h3 className="text-xl text-theme font-pre-bold">배경</h3>
-        <p className="text-text font-pre-medium">{portfolio.project.background}</p>
+        <p className="text-text font-pre-medium" style={{ whiteSpace: "pre-line", lineHeight: "1.68" }}>
+          {portfolio.project.background}
+        </p>
       </article>
 
       <article className="flex flex-col items-start justify-start w-full h-fit gap-2">
         <h3 className="text-xl text-theme  font-pre-bold">기간</h3>
-        <p className="text-text font-pre-medium">{portfolio.project.duration}</p>
+        <p className="text-text font-pre-medium" style={{ whiteSpace: "pre-line", lineHeight: "1.68" }}>
+          {portfolio.project.duration}
+        </p>
       </article>
 
       {portfolio.project.award && (
         <article className="flex flex-col items-start justify-start w-full h-fit gap-2">
           <h3 className="text-xl text-theme  font-pre-bold">성과</h3>
-          <p className="text-text font-pre-medium">{portfolio.project.award}</p>
+          <p className="text-text font-pre-medium" style={{ whiteSpace: "pre-line", lineHeight: "1.68" }}>
+            {portfolio.project.award}
+          </p>
         </article>
       )}
 

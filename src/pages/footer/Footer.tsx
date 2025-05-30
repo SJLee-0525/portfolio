@@ -3,12 +3,14 @@ import gsap from "gsap";
 
 const KOREAN_THANK_YOU_TEXT = "봐주셔서 감사합니다";
 
-const Footer = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
+const Footer = ({ onScrollToTop }: { onScrollToTop: () => void }) => {
   const hasAnimated = useRef(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
+    const button = buttonRef.current;
 
     if (!section) return;
 
@@ -28,6 +30,8 @@ const Footer = () => {
         rotationX: -90,
         transformOrigin: "center bottom",
       });
+
+      gsap.set(button, { opacity: 0, y: 20 });
 
       tl.to(koreanChars, {
         opacity: 1,
@@ -53,6 +57,20 @@ const Footer = () => {
           "-=0.5"
         );
       }
+
+      if (button) {
+        tl.to(
+          button,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.inOut",
+            clearProps: "transform", // 애니메이션 종료 후 transform 속성 제거
+          },
+          "+=0.1" // thankYouBg 이후 약간의 딜레이
+        );
+      }
     }
 
     const observer = new window.IntersectionObserver(
@@ -76,7 +94,7 @@ const Footer = () => {
     >
       <section
         aria-label={KOREAN_THANK_YOU_TEXT}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col justify-center items-center w-full h-fit font-pre-bold text-3xl sm:text-4xl md:text-6xl text-black mb-8 md:mb-0" // Added margin bottom for smaller screens
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col justify-center items-center w-full h-fit font-pre-bold text-3xl sm:text-4xl md:text-6xl text-black mb-8 md:mb-0"
       >
         <article className="flex justify-center items-center">
           {KOREAN_THANK_YOU_TEXT.split("").map((char, index) => (
@@ -87,10 +105,18 @@ const Footer = () => {
         </article>
         <article
           id="footer-thankyou-bg"
-          className="w-full select-none pointer-events-none z-0 font-pre-extra-bold text-center text-6xl sm:text-7xl md:text-7xl lg:text-9xl text-gray-200 opacity-0" // Adjusted text size and color, start with opacity 0
+          className="w-full select-none pointer-events-none z-0 font-pre-extra-bold text-center text-6xl sm:text-7xl md:text-7xl lg:text-9xl text-gray-200 opacity-0"
         >
           THANK YOU
         </article>
+
+        <button
+          ref={buttonRef}
+          className="rounded-full mt-2 px-2.5 py-1.5 bg-black/80 text-white text-sm font-pre-regular transtion-all duration-300 ease-in-out hover:bg-black/100 hover:scale-110 opacity-0"
+          onClick={onScrollToTop}
+        >
+          표지로 돌아가기
+        </button>
       </section>
 
       <footer className="w-full h-fit text-center z-10 mt-auto">
