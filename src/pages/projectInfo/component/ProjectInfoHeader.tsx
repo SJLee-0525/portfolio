@@ -5,12 +5,12 @@ import PresentationIcon from "@assets/icon/PresentationIcon";
 
 const ProjectInfoHeader = ({ portfolio }: { portfolio: Portfolio }) => {
   return (
-    <header className="sticky top-0 bg-white flex items-center justify-between w-full h-fit gap-4 border-b border-gray-200 z-10">
-      <section className="flex items-center justify-start w-full h-fit gap-4">
+    <header className="sticky top-0 bg-white flex flex-col lg:flex-row items-start lg:items-center justify-between w-full h-fit border-b border-gray-200 z-10">
+      <section className="flex items-center justify-start w-fit h-fit gap-4">
         <figure className="flex items-center justify-center w-12 h-12 aspect-[1/1] bg-white overflow-hidden">
           <img src={portfolio.project.logo} alt="logo" />
         </figure>
-        <figcaption className="flex flex-col items-start justify-start w-fit h-fit gap-2 py-4">
+        <figcaption className="flex flex-col items-start justify-start w-fit h-fit gap-1.5 py-4">
           <h3 className="text-3xl text-text font-pre-bold">{portfolio.project.title}</h3>
           <span className="flex flex-col items-start justify-start w-full h-fit">
             <p className="text-theme font-pre-bold">{portfolio.project.name}</p>
@@ -19,7 +19,7 @@ const ProjectInfoHeader = ({ portfolio }: { portfolio: Portfolio }) => {
         </figcaption>
       </section>
 
-      <section className="flex items-center justify-center w-fit h-fit gap-2">
+      <section className="hidden lg:flex items-center justify-center w-fit h-fit pe-10">
         <a
           href={portfolio.project.github}
           target="_blank"

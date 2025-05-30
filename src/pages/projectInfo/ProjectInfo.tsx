@@ -5,6 +5,7 @@ import ProjectInfoHeader from "@pages/projectInfo/component/ProjectInfoHeader";
 import ProjectDescription from "@pages/projectInfo/component/ProjectDesciprtion";
 import ProjectInfoRole from "@pages/projectInfo/component/ProjectInfoRole";
 import ProjectInfoTroubleShooting from "@pages/projectInfo/component/ProjectInfoTroubleShooting";
+import ProjectRetrospective from "@pages/projectInfo/component/ProjectRetrospective";
 
 const ProjectInfo = ({ portfolio }: { portfolio: Portfolio }) => {
   if (!portfolio) {
@@ -22,6 +23,7 @@ const ProjectInfo = ({ portfolio }: { portfolio: Portfolio }) => {
           <ProjectDescription portfolio={portfolio} />
           <ProjectInfoRole portfolio={portfolio} />
           <ProjectInfoTroubleShooting portfolio={portfolio} />
+          <ProjectRetrospective portfolio={portfolio} />
         </section>
       </section>
     </section>

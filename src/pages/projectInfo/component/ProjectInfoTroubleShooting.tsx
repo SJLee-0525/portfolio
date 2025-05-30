@@ -8,9 +8,9 @@ const ProjectInfoTroubleShooting = ({ portfolio }: { portfolio: Portfolio }) => 
       <table className="table-fixed w-full">
         <thead>
           <tr className="text-center">
-            <th className="text-xl text-error font-pre-bold bg-red-100 pt-4 rounded-t-lg">문제</th>
+            <th className="text-xl text-error font-pre-bold bg-red-100 pt-5 rounded-t-lg">문제</th>
             <th className="w-2"></th>
-            <th className="text-xl text-theme font-pre-bold bg-blue-100 pt-4 rounded-t-lg">해결</th>
+            <th className="text-xl text-theme font-pre-bold bg-blue-100 pt-5 rounded-t-lg">해결</th>
           </tr>
         </thead>
         <tbody>
@@ -18,10 +18,10 @@ const ProjectInfoTroubleShooting = ({ portfolio }: { portfolio: Portfolio }) => 
             const isLastRow = index === portfolio.troubleshooting.length - 1;
 
             return (
-              <tr key={index} className="font-pre-medium text-text">
-                <td className={`p-4 bg-red-100 ${isLastRow ? "rounded-b-lg" : ""}`}>{trouble.problem}</td>
+              <tr key={index} className="font-pre-semi-bold text-text">
+                <td className={`p-5 bg-red-100 ${isLastRow ? "rounded-b-lg" : ""}`}>{trouble.problem}</td>
                 <td className="w-2"></td>
-                <td className={`p-4 bg-blue-100 ${isLastRow ? "rounded-b-lg" : ""}`}>{trouble.solution}</td>
+                <td className={`p-5 bg-blue-100 ${isLastRow ? "rounded-b-lg" : ""}`}>{trouble.solution}</td>
               </tr>
             );
           })}
