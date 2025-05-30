@@ -3,7 +3,7 @@ import { IconProps } from "@/types/iconProps";
 const ArrowDownDoubleIcon = ({ width = 22, height = 22, strokeColor, onClick }: IconProps) => {
   return (
     <svg
-      enable-background="new 0 0 26 26"
+      enableBackground="new 0 0 26 26"
       width={width}
       height={height}
       id="Layer_1"

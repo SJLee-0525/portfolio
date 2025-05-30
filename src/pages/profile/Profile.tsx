@@ -40,7 +40,7 @@ const Profile = ({
 
       <div
         ref={carouselRef}
-        className="flex flex-col items-center justify-center w-full h-2/5 xl:w-2/5 xl:min-w-lg xl:h-full"
+        className="flex flex-col items-center justify-center w-full h-2/5 md:h-3/5 xl:w-2/5 xl:min-w-lg xl:h-full"
       >
         <ProfileImageCarousel />
       </div>

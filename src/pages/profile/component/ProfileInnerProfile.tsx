@@ -80,7 +80,7 @@ const ProfileInnerProfile = ({
       <header className="flex flex-col w-full h-full gap-2 px-4 text-start">
         <p
           ref={introRef}
-          className="text-content text-center font-pre-semi-bold text-xl lg:text-2xl xl:text-3xl xl:text-start"
+          className="text-content text-center font-pre-semi-bold text-lg md:text-xl lg:text-2xl xl:text-3xl xl:text-start"
         >
           {innerProfile.introduction
             ? [...innerProfile.introduction].map((char, idx) => (
@@ -92,7 +92,7 @@ const ProfileInnerProfile = ({
         </p>
         <h1
           ref={titleRef}
-          className="text-center font-pre-bold  text-2xl md:text-3xl lg:text-4xl xl:text-5xl xl:text-start"
+          className="text-center font-pre-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-start"
         >
           {innerProfile.title ? innerProfile.title : ""}
         </h1>
