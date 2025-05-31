@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,7 +7,8 @@ import { ProjectsType } from "@/types/stackTypes";
 
 import useModalStore from "@stores/modalStore";
 
-import ProjectInfo from "@pages/projectInfo/ProjectInfo";
+import LoadingProjectInfo from "@pages/projectInfo/LoadingProjectInfo";
+const ProjectInfo = lazy(() => import("@pages/projectInfo/ProjectInfo"));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,7 +61,13 @@ const ProjectsLists = ({ projects }: { projects: ProjectsType }) => {
               .map(([key, project], index) => (
                 <figure
                   key={key}
-                  onClick={() => openModal(<ProjectInfo portfolio={project} />)}
+                  onClick={() =>
+                    openModal(
+                      <Suspense fallback={<LoadingProjectInfo />}>
+                        <ProjectInfo portfolio={project} />
+                      </Suspense>
+                    )
+                  }
                   ref={(el) => {
                     projectItemRefs.current[index] = el;
                   }}
@@ -69,6 +76,12 @@ const ProjectsLists = ({ projects }: { projects: ProjectsType }) => {
                   <div className="flex items-center justify-center w-full aspect-[3/2] rounded-t-2xl overflow-hidden">
                     <img
                       src={project.project.thumbnail}
+                      srcSet={`
+                        ${project.project.thumbnailSmall} 400w,
+                        ${project.project.thumbnailMedium} 800w,
+                        ${project.project.thumbnailLarge} 1200w
+                      `}
+                      sizes="(max-width: 1280px) 400px, (max-width: 1920px) 800px, 1200px"
                       alt="Project"
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                     />

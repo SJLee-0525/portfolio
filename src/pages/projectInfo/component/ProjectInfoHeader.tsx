@@ -9,7 +9,16 @@ const ProjectInfoHeader = ({ portfolio }: { portfolio: Portfolio }) => {
       <section className="flex items-center justify-start w-fit h-fit gap-4">
         <figure className="flex items-center justify-center w-12 h-12 aspect-[1/1] bg-white overflow-hidden">
           {portfolio.project.logo ? (
-            <img src={portfolio.project.logo} alt="logo" />
+            <img
+              src={portfolio.project.logo}
+              srcSet={`
+                ${portfolio.project.logoSmall} 48w,
+                ${portfolio.project.logoMedium} 96w,
+                ${portfolio.project.logoLarge} 192w
+              `}
+              sizes="(max-width: 1280px) 48px, (max-width: 1920px) 96px, 192px"
+              alt="logo"
+            />
           ) : (
             <span className="w-full h-full flex items-center justify-center rounded-full bg-gray-200" />
           )}

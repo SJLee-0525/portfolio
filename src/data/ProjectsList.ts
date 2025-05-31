@@ -1,7 +1,13 @@
 import { ProjectsType } from "@/types/stackTypes";
 
 import aidapLogo from "@assets/portfolio/aidap/logo.png";
+import aidapLogoSmall from "@assets/portfolio/aidap/logo-small.png";
+import aidapLogoMedium from "@assets/portfolio/aidap/logo-medium.png";
+import aidapLogoLarge from "@assets/portfolio/aidap/logo-large.png";
 import aidapThumbnail from "@assets/portfolio/aidap/thumbnail.png";
+import aidapTumbnailSmall from "@assets/portfolio/aidap/thumbnail-small.png";
+import aidapTumbnailMedium from "@assets/portfolio/aidap/thumbnail-medium.png";
+import aidapTumbnailLarge from "@assets/portfolio/aidap/thumbnail-large.png";
 import aidapHomeImg from "@assets/portfolio/aidap/home.png";
 import aidapLoginImg from "@assets/portfolio/aidap/login.png";
 import aidapSignupImg from "@assets/portfolio/aidap/signup.png";
@@ -17,7 +23,13 @@ import aidapCommunityImg from "@assets/portfolio/aidap/community-search.png";
 import aidapCommunityDetailImg from "@assets/portfolio/aidap/community-like.png";
 
 import heroLogo from "@assets/portfolio/hero/logo.png";
+import heroLogoSmall from "@assets/portfolio/hero/logo-small.png";
+import heroLogoMedium from "@assets/portfolio/hero/logo-medium.png";
+import heroLogoLarge from "@assets/portfolio/hero/logo-large.png";
 import heroThumbnail from "@assets/portfolio/hero/thumbnail.png";
+import heroThumbnailSmall from "@assets/portfolio/hero/thumbnail-small.png";
+import heroThumbnailMedium from "@assets/portfolio/hero/thumbnail-medium.png";
+import heroThumbnailLarge from "@assets/portfolio/hero/thumbnail-large.png";
 import heroHomeImg from "@assets/portfolio/hero/home.png";
 import heroMobileHomeImg from "@assets/portfolio/hero/home-mb.png";
 import heroNormalNotiImg from "@assets/portfolio/hero/normal-noti.png";
@@ -32,11 +44,31 @@ import heroFamilyInfoImg from "@assets/portfolio/hero/family-info.png";
 import heroMemberInfoImg from "@assets/portfolio/hero/sub-info.png";
 
 import recipediaLogo from "@assets/portfolio/recipedia/logo.png";
+import recipediaLogoSmall from "@assets/portfolio/recipedia/logo-small.png";
+import recipediaLogoMedium from "@assets/portfolio/recipedia/logo-medium.png";
+import recipediaLogoLarge from "@assets/portfolio/recipedia/logo-large.png";
 import recipediaThumbnail from "@assets/portfolio/recipedia/thumbnail.png";
+import recipediaThumbnailSmall from "@assets/portfolio/recipedia/thumbnail-small.png";
+import recipediaThumbnailMedium from "@assets/portfolio/recipedia/thumbnail-medium.png";
+import recipediaThumbnailLarge from "@assets/portfolio/recipedia/thumbnail-large.png";
 
 import mailAtLogo from "@assets/portfolio/mailAt/logo.png";
+import mailAtLogoSmall from "@assets/portfolio/mailAt/logo-small.png";
+import mailAtLogoMedium from "@assets/portfolio/mailAt/logo-medium.png";
+import mailAtLogoLarge from "@assets/portfolio/mailAt/logo-large.png";
+import mailAtThumbnail from "@assets/portfolio/mailAt/thumbnail.png";
+import mailAtThumbnailSmall from "@assets/portfolio/mailAt/thumbnail-small.png";
+import mailAtThumbnailMedium from "@assets/portfolio/mailAt/thumbnail-medium.png";
+import mailAtThumbnailLarge from "@assets/portfolio/mailAt/thumbnail-large.png";
 
+import portfolioLogo from "@assets/portfolio/portfolio/logo.png";
+import portfolioLogoSmall from "@assets/portfolio/portfolio/logo-small.png";
+import portfolioLogoMedium from "@assets/portfolio/portfolio/logo-medium.png";
+import portfolioLogoLarge from "@assets/portfolio/portfolio/logo-large.png";
 import portfolioThumbnail from "@assets/portfolio/portfolio/thumbnail.png";
+import portfolioThumbnailSmall from "@assets/portfolio/portfolio/thumbnail-small.png";
+import portfolioThumbnailMedium from "@assets/portfolio/portfolio/thumbnail-medium.png";
+import portfolioThumbnailLarge from "@assets/portfolio/portfolio/thumbnail-large.png";
 
 export const PROJECTS: ProjectsType = {
   aidap: {
@@ -47,7 +79,13 @@ export const PROJECTS: ProjectsType = {
       background:
         "바쁜 일상 속에서 은행을 방문하거나 금융 상품을 직접 비교하기 어려운 현대인을 위해, 다양한 금융 상품을 한눈에 비교·분석하고 생성형 AI를 통해 맞춤형 추천까지 제공받을 수 있는 금융 로보 어드바이저 서비스를 기획하게 되었습니다.",
       logo: aidapLogo,
+      logoSmall: aidapLogoSmall,
+      logoMedium: aidapLogoMedium,
+      logoLarge: aidapLogoLarge,
       thumbnail: aidapThumbnail,
+      thumbnailSmall: aidapTumbnailSmall,
+      thumbnailMedium: aidapTumbnailMedium,
+      thumbnailLarge: aidapTumbnailLarge,
       "mini-duration": "2024. 11 ~ 2024. 11.",
       duration: "2024. 11. 18. ~ 2024. 11. 26.",
       team: [
@@ -139,7 +177,13 @@ export const PROJECTS: ProjectsType = {
       background:
         "고령화 사회에 접어들면서 혼자 거주하는 노인의 수가 지속적으로 증가하고 있습니다. \n 독거 노인들은 외부와의 접촉이 줄어들면서 정서적 고립과 건강 관리의 어려움을 겪고 있으며, 이는 심리적·신체적 문제로 이어질 수 있습니다. \n 이러한 문제를 해결하기 위해 AI와 IoT 기술을 결합한 실버케어 로봇 플랫폼 서비스를 기획하게 되었습니다.",
       logo: heroLogo,
+      logoSmall: heroLogoSmall,
+      logoMedium: heroLogoMedium,
+      logoLarge: heroLogoLarge,
       thumbnail: heroThumbnail,
+      thumbnailSmall: heroThumbnailSmall,
+      thumbnailMedium: heroThumbnailMedium,
+      thumbnailLarge: heroThumbnailLarge,
       "mini-duration": "2025. 01 ~ 2025. 02.",
       duration: "2025. 01. 06. ~ 2025. 02. 21.",
       team: [
@@ -263,7 +307,13 @@ export const PROJECTS: ProjectsType = {
       background:
         "삼성전자의 패밀리허브 냉장고는, 큰 디스플레이를 활용한 레시피 추천 기능을 제공하고 있습니다.\n하지만, 기존 레시피 추천 서비스는 DB에 저장된 레시피를 기반으로 추천하기 때문에, 레시피의 종류가 한정적이며 개인의 취향을 반영하지 못하는 문제가 많았습니다.\n이러한 문제를 해결하기 위해, 고내의 재료 정보와 사용자가 입력한 재료를 기반으로 생성형 AI가 레시피를 추천하는 서비스를 기획하게 되었습니다.",
       logo: recipediaLogo,
+      logoSmall: recipediaLogoSmall,
+      logoMedium: recipediaLogoMedium,
+      logoLarge: recipediaLogoLarge,
       thumbnail: recipediaThumbnail,
+      thumbnailSmall: recipediaThumbnailSmall,
+      thumbnailMedium: recipediaThumbnailMedium,
+      thumbnailLarge: recipediaThumbnailLarge,
       "mini-duration": "2025. 02 ~ 2025. 04.",
       duration: "2025. 02. 24. ~ 2025. 04. 11.",
       team: [
@@ -384,7 +434,13 @@ export const PROJECTS: ProjectsType = {
       background:
         "Outlook과 같은 이메일 서비스는 많은 기능을 제공하지만, 사용하기에 복잡하며 사내 정책에 따라 사용이 제한되는 경우가 많습니다.\n이러한 문제를 해결하기 위해, 로컬 LLM 모델을 탑재한 그래프 기반의 관계형 메일 관리 서비스를 기획하게 되었습니다.",
       logo: mailAtLogo,
-      thumbnail: mailAtLogo,
+      logoSmall: mailAtLogoSmall,
+      logoMedium: mailAtLogoMedium,
+      logoLarge: mailAtLogoLarge,
+      thumbnail: mailAtThumbnail,
+      thumbnailSmall: mailAtThumbnailSmall,
+      thumbnailMedium: mailAtThumbnailMedium,
+      thumbnailLarge: mailAtThumbnailLarge,
       "mini-duration": "2025. 04 ~ 2025. 05.",
       duration: "2025. 04. 14. ~ 2025. 05. 22.",
       team: [
@@ -518,8 +574,14 @@ export const PROJECTS: ProjectsType = {
       description: "개인 포트폴리오 웹사이트",
       background:
         "개발자로서의 성장과 경험을 정리하고, 저의 기술 스택과 프로젝트를 소개하기 위해 개인 포트폴리오 웹사이트를 제작하게 되었습니다.",
-      logo: "",
+      logo: portfolioLogo,
+      logoSmall: portfolioLogoSmall,
+      logoMedium: portfolioLogoMedium,
+      logoLarge: portfolioLogoLarge,
       thumbnail: portfolioThumbnail,
+      thumbnailSmall: portfolioThumbnailSmall,
+      thumbnailMedium: portfolioThumbnailMedium,
+      thumbnailLarge: portfolioThumbnailLarge,
       "mini-duration": "2025. 05 ~ 현재",
       duration: "2025. 05. 23. ~ 현재",
       team: [["Frontend", 1]],

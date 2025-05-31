@@ -14,7 +14,13 @@ export type Portfolio = {
     description: string;
     background: string;
     logo: string;
+    logoSmall: string;
+    logoMedium: string;
+    logoLarge: string;
     thumbnail: string;
+    thumbnailSmall: string;
+    thumbnailMedium: string;
+    thumbnailLarge: string;
     "mini-duration": string;
     duration: string;
     team: [string, number][];

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of private or sensitive directories (예시)
+# Disallow: /private/
+# Disallow: /tmp/
+
+Sitemap: https://sjlee12.netlify.app/

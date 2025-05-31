@@ -2,7 +2,7 @@ import "@/styles/animations.css";
 
 import { useState } from "react";
 
-import { PROFILE_IMAGES } from "@data/ProfileImages";
+import { PROFILE_IMAGES, EMOJIS } from "@data/ProfileImages";
 
 import { EmojiInstance } from "@/types/iconProps";
 
@@ -10,47 +10,6 @@ import { EmojiInstance } from "@/types/iconProps";
 
 // import ArrowLeftIcon from "@assets/icon/ArrowLeftIcon";
 // import ArrowRightIcon from "@assets/icon/ArrowRightIcon";
-
-const EMOJIS = [
-  "😆",
-  "👏",
-  "😎",
-  "🥰",
-  "😊",
-  "😚",
-  "🥳",
-  "👐",
-  "🥖",
-  "🥪",
-  "🥐",
-  "🍞",
-  "💖",
-  "⚾",
-  "🎊",
-  "🎉",
-  "✨",
-  "🔥",
-  "🎨",
-  "🎮",
-  "🌟",
-  "🎹",
-  "🎼",
-  "🎵",
-  "🎶",
-  "🎻",
-  "📷",
-  "📸",
-  "🎧",
-  "🐮",
-  "🐂",
-  "🇰🇷",
-  "🥤",
-  "🍫",
-  "🍩",
-  "🌙",
-  "📖",
-  "🖋️",
-];
 
 function getRandomEmoji() {
   return EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
