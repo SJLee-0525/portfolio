@@ -20,19 +20,19 @@ const MainNavigation = ({
       <div className="flex flex-col items-start w-full h-fit gap-4">
         <button
           onClick={onScrollToInterview} // Uses the new specific interviewRef
-          className={`inter-300 transition-all duration-300 ease-in-out ${activeSection === "interview" ? "text-5xl inter-350" : "text-3xl text-text/50 hover:text-4xl hover:text-text/80"}`}
+          className={`inter-300 transition-all duration-300 ease-in-out cursor-pointer ${activeSection === "interview" ? "text-5xl inter-350" : "text-3xl text-text/50 hover:text-4xl hover:text-text/80"}`}
         >
           ABOUT ME
         </button>
         <button
           onClick={onScrollToSkills}
-          className={`inter-300 transition-all duration-300 ease-in-out ${activeSection === "stacks" ? "text-5xl inter-350" : "text-3xl text-text/50 hover:text-4xl hover:text-text/80"}`}
+          className={`inter-300 transition-all duration-300 ease-in-out cursor-pointer ${activeSection === "stacks" ? "text-5xl inter-350" : "text-3xl text-text/50 hover:text-4xl hover:text-text/80"}`}
         >
           SKILLS
         </button>
         <button
           onClick={onScrollToMyWorks}
-          className={`inter-300 transition-all duration-300 ease-in-out ${activeSection === "projects" ? "text-5xl inter-350" : "text-3xl text-text/50 hover:text-4xl hover:text-text/80"}`}
+          className={`inter-300 transition-all duration-300 ease-in-out cursor-pointer ${activeSection === "projects" ? "text-5xl inter-350" : "text-3xl text-text/50 hover:text-4xl hover:text-text/80"}`}
         >
           MY WORKS
         </button>
@@ -40,7 +40,7 @@ const MainNavigation = ({
 
       <button
         onClick={onScrollToTop}
-        className="flex justify-center items-center gap-2.5 ps-0.5 py-0.5 pe-4 rounded-full text-black/80 hover:bg-black/15 transition-all duration-300 ease-in-out"
+        className="flex justify-center items-center gap-2.5 ps-0.5 py-0.5 pe-4 rounded-full cursor-pointer text-black/80 hover:bg-black/15 transition-all duration-300 ease-in-out"
         aria-label="Scroll to top"
       >
         <figure className="p-1.5 bg-content rounded-full">

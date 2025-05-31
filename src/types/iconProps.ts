@@ -7,3 +7,10 @@ export interface IconProps {
   className?: string;
   onClick?: () => void;
 }
+
+export interface EmojiInstance {
+  id: number;
+  x: number;
+  y: number;
+  symbol: string;
+}

@@ -96,6 +96,20 @@
   }
 }
 
+@keyframes float-emoji {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -150%) scale(1.5);
+    opacity: 0;
+  }
+}
+
 .slide-up {
   animation: slideUp 0.3s ease-in-out forwards;
 }
@@ -105,4 +119,9 @@
   will-change: transform;
   width: 100%;
   transform: translateX(-100%);
+}
+
+.animate-float-emoji {
+  animation: float-emoji 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
 }

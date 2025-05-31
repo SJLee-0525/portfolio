@@ -188,7 +188,7 @@ const ProfileInfo = ({ showScroll, setShowScroll, onScrollToInterview, onProfile
       {isBottom && (
         <div className="fixed bottom-6 flex justify-center w-full xl:w-3/5 h-fit p-2 z-50 pointer-events-none">
           <button
-            className="bg-white text-text rounded-full px-5 py-2 shadow-lg text-center text-sm inter-500 transition-all pointer-events-auto hover:bg-theme/80 hover:text-white"
+            className="bg-white text-text rounded-full px-5 py-2 shadow-lg text-center text-sm inter-500 transition-all pointer-events-auto cursor-pointer hover:bg-theme/80 hover:text-white"
             onClick={onScrollToInterview}
           >
             MORE

@@ -7,7 +7,7 @@ interface CarouselButtonProps {
 const CarouselButton = ({ isActive, onClick, icon }: CarouselButtonProps) => {
   return (
     <button
-      className={`bg-transparent rounded-full p-2 transition-all duration-300 ease-in-out hover:bg-black/30 ${isActive ? "opacity-100" : "opacity-0"}`}
+      className={`bg-transparent rounded-full p-2 transition-all duration-300 ease-in-out cursor-pointer hover:bg-black/30 ${isActive ? "opacity-100" : "opacity-0"}`}
       onClick={onClick}
     >
       {icon}
