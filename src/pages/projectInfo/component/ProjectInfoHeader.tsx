@@ -8,7 +8,11 @@ const ProjectInfoHeader = ({ portfolio }: { portfolio: Portfolio }) => {
     <header className="sticky top-0 bg-white flex flex-col lg:flex-row items-start lg:items-center justify-between w-full h-fit border-b border-gray-200 z-10">
       <section className="flex items-center justify-start w-fit h-fit gap-4">
         <figure className="flex items-center justify-center w-12 h-12 aspect-[1/1] bg-white overflow-hidden">
-          <img src={portfolio.project.logo} alt="logo" />
+          {portfolio.project.logo ? (
+            <img src={portfolio.project.logo} alt="logo" />
+          ) : (
+            <span className="w-full h-full flex items-center justify-center rounded-full bg-gray-200" />
+          )}
         </figure>
         <figcaption className="flex flex-col items-start justify-start w-fit h-fit gap-1.5 py-4">
           <h3 className="text-3xl text-text font-pre-bold">{portfolio.project.title}</h3>

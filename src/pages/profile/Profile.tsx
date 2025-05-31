@@ -4,15 +4,13 @@ import gsap from "gsap";
 import ProfileImageCarousel from "@pages/profile/component/ProfileImageCarousel";
 import ProfileInfo from "@pages/profile/component/ProfileInfo";
 
-const Profile = ({
-  infoReady,
-  setInfoReady,
-  onScrollToInterview,
-}: {
+interface ProfileProps {
   infoReady: boolean;
   setInfoReady: (info: boolean) => void;
   onScrollToInterview: () => void;
-}) => {
+}
+
+const Profile = ({ infoReady, setInfoReady, onScrollToInterview }: ProfileProps) => {
   const [showScroll, setShowScroll] = useState(false);
 
   const carouselRef = useRef<HTMLDivElement>(null);

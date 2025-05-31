@@ -9,7 +9,12 @@ import { StackItem } from "@/types/profileTypes";
 
 import StarIcon from "@assets/icon/StarIcon";
 
-const Stack = ({ stackType, stackItems }: { stackType: string; stackItems: StackItem[] }) => {
+interface StackProps {
+  stackType: string;
+  stackItems: StackItem[];
+}
+
+const Stack = ({ stackType, stackItems }: StackProps) => {
   const stackItemRefs = useRef<(HTMLElement | null)[]>([]);
   const stackAnimRefs = useRef<gsap.core.Tween[]>([]);
 

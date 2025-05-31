@@ -3,13 +3,12 @@ import gsap from "gsap";
 
 import { InnerProfile } from "@/types/profileTypes";
 
-const ProfileInnerProfile = ({
-  innerProfile,
-  onAnimationEnd,
-}: {
+interface ProfileInnerProfileProps {
   innerProfile: InnerProfile;
   onAnimationEnd?: () => void;
-}) => {
+}
+
+const ProfileInnerProfile = ({ innerProfile, onAnimationEnd }: ProfileInnerProfileProps) => {
   const introRef = useRef<HTMLParagraphElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const finished = useRef(false);

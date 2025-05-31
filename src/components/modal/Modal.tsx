@@ -19,6 +19,8 @@ const Modal = () => {
     if (isOpen && dialog.current) {
       dialog.current.showModal(); // 모달 열기
     } else if (!isOpen && dialog.current) {
+      dialog.current.close(); // 모달 닫기
+
       // 모달 닫힐 때 스크롤 위치 초기화
       if (contentRef.current) {
         contentRef.current.scrollTop = 0;
@@ -32,17 +34,6 @@ const Modal = () => {
       }
     };
   }, [isOpen, isClosing]);
-
-  useEffect(() => {
-    if (!isOpen && dialog.current) {
-      dialog.current.close(); // 모달 닫기
-
-      // 모달 닫힐 때 스크롤 위치 초기화
-      if (contentRef.current) {
-        contentRef.current.scrollTop = 0;
-      }
-    }
-  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {

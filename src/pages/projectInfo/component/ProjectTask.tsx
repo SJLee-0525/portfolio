@@ -3,7 +3,12 @@ import { useState } from "react";
 import ArrowDownIcon from "@assets/icon/ArrowDownIcon";
 import ArrowUpIcon from "@assets/icon/ArrowUpIcon";
 
-const ProjectTask = ({ task, innerTasks }: { task: string; innerTasks: string[] }) => {
+interface ProjectTaskProps {
+  task: string;
+  innerTasks?: string[];
+}
+
+const ProjectTask = ({ task, innerTasks }: ProjectTaskProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleToggle() {

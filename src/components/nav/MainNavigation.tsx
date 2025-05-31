@@ -1,18 +1,20 @@
 import ArrowUpIcon from "@assets/icon/ArrowUpIcon";
 
+interface MainNavigationProps {
+  activeSection: string | null;
+  onScrollToInterview: () => void;
+  onScrollToSkills: () => void;
+  onScrollToMyWorks: () => void;
+  onScrollToTop?: () => void;
+}
+
 const MainNavigation = ({
   activeSection,
   onScrollToInterview,
   onScrollToSkills,
   onScrollToMyWorks,
   onScrollToTop,
-}: {
-  activeSection: string | null;
-  onScrollToInterview: () => void;
-  onScrollToSkills: () => void;
-  onScrollToMyWorks: () => void;
-  onScrollToTop: () => void; // Optional prop for scrolling to top
-}) => {
+}: MainNavigationProps) => {
   return (
     <nav className="sticky top-24 left-0 flex flex-col items-start justify-between w-full min-h-[78vh] py-6 text-start">
       <div className="flex flex-col items-start w-full h-fit gap-4">

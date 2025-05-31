@@ -12,7 +12,9 @@ const ProfileEducation = ({ educations }: { educations: EducationItem[] }) => {
               educations.map((education, index) => (
                 <tr key={index} className="flex items-center justify-between w-full h-full">
                   <td className="text-text font-pre-semi-bold w-2/3 lg:w-2/5 text-start">{education.school}</td>
-                  <td className="text-content font-pre-semi-bold w-1/3 lg:w-1/5 text-center">{education.major}</td>
+                  <td className="text-content font-pre-semi-bold w-1/3 lg:w-1/5 text-end lg:text-center">
+                    {education.major}
+                  </td>
                   <td className="hidden lg:table-cell text-content font-pre-semi-bold w-2/5 text-end">
                     {education.period}
                   </td>
