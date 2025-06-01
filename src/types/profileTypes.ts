@@ -45,7 +45,7 @@ export interface Stacks {
 
 export interface Interviews {
   question: string;
-  answer: string;
+  answer: string[];
 }
 
 export interface ProfileInfoData {

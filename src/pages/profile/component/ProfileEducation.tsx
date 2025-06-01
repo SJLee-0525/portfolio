@@ -2,7 +2,7 @@ import { EducationItem } from "@/types/profileTypes";
 
 const ProfileEducation = ({ educations }: { educations: EducationItem[] }) => {
   return (
-    <section className="flex flex-col w-full h-fit p-4 gap-2">
+    <section className="flex flex-col w-full h-fit mt-8 xl:mt-0 p-4 gap-2">
       <h1 className="text-3xl lg:text-4xl text-start font-pre-bold">Education</h1>
 
       <div className="flex flex-col w-full h-full gap-4 mt-6">

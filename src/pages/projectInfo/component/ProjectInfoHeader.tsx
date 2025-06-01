@@ -32,7 +32,7 @@ const ProjectInfoHeader = ({ portfolio }: { portfolio: Portfolio }) => {
         </figcaption>
       </section>
 
-      <section className="hidden lg:flex items-center justify-center w-fit h-fit pe-10">
+      <section className="hidden lg:flex items-center justify-center w-fit h-fit pe-12 gap-2">
         <a
           href={portfolio.project.github}
           target="_blank"

@@ -164,7 +164,7 @@ const ProfileInfo = ({ showScroll, setShowScroll, onScrollToInterview, onProfile
           </div>
         </section>
 
-        <section className="flex flex-col items-center w-full h-fit pb-24 gap-16">
+        <section className="flex flex-col items-center justify-center w-full h-fit pb-24 gap-16">
           <div ref={educationRef} className="w-5/6 xl:w-3/4 h-fit">
             <ProfileEducation educations={PROFILE_INFO.educations} />
           </div>

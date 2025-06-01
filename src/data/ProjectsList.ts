@@ -26,10 +26,10 @@ import heroLogo from "@assets/portfolio/hero/logo.png";
 import heroLogoSmall from "@assets/portfolio/hero/logo-small.png";
 import heroLogoMedium from "@assets/portfolio/hero/logo-medium.png";
 import heroLogoLarge from "@assets/portfolio/hero/logo-large.png";
-import heroThumbnail from "@assets/portfolio/hero/thumbnail.png";
-import heroThumbnailSmall from "@assets/portfolio/hero/thumbnail-small.png";
-import heroThumbnailMedium from "@assets/portfolio/hero/thumbnail-medium.png";
-import heroThumbnailLarge from "@assets/portfolio/hero/thumbnail-large.png";
+import heroThumbnail from "@assets/portfolio/hero/thumbnail.jpg";
+import heroThumbnailSmall from "@assets/portfolio/hero/thumbnail-small.jpg";
+import heroThumbnailMedium from "@assets/portfolio/hero/thumbnail-medium.jpg";
+import heroThumbnailLarge from "@assets/portfolio/hero/thumbnail-large.jpg";
 import heroHomeImg from "@assets/portfolio/hero/home.png";
 import heroMobileHomeImg from "@assets/portfolio/hero/home-mb.png";
 import heroNormalNotiImg from "@assets/portfolio/hero/normal-noti.png";
@@ -51,6 +51,17 @@ import recipediaThumbnail from "@assets/portfolio/recipedia/thumbnail.png";
 import recipediaThumbnailSmall from "@assets/portfolio/recipedia/thumbnail-small.png";
 import recipediaThumbnailMedium from "@assets/portfolio/recipedia/thumbnail-medium.png";
 import recipediaThumbnailLarge from "@assets/portfolio/recipedia/thumbnail-large.png";
+import recipediaFavoriteImg from "@assets/portfolio/recipedia/favorite-list.png";
+import recipediaFilterImg from "@assets/portfolio/recipedia/filter.png";
+import recipediaMainImg from "@assets/portfolio/recipedia/main.png";
+import recipediaProfileHomeImg from "@assets/portfolio/recipedia/profile-home.png";
+import recipediaProfileListImg from "@assets/portfolio/recipedia/profile-list.png";
+import recipediaRecipeQrImg from "@assets/portfolio/recipedia/qr.png";
+import recipediaRecipeDetailImg from "@assets/portfolio/recipedia/recipe-detail.png";
+import recipediaRecipeHistoryImg from "@assets/portfolio/recipedia/recipe-history.png";
+import recipediaRecipeListImg from "@assets/portfolio/recipedia/recipe-list.png";
+import recipediaSelectImg from "@assets/portfolio/recipedia/select.png";
+import recipediaStoreImg from "@assets/portfolio/recipedia/store.png";
 
 import mailAtLogo from "@assets/portfolio/mailAt/logo.png";
 import mailAtLogoSmall from "@assets/portfolio/mailAt/logo-small.png";
@@ -65,10 +76,17 @@ import portfolioLogo from "@assets/portfolio/portfolio/logo.png";
 import portfolioLogoSmall from "@assets/portfolio/portfolio/logo-small.png";
 import portfolioLogoMedium from "@assets/portfolio/portfolio/logo-medium.png";
 import portfolioLogoLarge from "@assets/portfolio/portfolio/logo-large.png";
-import portfolioThumbnail from "@assets/portfolio/portfolio/thumbnail.png";
-import portfolioThumbnailSmall from "@assets/portfolio/portfolio/thumbnail-small.png";
-import portfolioThumbnailMedium from "@assets/portfolio/portfolio/thumbnail-medium.png";
-import portfolioThumbnailLarge from "@assets/portfolio/portfolio/thumbnail-large.png";
+import portfolioThumbnail from "@assets/portfolio/portfolio/thumbnail.jpg";
+import portfolioThumbnailSmall from "@assets/portfolio/portfolio/thumbnail-small.jpg";
+import portfolioThumbnailMedium from "@assets/portfolio/portfolio/thumbnail-medium.jpg";
+import portfolioThumbnailLarge from "@assets/portfolio/portfolio/thumbnail-large.jpg";
+import portfolioProfileImg from "@assets/portfolio/portfolio/profile.png";
+import portfolioInterviewImg from "@assets/portfolio/portfolio/interview.png";
+import portfolioSkillsImg from "@assets/portfolio/portfolio/skills.png";
+import portfolioProjectListImg from "@assets/portfolio/portfolio/project-list.png";
+import portfolioProjectImg from "@assets/portfolio/portfolio/project.png";
+import portfolioFooterImg from "@assets/portfolio/portfolio/footer.png";
+import portfolioBenchmarkImg from "@assets/portfolio/portfolio/benchmark.png";
 
 export const PROJECTS: ProjectsType = {
   aidap: {
@@ -144,6 +162,10 @@ export const PROJECTS: ProjectsType = {
           "게시글 검색, 필터링 및 정렬 기능 개발",
           "사용자 인터랙션 기능(좋아요, 댓글) 구현",
         ],
+        "발표 자료 제작 및 프로젝트 시연": [
+          "프로젝트 발표를 위한 프레젠테이션 제작",
+          "프로젝트 시연을 위한 데모 환경 구성 및 데모 영상 제작",
+        ],
       },
     },
     technologies: {
@@ -162,11 +184,11 @@ export const PROJECTS: ProjectsType = {
       },
     ],
     retrospective: [
-      "SSAFY에서 처음 코딩을 배우기 시작해 이번 최종 관통 프로젝트에서 그간 배운 내용을 바탕으로 구현하고 싶던 기능들을 직접 개발해볼 수 있었습니다.\n재미와 성취감을 느끼는 동시에, 부족한 점도 많이 깨달으며 의미 있는 성장을 경험했습니다.",
-      "이번 프로젝트를 통해 협업의 중요성을 깊이 체감했습니다.\n팀원들과의 원활한 소통과 역할 분담을 통해 효율적으로 작업을 진행할 수 있었고, 서로의 강점을 살려 프로젝트를 성공적으로 완성할 수 있었습니다.",
-      "짧은 기간 내에 많은 기능을 구현해야 했기 때문에 시간 관리와 우선순위 설정의 중요성을 배우게 되었습니다.\n초기 기획 단계에서 명확한 목표를 설정하고 이를 중심으로 개발을 진행한 경험은 앞으로의 프로젝트에 큰 자산이 될 것이라 생각합니다.",
-      "개발에 집중하느라 UI/UX 측면에서 아쉬운 점이 있었던 것이 가장 큰 반성이었습니다.\n다음 프로젝트에서는 기획 초기부터 UI/UX를 충분히 고려해 사용자 친화적인 결과물을 만들 수 있도록 개선할 계획입니다.",
-      "기술적으로 부족했던 부분들을 실전에서 마주하며 학습하고 성장할 수 있는 기회가 되었습니다.\n앞으로도 꾸준히 학습하며, 팀에 도움이 되는 개발자가 되기 위해 노력하겠습니다.",
+      "아이답은 제가 처음으로 진행한 프로젝트로, 금융 데이터를 기반으로 다양한 기능을 통합해 하나의 서비스로 완성해보는 소중한 경험이었습니다.\n특히 관심 있었던 추천 알고리즘이나 챗봇 UI 등을 직접 구현하며 많은 것을 배울 수 있었습니다.",
+      "짧은 기간 안에 많은 기능을 구현해야 했던 만큼, 역할 분담과 빠른 의사소통이 중요했습니다.\n기획부터 구현까지 협업을 긴밀하게 이어가며, 혼자서는 만들기 어려운 수준의 결과물을 함께 만들어낼 수 있었고, 이 과정을 통해 협업의 가치와 재미를 체감할 수 있었습니다.",
+      "금융감독원 API, 카카오 지도 API 등 외부 API를 다수 연동하며, 문서의 정확성과 API 설계의 중요성을 직접 체감할 수 있었습니다.\n프론트엔드 입장에서 API 응답 형식이 명확하지 않거나 예상과 다를 경우 디버깅에 시간이 많이 소요되었고, 그 과정에서 백엔드와의 소통과 명세 조율의 필요성을 깊이 느꼈습니다.",
+      "시간이 제한된 프로젝트였기에, 기획보다는 빠른 실행에 중점을 두었고, UI는 대부분 Bootstrap에 의존해 개발했습니다.\n결과적으로 기능 구현에는 성공했지만, 사용자 경험 측면에서는 아쉬움이 남았고, 향후 프로젝트에서는 UI/UX에 더 많은 시간을 투자하고 싶다는 목표가 생겼습니다.",
+      "짧은 일정 속에서 기획과 설계 단계를 길게 가져가기보다는, 빠르게 MVP를 구현하고 점진적으로 기능을 보완해 나가는 애자일한 접근 방식을 선택했습니다.\n결과적으로 핵심 기능을 빠르게 완성하고 피드백을 반영해 다듬을 수 있었으며, 이 방식이 이번 프로젝트에서 좋은 성과로 이어졌다고 느꼈습니다.",
     ],
   },
   hero: {
@@ -209,7 +231,7 @@ export const PROJECTS: ProjectsType = {
         "Prettier",
         "Fetch API",
       ],
-      award: "SSAFY 12기 공통 프로젝트 최우수상(1위) 수상",
+      award: "SSAFY 12기 공통 프로젝트 우수상(1위) 수상",
       github: "https://github.com/SJLee-0525/SSAFY_PJT_1",
       presentation: "https://youtu.be/XyJwLGpxMto",
       imgSrc: [
@@ -262,6 +284,10 @@ export const PROJECTS: ProjectsType = {
           "비동기 처리 최적화 및 에러 핸들링 시스템 구축",
           "API 응답 캐싱 및 성능 최적화",
         ],
+        "발표 자료 제작 및 영상 포트폴리오 제작": [
+          "프로젝트 발표를 위한 프레젠테이션 자료 제작",
+          "프로젝트 소개를 위한 영상 포트폴리오 제작",
+        ],
       },
     },
     technologies: {
@@ -291,12 +317,11 @@ export const PROJECTS: ProjectsType = {
       },
     ],
     retrospective: [
-      "이번 프로젝트를 통해 AIoT 기술을 활용한 실버케어 로봇 플랫폼의 가능성을 직접 경험할 수 있었습니다.\n특히, 사용자 경험을 고려한 UI/UX 설계와 모달 기반의 인터페이스 구현이 큰 도전이었지만, 팀원들과의 협업을 통해 성공적으로 완성할 수 있었습니다.",
-      "프로젝트 초기 기획 단계에서부터 명확한 목표 설정과 역할 분담이 중요하다는 것을 깨달았습니다.\n각자의 강점을 살려 효율적으로 작업을 진행할 수 있었고, 이는 프로젝트의 성공적인 결과로 이어졌습니다.",
-      "프론트엔드 개발에서 애니메이션과 인터랙션 구현이 중요한 요소임을 다시 한번 느꼈습니다.\nGSAP 라이브러리를 활용하여 사용자 경험을 향상시키는 데 큰 도움이 되었으며, 앞으로도 이러한 기술을 적극 활용할 계획입니다.",
-      "프로젝트 기간이 짧았던 만큼 시간 관리와 우선순위 설정의 중요성을 깊이 체감했습니다.\n초기 기획 단계에서 명확한 목표를 설정하고 이를 중심으로 개발을 진행한 경험은 앞으로의 프로젝트에 큰 자산이 될 것이라 생각합니다.",
-      "메시지나 집안 상태 모니터링과 같은 실시간 데이터 처리 기능을 구현하면서, 데이터 송수신을 Polling 방식으로 구현한 것이 아쉬웠습니다.\n다음 프로젝트에서는 WebSocket을 이용해 이러한 부분을 개선하여 더 나은 사용자 경험을 제공할 수 있도록 노력하겠습니다.",
-      "코드의 가독성과 유지보수성을 높이기 위해 컴포넌트 구조와 스타일링 방식을 개선할 필요성을 느꼈습니다.\n더 나은 코드 품질을 위해 설계 단계에서부터 컴포넌트 구조를 명확히 하여 재사용성을 높이고, 일관된 스타일링을 적용할 계획입니다.",
+      "AIoT라는 다소 생소한 분야였지만, 실제 하드웨어와 소프트웨어가 하나의 서비스로 연결되는 과정을 직접 구현하며 기술적 시야를 확장할 수 있었습니다.\n단순한 웹 개발을 넘어, 센서 데이터와 API 간의 흐름을 고려한 시스템 구성 경험은 큰 자산이 되었습니다.",
+      "IoT 디바이스와의 통신을 구현하며 Polling을 이용한 실시간 데이터 처리 방식의 한계를 체감했습니다.\n다음 기회에는 WebSocket을 적용하여 더 안정적이고 실시간성 높은 데이터 흐름을 구현해보고 싶습니다.",
+      "사용자 경험을 우선시하기 위해 모달 기반의 UI 구조를 설계하고, GSAP과 keyframes를 활용한 애니메이션으로 인터랙션을 보강했습니다.\n시각적인 완성도와 흐름을 고려한 설계를 통해 사용자 중심의 UI/UX 감각을 기를 수 있었습니다.",
+      "코드 유지보수성과 확장성을 높이기 위해 컴포넌트 구조를 보다 체계적으로 정리할 필요성을 느꼈습니다.\n반복을 줄이고 재사용 가능한 구조로 개선하는 방향으로 리팩터링의 필요성을 체감했고, 이후 프로젝트에 이를 적극 반영할 계획입니다.",
+      "기획과 설계에 시간을 길게 들이기보다는 빠르게 프로토타입을 만들고, 반복적으로 개선해 나가는 애자일한 개발 방식을 적용했습니다.\n특히 팀원간 소통을 자주 가져가며 피드백을 빠르게 반영했고, 그 덕분에 짧은 일정 속에서도 높은 완성도를 달성할 수 있었던 것 같습니다.",
     ],
   },
   recipedia: {
@@ -343,7 +368,19 @@ export const PROJECTS: ProjectsType = {
       award: "삼성전자 DA사업부 연계 프로젝트 우수상(2위) 수상",
       github: "https://github.com/SJLee-0525/SSAFY_PJT_2",
       presentation: "https://youtu.be/rGmyZMXYjTM",
-      imgSrc: [],
+      imgSrc: [
+        { src: recipediaMainImg, type: "img" },
+        { src: recipediaStoreImg, type: "img" },
+        { src: recipediaSelectImg, type: "img" },
+        { src: recipediaFilterImg, type: "img" },
+        { src: recipediaProfileListImg, type: "img" },
+        { src: recipediaProfileHomeImg, type: "img" },
+        { src: recipediaRecipeListImg, type: "img" },
+        { src: recipediaRecipeDetailImg, type: "img" },
+        { src: recipediaRecipeQrImg, type: "img" },
+        { src: recipediaRecipeHistoryImg, type: "img" },
+        { src: recipediaFavoriteImg, type: "img" },
+      ],
     },
     responsibilities: {
       role: "Frontend",
@@ -387,6 +424,7 @@ export const PROJECTS: ProjectsType = {
           "디바운스 훅을 사용하여 입력 시 API 호출 최적화",
           "재료 입고 및 개인 선호/비선호 재료 선택 시 해당 기능 제공",
         ],
+        "발표 자료 제작 및 시연": ["프로젝트 발표를 위한 프레젠테이션 자료 제작"],
       },
     },
     technologies: {
@@ -419,11 +457,12 @@ export const PROJECTS: ProjectsType = {
       },
     ],
     retrospective: [
-      "삼성전자와의 연계 프로젝트를 통해 실무 환경에서의 개발 경험을 쌓을 수 있었습니다.\n특히, 생성형 AI를 활용한 레시피 추천 서비스 개발은 매우 흥미롭고 도전적인 경험이었습니다.",
-      "실제 냉장고를 사용해보며 사용자가 직관적으로 이해하고 편리하게 사용할 수 있는 인터페이스를 구현하기 위해 많은 노력을 기울였습니다.\n사용자의 입장에서 생각하며 UI/UX를 설계하는 것이 얼마나 중요한지 다시 한 번 깨달을 수 있는 기회였습니다.",
-      "팀원들과의 협업을 통해 각자의 역할을 명확히 하고, 효율적인 작업 분담이 프로젝트 성공에 얼마나 중요한지 깨달았습니다.\n서로의 강점을 살려 최상의 결과물을 만들어낼 수 있었습니다.",
-      "React Query를 활용한 데이터 캐싱과 상태 관리와 Debounce 훅을 사용한 API 호출 최적화, MSW를 사용한 Mock API 서버 구축 등 프론트엔드 개발에서의 다양한 기술적 도전을 경험했습니다.\n이러한 기술들을 통해 프로젝트의 성능과 개발 능률을 크게 향상시킬 수 있었습니다.",
-      "개발 과정에서 발생한 다양한 문제들을 해결하면서, 문제 해결 능력과 디버깅 기술이 크게 향상되었습니다.\n앞으로도 이러한 경험을 바탕으로 더 나은 개발자가 되기 위해 노력하겠습니다.",
+      "삼성전자와의 연계 프로젝트를 통해 실무에 가까운 개발 환경을 경험할 수 있었습니다.\n특히 생성형 AI를 활용한 레시피 추천 기능은 흥미로운 도전이었고, 새로운 기술을 실제 서비스에 접목시키는 과정에서 많은 인사이트를 얻을 수 있었습니다.",
+      "실제 냉장고 디스플레이에서 사용자들이 편리하게 사용할 수 있는 UI를 설계하기 위해 많은 고민을 기울였습니다.\n사용자 입장에서 생각하며 인터페이스를 구현하는 경험을 통해 UI/UX의 중요성을 다시금 느낄 수 있었습니다.",
+      "역할 분담과 협업이 얼마나 중요한지 다시 한 번 체감했습니다.\n팀원들과의 긴밀한 소통과 각자의 강점을 살린 역할 수행을 통해 효율적으로 개발을 진행할 수 있었고, 그 결과 좋은 성과를 얻을 수 있었습니다.",
+      "Merge Request와 코드 리뷰를 적극적으로 도입하면서 제 코드의 문제점도 빠르게 발견할 수 있었고, 팀원들의 코드를 통해 더 나은 설계 방식이나 구현 방법을 배울 수 있었습니다.\n리뷰 과정에서의 소통은 단순한 피드백을 넘어 상호 성장의 기회가 되었고, 코드 품질 향상에 큰 도움이 되었습니다.",
+      "React Query를 활용한 데이터 캐싱과 상태 관리, 디바운스를 적용한 API 최적화, MSW를 이용한 Mock 서버 구성 등 프론트엔드 개발에 있어 실제로 적용 가능한 기술들을 폭넓게 다뤄볼 수 기회가 되었습니다.",
+      "개발 과정 중 마주한 다양한 문제들을 직접 해결하며 디버깅 능력과 문제 해결 역량이 한층 성장했다고 느꼈습니다.\n특히 상태 동기화나 캐싱 문제, 조건부 렌더링 등의 실전 이슈를 해결하는 과정이 큰 배움이 되었습니다.",
     ],
   },
   mailAt: {
@@ -561,10 +600,12 @@ export const PROJECTS: ProjectsType = {
       },
     ],
     retrospective: [
-      "이번 프로젝트를 통해 Electron을 활용한 데스크톱 애플리케이션 개발 경험을 쌓을 수 있었습니다.\n특히, 로컬 LLM 모델을 탑재한 메일 관리 서비스는 매우 흥미롭고 도전적인 경험이었습니다.",
-      "기존 메일 시스템에 불편함을 느끼는 사용자들을 위해, 직관적이고 사용하기 쉬운 UI/UX를 구현하는 데 중점을 두었습니다.\n그 과정에서 많은 고민과 시행착오가 있었지만, 사용자 관점에서 개발하는 능력을 키울 수 있었던 좋은 기회였습니다.",
-      "프론트엔드 개발에서 Electron과 React의 통합, IPC 통신, React Query를 활용한 상태 관리 등 다양한 기술적 도전을 경험했습니다.\n이러한 기술들을 통해 프로젝트의 성능과 개발 능률을 크게 향상시킬 수 있었습니다.",
-      "AI 기반의 메일 작성 지원 기능 구현은 매우 흥미로운 경험이었습니다.\n사용자의 편의를 고려한 기능 설계와 구현이 중요하다는 것을 다시 한 번 깨달았습니다.",
+      "이번 프로젝트를 통해 Electron 기반의 데스크톱 애플리케이션 개발 경험을 쌓을 수 있었고, 로컬 LLM 모델과의 연동이라는 새로운 기술적 도전을 경험할 수 있었습니다.\n웹 중심 개발에서 한 단계 나아가, 시스템 자원과 직접 맞닿는 데스크톱 환경에서의 개발 감각을 익히는 계기가 되었습니다.",
+      "기존 메일 시스템의 복잡함을 개선하고자 사용자 친화적인 UI/UX를 구현하는 데 많은 노력을 기울였습니다.\n그 과정에서 사용자 관점에서 사고하는 능력을 기를 수 있었고, 기능보다 사용성이 우선되어야 한다는 점을 다시금 실감했습니다.",
+      "GitHub Copilot, Gmail, Outlook 등 다양한 상용 서비스를 분석해 벤치마킹했습니다.\n좋은 점은 적극적으로 흡수하고, 프로젝트에 맞게 재구성해 나가는 과정을 통해 기능 기획과 UI 설계 능력을 한층 향상시킬 수 있었습니다.",
+      "기존 상용 시스템들을 조사하면서 기존 서비스가 왜 그런 구조와 인터페이스를 채택했는지 고민할 수 있었고, 사용자 흐름과 시스템 설계 간의 관계를 더 깊이 이해할 수 있는 계기가 되었습니다.",
+      "Electron과 React의 통합 구조, IPC를 활용한 메인–렌더러 간 통신, 그리고 React Query를 기반으로 한 상태 관리와 캐싱 처리 등 프론트엔드 개발자로서 다양한 기술적 도전과 학습할 수 있는 기회가 되었습니다.",
+      "전체적으로 기술적인 깊이와 사용자 중심 사고를 모두 요구한 프로젝트였고, 그만큼 시행착오도 많았지만 실질적인 성장으로 이어졌습니다.\n이 경험을 기반으로 앞으로도 더 완성도 높은 제품을 만들기 위한 개발자로 성장해가고 싶습니다.",
     ],
   },
   portfolio: {
@@ -602,7 +643,15 @@ export const PROJECTS: ProjectsType = {
       award: "",
       github: "https://github.com/SJLee-0525/portfolio",
       presentation: "",
-      imgSrc: [],
+      imgSrc: [
+        { src: portfolioProfileImg, type: "img" },
+        { src: portfolioInterviewImg, type: "img" },
+        { src: portfolioSkillsImg, type: "img" },
+        { src: portfolioProjectListImg, type: "img" },
+        { src: portfolioProjectImg, type: "img" },
+        { src: portfolioFooterImg, type: "img" },
+        { src: portfolioBenchmarkImg, type: "img" },
+      ],
     },
     responsibilities: {
       role: "Frontend",
@@ -660,321 +709,11 @@ export const PROJECTS: ProjectsType = {
       },
     ],
     retrospective: [
-      "개인 포트폴리오 웹사이트를 제작하면서, 개발자로서의 성장과 경험을 정리하는 좋은 기회가 되었습니다.\n자신의 기술 스택과 프로젝트를 체계적으로 정리하고, 이를 통해 다른 사람들에게 저를 소개할 수 있는 플랫폼을 만들 수 있었습니다.",
-      "Tailwind CSS를 활용한 반응형 웹 디자인 구현과 GSAP 라이브러리를 사용한 애니메이션 효과 구현을 통해 사용자 경험을 향상시키고자 노력했습니다.\n이 과정을 통해 웹 디자인과 애니메이션에 대한 이해도를 높일 수 있었습니다.",
-      "개인 프로젝트로서 자유롭게 디자인과 기능을 구현할 수 있었고, 이를 통해 창의력을 발휘할 수 있었습니다.\n스스로 기획하고 개발하는 과정에서 많은 것을 배우고 성장할 수 있었습니다.",
+      "개인 포트폴리오 웹사이트를 제작하면서, 그동안의 성장과 프로젝트 경험을 정리하는 동시에, 개발자 이성준을 소개할 수 있는 플랫폼을 직접 설계하고 구현할 수 있었습니다.\n단순히 보기 좋은 웹사이트를 만드는 데 그치지 않고, 제 기술 역량과 문제 해결 능력이 효과적으로 드러날 수 있도록 구조와 구성에 많은 고민을 담았습니다.",
+      "사용자에게 명확하게 전달되는 웹사이트를 만들고자, 페이지를 직관적으로 설계하고, GSAP 애니메이션을 활용해 주목도를 높이면서 흐름을 유도하는 데 집중했습니다.\n추가로 디자인과 상호작용이 내용 전달을 방해하지 않도록 가독성과 레이아웃 유지에도 신경을 썼습니다.",
+      "단순한 정적 소개가 아닌, 반응형 웹 구조와 모달 기반 UI, 자연스러운 전환 효과 등을 통해 실제로 제가 사용할 수 있는 웹 기술과 구현 역량을 보여주는 데 목적을 두었습니다.\n자유롭게 기획하고 실험할 수 있었기에 창의력도 마음껏 발휘할 수 있었고, 그 과정에서 UI/UX에 대한 감각도 많이 기를 수 있었습니다.",
+      "성능 향상과 사용자 접근성 또한 중요한 고려 요소였습니다. React의 lazy loading과 코드 분할을 적용하여 초기 렌더링 속도를 개선했고, 라이트하우스(Lighthouse) 점수를 50점대에서 90점대로 올리기 위해 접근성과 SEO 최적화, 메타 태그 구성 등도 세심하게 조정했습니다.",
+      "결과적으로 이 프로젝트는 단순한 개인 웹사이트를 넘어, 저의 기술적 깊이와 사용자 중심 개발 역량을 종합적으로 보여줄 수 있는 중요한 작업이 되었습니다. 앞으로도 지속적으로 개선하고 확장해나갈 계획입니다.",
     ],
   },
-  // aidap1: {
-  //   project: {
-  //     title: "아이답 (AIDAP)",
-  //     name: "SSAFY 12기 관통 프로젝트 (금융)",
-  //     description: "생성형 AI와 금융 데이터를 활용한 금융 상품 로보 어드바이저 서비스",
-  //     logo: aidapLogo,
-  //     "mini-duration": "2024. 11 ~ 2024. 11.",
-  //     duration: "2024. 11. 18. ~ 2024. 11. 26.",
-  //     team: [
-  //       ["Frontend", 1],
-  //       ["Backend", 1],
-  //     ],
-  //     collaboration_tools: ["GitLab", "Mattermost"],
-  //     usage_tools: ["JavaScript", "HTML5", "CSS", "Node.js", "Vue.js", "Vite", "Pinia", "Bootstrap", "Axios API"],
-  //     award: "SSAFY 12기 1학기 관통 프로젝트 최우수상(1위) 수상",
-  //     videoUrl: "https://www.youtube.com/embed/gtoMOWh9y9M?si=L93WYOyjigbxeyK3",
-  //     imgSrc: [
-  //       aidapHomeImg,
-  //       aidapLoginImg,
-  //       aidapSignupImg,
-  //       aidapProfileImg,
-  //       aidapNewsImg,
-  //       aidapDepositList,
-  //       aidapDepositCal,
-  //       aidapMortgageList,
-  //       aidapMortgageCal,
-  //       aidapProductDetailImg,
-  //       aidapAiChatImg,
-  //       aidapCommunityImg,
-  //       aidapCommunityDetailImg,
-  //     ],
-  //   },
-  //   responsibilities: {
-  //     role: "Frontend",
-  //     tasks: {
-  //       "AI 챗봇 기능 구현": ["AI 챗봇 기능 구현", "AI 챗봇 UI/UX 설계 및 구현", "AI 챗봇 API 연동 및 데이터 처리"],
-  //       "금융 상품 추천 기능 구현": [
-  //         "금융 상품 추천 기능 구현",
-  //         "금융 상품 추천 UI/UX 설계 및 구현",
-  //         "금융 상품 추천 API 연동 및 데이터 처리",
-  //         "금융 상품 추천 결과 페이지 구현",
-  //         "금융 상품에 따른 이자 계산기 기능 구현",
-  //       ],
-  //       "커뮤니티 기능 구현": [
-  //         "커뮤니티 UI/UX 설계 및 구현",
-  //         "커뮤니티 API 연동 및 데이터 처리",
-  //         "게시판 카테고리 구성 및 게시글 작성 기능 구현",
-  //         "게시글 검색 및 필터링 기능 구현",
-  //         "게시글 좋아요 및 댓글 기능 구현",
-  //       ],
-  //       "소셜 로그인 기능 구현": [
-  //         "카카오 계정을 이용한 회원 가입 및 로그인 기능 구현",
-  //         "소셜 로그인 UI/UX 설계 및 구현",
-  //       ],
-  //     },
-  //   },
-  //   technologies: {
-  //     "Program Language": ["JavaScript", "HTML5", "CSS"],
-  //     "Language Engine": ["Node.js"],
-  //     "Web SPA Library": ["Vue.js"],
-  //     "Bundling Tool": ["Vite"],
-  //     "State Management": ["Pinia"],
-  //     etc: ["Bootstrap"],
-  //   },
-  //   retrospective: {
-  //     positives: [],
-  //     negatives: [],
-  //   },
-  // },
-  // her1o: {
-  //   project: {
-  //     title: "영웅이",
-  //     name: "SSAFY 12기 공통 프로젝트 (AIoT)",
-  //     description: "AI 실버케어 로봇 플랫폼 서비스",
-  //     logo: heroLogo,
-  //     "mini-duration": "2025. 01 ~ 2025. 02.",
-  //     duration: "2025. 01. 06. ~ 2025. 02. 21.",
-  //     team: [
-  //       ["Frontend", 2],
-  //       ["Backend", 2],
-  //       ["Embedded", 2],
-  //     ],
-  //     collaboration_tools: ["GitLab", "JIRA", "Notion", "Mattermost"],
-  //     usage_tools: [
-  //       "JavaScript",
-  //       "HTML5",
-  //       "CSS",
-  //       "Node.js",
-  //       "React.js",
-  //       "Vite",
-  //       "React Context API",
-  //       "GSAP",
-  //       "Recharts.js",
-  //       "Date-fns",
-  //       "QRCode.react",
-  //       "React Router",
-  //       "ESLint",
-  //       "Prettier",
-  //       "Fetch API",
-  //     ],
-  //     award: "SSAFY 12기 공통 프로젝트 최우수상(1위) 수상",
-  //     videoUrl: "https://www.youtube.com/embed/LQlEIiO-5KE?si=yiSNqXRtNwi9Rvbj",
-  //     imgSrc: [
-  //       heroHomeImg,
-  //       heroMobileHomeImg,
-  //       heroNormalNotiImg,
-  //       heroNotiImg,
-  //       heroNotiPeriodImg,
-  //       heroCalendarImg,
-  //       heroMessageImg,
-  //       heroHealthImg,
-  //       heroEmotionalReportImg,
-  //       heroMentalReportImg,
-  //       heroFamilyInfoImg,
-  //       heroMemberInfoImg,
-  //     ],
-  //   },
-  //   responsibilities: {
-  //     role: "Frontend",
-  //     tasks: {
-  //       "보호자 페이지 개발": [
-  //         "보호자 페이지 메인 화면 제작",
-  //         "보호자 페이지 알림 기능 구현",
-  //         "보호자 페이지 캘린더 기능 구현",
-  //         "보호자 페이지 메시지 기능 구현",
-  //         "보호자 페이지 건강 정보 조회 기능 구현",
-  //         "보호자 페이지 감정 리포트 조회 기능 구현",
-  //         "보호자 페이지 정신 리포트 조회 기능 구현",
-  //         "보호자 페이지 가족 정보 조회 기능 구현",
-  //         "보호자 페이지 가족 정보 수정 기능 구현",
-  //         "QR 코드 생성 및 접근 경로에 따른 코드 분기 처리",
-  //       ],
-  //       "모달 기반의 UI/UX 설계": [
-  //         "재사용 가능한 모달 컴포넌트 설계 및 구현",
-  //         "페이지 이동을 최소화함으로써 앱과 유사한 사용자 경험 제공",
-  //       ],
-  //       "사용자 경험 향상을 위한 애니메이션 효과 구현": [
-  //         "CSS keyframes를 활용한 애니메이션 효과 구현",
-  //         "GSAP 라이브러리를 활용한 고급 애니메이션 효과 구현",
-  //       ],
-  //     },
-  //   },
-  //   technologies: {
-  //     "Program Language": ["JavaScript", "HTML5", "CSS"],
-  //     "Language Engine": ["Node.js"],
-  //     "Web SPA Library": ["React.js"],
-  //     "Bundling Tool": ["Vite"],
-  //     "State Management": ["React Context API"],
-  //     "Code Analysis Tool": ["ESLint", "Prettier"],
-  //     etc: ["Recharts", "date-fns", "GSAP"],
-  //   },
-  //   retrospective: {
-  //     positives: [],
-  //     negatives: [],
-  //   },
-  // },
-  // recip1edia: {
-  //   project: {
-  //     title: "레시피디아",
-  //     name: "삼성전자 DA사업부-SSAFY 연계 프로젝트",
-  //     description: "생성형 AI 기반 레시피 추천 서비스",
-  //     logo: recipediaLogo,
-  //     "mini-duration": "2025. 02 ~ 2025. 04.",
-  //     duration: "2025. 02. 24. ~ 2025. 04. 11.",
-  //     team: [
-  //       ["Frontend", 2],
-  //       ["Backend", 2],
-  //       ["AI", 2],
-  //     ],
-  //     collaboration_tools: ["GitLab", "JIRA", "Notion", "Mattermost"],
-  //     usage_tools: [
-  //       "TypeScript",
-  //       "HTML5",
-  //       "CSS",
-  //       "Node.js",
-  //       "React.js",
-  //       "Vite",
-  //       "Zustand",
-  //       "React Query",
-  //       "MSW",
-  //       "React Router",
-  //       "ESLint",
-  //       "Prettier",
-  //       "React Error Boundary",
-  //       "Tailwind CSS",
-  //       "MSW",
-  //       "Axios API",
-  //     ],
-  //     award: "삼성전자 DA사업부 연계 프로젝트 우수상(2위) 수상",
-  //     videoUrl: "https://www.youtube.com/embed/0g3r7vXk8nE?si=6x5q9JmQe0aWcGzR",
-  //     imgSrc: [],
-  //   },
-  //   responsibilities: {
-  //     role: "Frontend",
-  //     tasks: {
-  //       "재료 관리 페이지 제작": [
-  //         "고내 식재료 목록 페이지 제작,",
-  //         "식재료 상세 정보 모달 구현",
-  //         "식재료 입출고 기능 구현",
-  //         "식재료 검색 시 자동 완성 및 추천 기능 구현",
-  //         "React Query를 사용한 데이터 캐싱 및 적절한 API 호출",
-  //         "디바운스 훅을 사용해 자동 완성 및 추천 기능 시 API 호출 최적화",
-  //         "화면 드래그 시 실시간으로 페이지 렌더링함으로써 사용자 경험 향상",
-  //       ],
-  //       "사용자 설정 페이지 제작": [
-  //         "프로필 변경 페이지 제작",
-  //         "프로필 별 식단 설정 기능 구현",
-  //         "사용자 정보 추가 및 삭제 기능 구현",
-  //       ],
-  //       "MSW를 활용한 Mock API 서버 구축": [
-  //         "개발 환경에서 API 서버를 Mocking하여 프론트엔드 개발",
-  //         "MSW를 사용해 API 요청을 가로채고 Mock 데이터로 응답",
-  //         "API 요청 및 응답을 시뮬레이션하여 프론트엔드 개발과 API 서버 개발을 독립적으로 진행",
-  //       ],
-  //     },
-  //   },
-  //   technologies: {
-  //     "Program Language": ["TypeScript", "HTML5", "CSS"],
-  //     "Language Engine": ["Node.js"],
-  //     "Web SPA Library": ["React.js"],
-  //     "Bundling Tool": ["Vite"],
-  //     "State Management": ["Zustand"],
-  //     "Code Analysis Tool": ["ESLint", "Prettier"],
-  //     "API 통신": ["Axios", "React Query"],
-  //     "비동기 처리 및 오류 복구": ["React Query", "React Error Boundary"],
-  //     "환경 구성": [".env"],
-  //     "기타 도구": ["MSW(Mock Service Worker)"],
-  //   },
-  //   retrospective: {
-  //     positives: [],
-  //     negatives: [],
-  //   },
-  // },
-  // mailA1t: {
-  //   project: {
-  //     title: "메일앳 (Mail@)",
-  //     name: "SSAFY 12기 2학기 관통 프로젝트 (AIoT)",
-  //     description: "AI 기반의 이메일 관리 서비스",
-  //     logo: mailAtLogo,
-  //     "mini-duration": "2025. 04 ~ 2025. 05.",
-  //     duration: "2025. 04. 14. ~ 2025. 05. 22.",
-  //     team: [
-  //       ["Frontend", 1],
-  //       ["Backend", 2],
-  //       ["AI", 3],
-  //     ],
-  //     collaboration_tools: ["GitLab", "JIRA", "Notion", "Mattermost"],
-  //     usage_tools: [
-  //       "TypeScript",
-  //       "HTML5",
-  //       "CSS",
-  //       "Node.js",
-  //       "Electron",
-  //       "React.js",
-  //       "Vite",
-  //       "Zustand",
-  //       "React Query",
-  //       "Axios API",
-  //       "IPC",
-  //       "React Quill",
-  //       "MSW",
-  //       "React Router",
-  //       "ESLint",
-  //       "Prettier",
-  //       "React Force Graph",
-  //     ],
-  //     award: "",
-  //     videoUrl: "",
-  //     imgSrc: [],
-  //   },
-  //   responsibilities: {
-  //     role: "Frontend",
-  //     tasks: {
-  //       "메일 관리 페이지 제작": [
-  //         "메일 목록 페이지 제작",
-  //         "메일 상세 정보 페이지 제작",
-  //         "메일 검색 기능 구현",
-  //         "메일 분류 및 필터링 기능 구현",
-  //       ],
-  //       "메일 작성 페이지 제작": [
-  //         "메일 작성 페이지 제작",
-  //         "메일 수신자, 참조인 및 제목 입력 기능 구현",
-  //         "메일 본문 작성 기능 구현",
-  //         "본문 작성 시 AI 기반의 맞춤법 교정 및 추천 기능 구현",
-  //         "본문 작성 시 다양한 글꼴 및 스타일 적용 기능 구현",
-  //         "답장 및 전달 시 원본 메일 내용 자동 삽입 기능 구현",
-  //       ],
-  //       "그래프 기반의 관계 페이지 구현": [
-  //         "사용자와 메일 간의 관계를 시각화한 그래프 페이지 제작",
-  //         "로컬에서 실행되는 AI 모델을 활용한 메일 분류 및 그래프화",
-  //         "그래프 구성 요소 및 스타일링 구현",
-  //         "그래프 이동, 병합, 삭제 등의 상호작용 기능 구현",
-  //       ],
-  //     },
-  //   },
-  //   technologies: {
-  //     "Program Language": ["TypeScript", "HTML5", "CSS"],
-  //     "Language Engine": ["Node.js"],
-  //     "Web SPA Library": ["Electron", "React.js"],
-  //     "Bundling Tool": ["Vite"],
-  //     "State Management": ["Zustand"],
-  //     "Code Analysis Tool": ["ESLint", "Prettier"],
-  //     "API 통신": ["Axios", "IPC", "React Query"],
-  //     "비동기 처리 및 오류 복구": ["React Query"],
-  //     "환경 구성": [".env"],
-  //     "기타 도구": ["MSW(Mock Service Worker)", "React Force Graph", "React Quill"],
-  //   },
-  //   retrospective: {
-  //     positives: [],
-  //     negatives: [],
-  //   },
-  // },
 };

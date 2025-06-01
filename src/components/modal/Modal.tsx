@@ -68,7 +68,7 @@ const Modal = () => {
       className={`modal z-50 w-full lg:w-4xl h-full rounded-3xl ${isClosing ? "is-closing" : ""}`}
     >
       <button
-        className="absolute top-4 right-4 w-10 h-10 z-60 rounded-full cursor-pointer bg-black/65 transition-all duration-300 ease-in-out flex justify-center items-center hover:bg-red-500 focus:outline-none"
+        className="absolute top-6.5 right-6.5 w-11 h-11 z-60 rounded-full cursor-pointer bg-black/65 transition-all duration-300 ease-in-out flex justify-center items-center hover:bg-red-500 focus:outline-none"
         onClick={closeModal}
       >
         <CloseIcon />

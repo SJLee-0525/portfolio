@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 
 import ProtectScroll from "@components/scroll/ProtectScroll";
-
-import MainPage from "@pages/pages/MainPage";
+import LoadingSpinner from "@components/spinner/LoadingSpinner";
 
 import Modal from "@components/modal/Modal";
+
+const MainPage = lazy(() => import("@pages/pages/MainPage"));
 
 const App = () => {
   const [animationReady, setAnimationReady] = useState(false);
@@ -13,7 +14,9 @@ const App = () => {
     <>
       {!animationReady && <ProtectScroll />}
 
-      <MainPage animationReady={animationReady} setAnimationReady={setAnimationReady} />
+      <Suspense fallback={<LoadingSpinner />}>
+        <MainPage animationReady={animationReady} setAnimationReady={setAnimationReady} />
+      </Suspense>
 
       <Modal />
     </>

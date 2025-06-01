@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+import { LAST_UPDATE_DATE } from "@data/ProfileInfo";
+
 const KOREAN_THANK_YOU_TEXT = "봐주셔서 감사합니다";
 
 const Footer = ({ onScrollToTop }: { onScrollToTop: () => void }) => {
@@ -94,9 +96,9 @@ const Footer = ({ onScrollToTop }: { onScrollToTop: () => void }) => {
     >
       <section
         aria-label={KOREAN_THANK_YOU_TEXT}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col justify-center items-center w-full h-fit font-pre-bold text-3xl sm:text-4xl md:text-6xl text-black mb-8 md:mb-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col justify-center items-center w-full h-fit mb-8 md:mb-0"
       >
-        <article className="flex justify-center items-center">
+        <article className="flex justify-center items-center font-pre-bold text-3xl sm:text-4xl md:text-6xl text-black ">
           {KOREAN_THANK_YOU_TEXT.split("").map((char, index) => (
             <span key={index} className="korean-char" style={{ display: "inline-block", whiteSpace: "pre" }}>
               {char}
@@ -112,14 +114,16 @@ const Footer = ({ onScrollToTop }: { onScrollToTop: () => void }) => {
 
         <button
           ref={buttonRef}
-          className="rounded-full mt-2 px-3.5 py-1.5 bg-black/80 text-white text-sm font-pre-regular transtion-all duration-300 ease-in-out cursor-pointer hover:bg-black/100 hover:scale-110 opacity-0"
+          className="rounded-full mt-2 px-3.5 py-2 bg-black/80 text-white  font-pre-regular transtion-all duration-300 ease-in-out cursor-pointer hover:bg-black/100 hover:scale-110 opacity-0"
           onClick={onScrollToTop}
         >
           표지로 돌아가기
         </button>
       </section>
 
-      <footer className="w-full h-fit text-center z-10 mt-auto">
+      <footer className="w-5/6 h-fit text-center z-10 mt-auto">
+        <p className="text-sm inter-500 mb-2 text-text/50">Last updated on {LAST_UPDATE_DATE}</p>
+
         <p className="text-xs sm:text-sm font-pre-regular">Copyright 2025. Sungjoon Lee All Rights Reserved</p>
         <p className="text-xs sm:text-sm font-pre-regular">React, Tailwind CSS, GSAP을 기반으로 제작되었습니다</p>
       </footer>

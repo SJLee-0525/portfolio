@@ -57,11 +57,17 @@ const InterviewLists = () => {
             ref={(el) => {
               interviewItemRefs.current[index] = el;
             }}
-            className="group flex flex-col justify-start items-start w-full h-fit p-6 gap-4 transition-all duration-300"
+            className="group flex flex-col justify-start items-start w-full h-fit p-6 transition-all duration-300"
           >
-            <h3 className="text-2xl font-pre-bold">Q. {interview.question}</h3>
+            <h3 className="text-2xl font-pre-bold mb-1">Q. {interview.question}</h3>
             <p className="lg:ps-7 text-lg font-pre-light" style={{ whiteSpace: "pre-line", lineHeight: "1.68" }}>
-              {interview.answer}
+              {interview.answer.map((p, i) => {
+                return (
+                  <span key={i} className="block mt-1.5">
+                    {p}
+                  </span>
+                );
+              })}
             </p>
           </article>
         ))}
