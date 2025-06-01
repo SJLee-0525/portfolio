@@ -1,6 +1,6 @@
 import "@components/modal/Modal.css";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 import useModalStore from "@stores/modalStore";
@@ -8,32 +8,55 @@ import useModalStore from "@stores/modalStore";
 import CloseIcon from "@assets/icon/CloseIcon";
 
 const Modal = () => {
-  const { isOpen, isClosing, modalContent, closeModal } = useModalStore();
+  const { isOpen, isClosing, loadingContent, modalContent, closeModal } = useModalStore();
+
+  const [uiPhase, setUiPhase] = useState<"initial" | "loading" | "transitioning" | "content">("initial");
 
   const dialog = useRef<HTMLDialogElement>(null);
-  const contentRef = useRef<HTMLElement>(null); // section ref 추가
+  const contentRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (isClosing) return; // 모달이 닫히는 중이면 아무것도 하지 않음
+    if (isClosing) return;
 
     if (isOpen && dialog.current) {
-      dialog.current.showModal(); // 모달 열기
+      dialog.current.showModal();
     } else if (!isOpen && dialog.current) {
-      dialog.current.close(); // 모달 닫기
-
-      // 모달 닫힐 때 스크롤 위치 초기화
+      dialog.current.close();
       if (contentRef.current) {
         contentRef.current.scrollTop = 0;
       }
     }
 
     return () => {
-      // 모달 닫힐 때 스크롤 위치 초기화
       if (contentRef.current) {
         contentRef.current.scrollTop = 0;
       }
     };
   }, [isOpen, isClosing]);
+
+  useEffect(() => {
+    let phaseTimer1: NodeJS.Timeout;
+    let phaseTimer2: NodeJS.Timeout;
+
+    if (isOpen) {
+      setUiPhase("loading");
+
+      phaseTimer1 = setTimeout(() => {
+        setUiPhase("transitioning");
+      }, 500);
+
+      phaseTimer2 = setTimeout(() => {
+        setUiPhase("content");
+      }, 1200);
+    } else {
+      setUiPhase("initial");
+    }
+
+    return () => {
+      clearTimeout(phaseTimer1);
+      clearTimeout(phaseTimer2);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -76,9 +99,25 @@ const Modal = () => {
 
       <section
         ref={contentRef}
-        className="w-full h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden "
+        className="relative w-full h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden bg-white" // Added bg-white
       >
-        {modalContent}
+        {loadingContent && (uiPhase === "loading" || uiPhase === "transitioning") && (
+          <div
+            className={`absolute z-20 w-full h-full transition-opacity duration-700 ease-in-out
+                        ${uiPhase === "transitioning" ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+          >
+            {loadingContent}
+          </div>
+        )}
+
+        {modalContent && (
+          <div
+            className={`w-full h-full transition-opacity duration-700 ease-in-out
+                        ${uiPhase === "transitioning" || uiPhase === "content" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+          >
+            {modalContent}
+          </div>
+        )}
       </section>
     </dialog>,
     document.getElementById("modal") as HTMLElement

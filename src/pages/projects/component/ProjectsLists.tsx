@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,7 +8,7 @@ import { ProjectsType } from "@/types/stackTypes";
 import useModalStore from "@stores/modalStore";
 
 import LoadingProjectInfo from "@pages/projectInfo/LoadingProjectInfo";
-const ProjectInfo = lazy(() => import("@pages/projectInfo/ProjectInfo"));
+import ProjectInfo from "@pages/projectInfo/ProjectInfo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,11 +62,10 @@ const ProjectsLists = ({ projects }: { projects: ProjectsType }) => {
                 <figure
                   key={key}
                   onClick={() =>
-                    openModal(
-                      <Suspense fallback={<LoadingProjectInfo />}>
-                        <ProjectInfo portfolio={project} />
-                      </Suspense>
-                    )
+                    openModal({
+                      loadingContent: <LoadingProjectInfo />,
+                      modalContent: <ProjectInfo portfolio={project} />,
+                    })
                   }
                   ref={(el) => {
                     projectItemRefs.current[index] = el;

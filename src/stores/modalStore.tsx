@@ -6,21 +6,31 @@ interface ModalState {
   // isOpen: 모달이 열려있는지 여부, isClosing: 모달이 닫히는 중인지 여부, modalContent: 모달에 렌더링할 컴포넌트트, openModal: 모달 열기 함수, closeModal: 모달 닫기 함수
   isOpen: boolean;
   isClosing: boolean;
+  loadingContent: React.ReactNode | null;
   modalContent: React.ReactNode | null;
-  openModal: (content: React.ReactNode) => void;
+  openModal: ({
+    loadingContent,
+    modalContent,
+  }: {
+    loadingContent: React.ReactNode;
+    modalContent: React.ReactNode;
+  }) => void;
   closeModal: () => void;
 }
 
 const useModalStore = create<ModalState>((set) => ({
   isOpen: false,
   isClosing: false,
+  loadingContent: null,
   modalContent: null,
-  openModal: (content) => set({ isOpen: true, modalContent: content }),
+  openModal: ({ loadingContent, modalContent }) => {
+    set({ isOpen: true, isClosing: false, loadingContent, modalContent });
+  },
   closeModal: () => {
     set({ isClosing: true });
 
     setTimeout(() => {
-      set({ isClosing: false, isOpen: false, modalContent: null });
+      set({ isOpen: false, isClosing: false, loadingContent: null, modalContent: null });
     }, 300);
   },
 }));

@@ -8,7 +8,8 @@ const LoadingProjectInfo = () => {
           </div>
         </figure>
       </section>
-      <section className="relative flex flex-1 flex-col items-start justify-start w-full h-full px-8 pb-4"></section>
+
+      <section className="relative flex flex-1 flex-col items-start justify-start w-full h-full px-8 pb-4" />
     </section>
   );
 };
