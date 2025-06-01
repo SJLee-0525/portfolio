@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Portfolio } from "@/types/stackTypes";
 
+import ImageLoadingSpinner from "@components/spinner/ImageLoadingSpinner";
 import CarouselButton from "@components/button/CarouselButton";
 
 import ArrowLeftIcon from "@assets/icon/ArrowLeftIcon";
@@ -82,11 +83,8 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
               )}
               {item.type === "img" && item.src && (
                 <>
-                  {imageLoadingStatus[item.src] && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-10">
-                      <p className="text-white font-pre-bold">Loading...🥰🥰🥰🥰🥰🥰🥰</p>
-                    </div>
-                  )}
+                  {imageLoadingStatus[item.src] && <ImageLoadingSpinner />}
+
                   <img
                     src={item.src}
                     alt={`프로젝트 이미지 ${index + 1}`}

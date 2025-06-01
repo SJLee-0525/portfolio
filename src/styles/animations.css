@@ -131,6 +131,16 @@
   }
 }
 
+@keyframes pianoBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15%);
+  }
+}
+
 .slide-up {
   animation: slideUp 0.3s ease-in-out forwards;
 }
@@ -153,4 +163,8 @@
 .animate-float-emoji {
   animation: float-emoji 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   pointer-events: none;
+}
+
+.animate-piano {
+  animation: pianoBounce 1s ease-in-out infinite;
 }
