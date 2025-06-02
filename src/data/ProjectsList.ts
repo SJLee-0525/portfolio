@@ -71,6 +71,23 @@ import mailAtThumbnail from "@assets/portfolio/mailAt/thumbnail.webp";
 import mailAtThumbnailSmall from "@assets/portfolio/mailAt/thumbnail-small.webp";
 import mailAtThumbnailMedium from "@assets/portfolio/mailAt/thumbnail-medium.webp";
 import mailAtThumbnailLarge from "@assets/portfolio/mailAt/thumbnail-large.webp";
+import mailAtAddEmailImg from "@assets/portfolio/mailAt/add-email.webp";
+import mailAtAttachmentImg from "@assets/portfolio/mailAt/attachment.webp";
+import mailAtAutoFillImg from "@assets/portfolio/mailAt/auto-fill.webp";
+import mailAtCalendarImg from "@assets/portfolio/mailAt/calendar.webp";
+import mailAtCreateFormImg from "@assets/portfolio/mailAt/create-form.webp";
+import mailAtDarkThemeImg from "@assets/portfolio/mailAt/dark-theme.webp";
+import mailAtDetailAttachmentImg from "@assets/portfolio/mailAt/detail-attachment.webp";
+import mailAtDetailGraphImg from "@assets/portfolio/mailAt/detail-graph.webp";
+import mailAtGrammarCheckImg from "@assets/portfolio/mailAt/grammar-check.webp";
+import mailAtInboxImg from "@assets/portfolio/mailAt/inbox.webp";
+import mailAtMailDetailImg from "@assets/portfolio/mailAt/mail-detail.webp";
+import mailAtMainImg from "@assets/portfolio/mailAt/main.webp";
+import mailAtReplyImg from "@assets/portfolio/mailAt/reply.webp";
+import mailAtSearchImg from "@assets/portfolio/mailAt/search.webp";
+import mailAtSettingsImg from "@assets/portfolio/mailAt/settings.webp";
+import mailAtSyncImg from "@assets/portfolio/mailAt/sync.webp";
+import mailAtThreadChatImg from "@assets/portfolio/mailAt/thread-chat.webp";
 
 import portfolioLogo from "@assets/portfolio/portfolio/logo.webp";
 import portfolioLogoSmall from "@assets/portfolio/portfolio/logo-small.webp";
@@ -508,8 +525,26 @@ export const PROJECTS: ProjectsType = {
       ],
       award: "",
       github: "",
-      presentation: "",
-      imgSrc: [],
+      presentation: "https://youtu.be/BaK8iC_nm2w",
+      imgSrc: [
+        { src: mailAtMainImg, type: "img" },
+        { src: mailAtDetailGraphImg, type: "img" },
+        { src: mailAtSearchImg, type: "img" },
+        { src: mailAtInboxImg, type: "img" },
+        { src: mailAtMailDetailImg, type: "img" },
+        { src: mailAtThreadChatImg, type: "img" },
+        { src: mailAtReplyImg, type: "img" },
+        { src: mailAtAutoFillImg, type: "img" },
+        { src: mailAtCreateFormImg, type: "img" },
+        { src: mailAtGrammarCheckImg, type: "img" },
+        { src: mailAtAttachmentImg, type: "img" },
+        { src: mailAtDetailAttachmentImg, type: "img" },
+        { src: mailAtCalendarImg, type: "img" },
+        { src: mailAtDarkThemeImg, type: "img" },
+        { src: mailAtSettingsImg, type: "img" },
+        { src: mailAtAddEmailImg, type: "img" },
+        { src: mailAtSyncImg, type: "img" },
+      ],
     },
     responsibilities: {
       role: "Frontend",
