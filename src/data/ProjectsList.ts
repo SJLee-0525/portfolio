@@ -108,7 +108,7 @@ export const PROJECTS: ProjectsType = {
   aidap: {
     project: {
       title: "아이답 (AIDAP)",
-      name: "SSAFY 12기 관통 프로젝트 (금융)",
+      name: "SSAFY 관통 프로젝트 (금융)",
       description: "AI를 활용한 금융 상품 로보 어드바이저 서비스",
       background:
         "바쁜 일상 속에서 은행을 방문하거나 금융 상품을 직접 비교하기 어려운 현대인을 위해, 다양한 금융 상품을 한눈에 비교·분석하고 생성형 AI를 통해 맞춤형 추천까지 제공받을 수 있는 금융 로보 어드바이저 서비스를 기획하게 되었습니다.",
@@ -120,14 +120,39 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: aidapTumbnailSmall,
       thumbnailMedium: aidapTumbnailMedium,
       thumbnailLarge: aidapTumbnailLarge,
-      "mini-duration": "2024. 11 ~ 2024. 11.",
-      duration: "2024. 11. 18. ~ 2024. 11. 26.",
+      "mini-duration": "2024. 11 - 2024. 11.",
+      duration: "2024. 11. 18. - 2024. 11. 26.",
       team: [
         ["Frontend", 1],
         ["Backend", 1],
       ],
       collaboration_tools: ["GitLab", "Mattermost"],
-      usage_tools: ["JavaScript", "HTML5", "CSS", "Node.js", "Vue.js", "Vite", "Pinia", "Bootstrap", "Axios API"],
+      main_feature: {
+        "금융 상품 추천 및 비교": [
+          "금융감독원 API를 통해 예적금 및 대출 상품 데이터 수집",
+          "사용자 맞춤형 금융 상품 추천 알고리즘 구현",
+          "상품 상세 정보 조회 및 비교 기능 제공",
+        ],
+        "AI 챗봇 상담 서비스": [
+          "생성형 AI를 활용한 금융 상품 상담 및 추천",
+          "자연어 처리 기반 대화형 인터페이스 제공",
+          "사용자 질문에 대한 실시간 응답 시스템 구축",
+        ],
+        "위치 기반 서비스": [
+          "카카오 지도 API를 활용한 사용자 위치 정보 처리",
+          "선택한 금융 상품 기반 주변 지점 자동 검색 기능",
+        ],
+        "커뮤니티 플랫폼": [
+          "사용자 간 금융 상품 정보 공유 및 토론을 위한 커뮤니티 게시판",
+          "게시글 작성, 댓글, 좋아요 기능 제공",
+          "카테고리별 게시글 검색 및 필터링 기능",
+        ],
+        "금융 상품 계산기": [
+          "예적금 및 대출 상품 이자 계산기 기능",
+          "사용자가 입력한 금액과 기간에 따른 이자 계산 로직 구현",
+          "계산 결과를 기반으로 금융 상품 추천",
+        ],
+      },
       award: "SSAFY 12기 1학기 관통 프로젝트 최우수상(1위) 수상",
       github: "https://github.com/SJLee-0525/learning/tree/master/pjt/pjt-10/10-pjt",
       presentation: "https://drive.google.com/file/d/12qKaQ9ADbctfpzCX13H0FyvF4I6pOuox/view?usp=drive_link",
@@ -185,12 +210,48 @@ export const PROJECTS: ProjectsType = {
       },
     },
     technologies: {
-      "Program Language": ["JavaScript", "HTML5", "CSS"],
-      "Language Engine": ["Node.js"],
-      "Web SPA Library": ["Vue.js"],
-      "Bundling Tool": ["Vite"],
-      "State Management": ["Pinia"],
-      etc: ["Bootstrap"],
+      "Program Language": [
+        {
+          JavaScript:
+            "프론트엔드 개발에 사용된 주요 프로그래밍 언어로, Vue.js와 함께 동적인 UI를 구현하는 데 사용했습니다.",
+        },
+        { HTML5: "웹 페이지의 구조를 정의하기 위해 사용했습니다." },
+        { CSS: "웹 페이지의 스타일링을 위해 사용했습니다." },
+      ],
+      "Language Engine": [
+        {
+          "Node.js": "",
+        },
+      ],
+      "Web SPA Library": [
+        {
+          "Vue.js":
+            "컴포넌트 기반 아키텍처를 통해 재사용성과 유지보수성을 높이고, 동적인 UI를 효율적으로 개발하기 위해 사용했습니다.",
+        },
+      ],
+      "Bundling Tool": [
+        {
+          Vite: "빠른 개발 환경 구축과 빌드를 위해 사용했습니다.",
+        },
+      ],
+      "State Management": [
+        {
+          Pinia:
+            "Vue.js의 상태 관리를 위한 라이브러리로, 가볍고 구조적인 방식으로 상태를 전역으로 공유, 전달하기 위해 사용했습니다.",
+        },
+      ],
+      "API 통신": [
+        {
+          Axios:
+            "백엔드 API와의 통신을 위한 HTTP 클라이언트 라이브러리로, 비동기 데이터 요청 및 응답 처리를 위해 사용했습니다.",
+        },
+      ],
+      etc: [
+        {
+          BootStrap:
+            "반응형 웹 디자인을 위한 CSS 프레임워크로, 빠른 프로토타입 제작과 일관된 UI 스타일링을 위해 사용했습니다.",
+        },
+      ],
     },
     troubleshooting: [
       {
@@ -210,7 +271,7 @@ export const PROJECTS: ProjectsType = {
   hero: {
     project: {
       title: "영웅이",
-      name: "SSAFY 12기 공통 프로젝트 (AIoT)",
+      name: "SSAFY 공통 프로젝트 (AIoT)",
       description: "AI 실버케어 로봇 플랫폼 서비스",
       background:
         "고령화 사회에 접어들면서 혼자 거주하는 노인의 수가 지속적으로 증가하고 있습니다. \n 독거 노인들은 외부와의 접촉이 줄어들면서 정서적 고립과 건강 관리의 어려움을 겪고 있으며, 이는 심리적·신체적 문제로 이어질 수 있습니다. \n 이러한 문제를 해결하기 위해 AI와 IoT 기술을 결합한 실버케어 로봇 플랫폼 서비스를 기획하게 되었습니다.",
@@ -222,31 +283,30 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: heroThumbnailSmall,
       thumbnailMedium: heroThumbnailMedium,
       thumbnailLarge: heroThumbnailLarge,
-      "mini-duration": "2025. 01 ~ 2025. 02.",
-      duration: "2025. 01. 06. ~ 2025. 02. 21.",
+      "mini-duration": "2025. 01 - 2025. 02.",
+      duration: "2025. 01. 06. - 2025. 02. 21.",
       team: [
         ["Frontend", 2],
         ["Backend", 2],
         ["Embedded", 2],
       ],
       collaboration_tools: ["GitLab", "JIRA", "Notion", "Mattermost"],
-      usage_tools: [
-        "JavaScript",
-        "HTML5",
-        "CSS",
-        "Node.js",
-        "React.js",
-        "Vite",
-        "React Context API",
-        "GSAP",
-        "Recharts.js",
-        "Date-fns",
-        "QRCode.react",
-        "React Router",
-        "ESLint",
-        "Prettier",
-        "Fetch API",
-      ],
+      main_feature: {
+        낙상감지: ["실시간 낙상 감지 및 보호자 알림 전송", "오검출 방지를 위한 2차 확인 절차 적용"],
+        "환경 모니터링": [
+          "가정 내 습도, 온도, 미세먼지, 일산화탄소 등 환경 정보 실시간 수집 및 기록",
+          "화재 등 이상 상황 감지 시 즉시 보호자에게 알림",
+        ],
+        "건강 보고서": [
+          "노인 대화 데이터를 바탕으로 감정 변화 측정 및 정신 건강 리포트 생성",
+          "리포트를 PDF로 출력하여 진료·상담에 활용 가능",
+        ],
+        "자율 주행": ["Hybrid A* 알고리즘 기반 실내 자율주행", "장애물 회피 및 노인 추적 모니터링 기능 탑재"],
+        "IoT 디바이스 연동": [
+          "Matter 연동을 통한 스마트홈 기기(SmartThings 등)와의 호환성",
+          "추후 다양한 IoT 디바이스 및 기능으로의 확장 용이성",
+        ],
+      },
       award: "SSAFY 12기 공통 프로젝트 우수상(1위) 수상",
       github: "https://github.com/SJLee-0525/SSAFY_PJT_1",
       presentation: "https://youtu.be/XyJwLGpxMto",
@@ -307,29 +367,71 @@ export const PROJECTS: ProjectsType = {
       },
     },
     technologies: {
-      "Program Language": ["JavaScript", "HTML5", "CSS"],
-      "Language Engine": ["Node.js"],
-      "Web SPA Library": ["React.js"],
-      "Bundling Tool": ["Vite"],
-      "State Management": ["React Context API"],
-      "Code Analysis Tool": ["ESLint", "Prettier"],
-      etc: ["Recharts", "date-fns", "GSAP"],
+      "Program Language": [
+        {
+          JavaScript:
+            "프론트엔드 개발에 사용된 주요 프로그래밍 언어로, React.js와 함께 동적인 UI를 구현하는 데 사용했습니다.",
+        },
+        { HTML5: "웹 페이지의 구조를 정의하기 위해 사용했습니다." },
+        { CSS: "웹 페이지의 스타일링을 위해 사용했습니다." },
+      ],
+      "Language Engine": [{ "Node.js": "" }],
+      "Web SPA Library": [
+        {
+          "React.js":
+            "컴포넌트 기반 아키텍처를 통해 재사용성과 유지보수성을 높이고, 동적인 UI를 효율적으로 개발하기 위해 사용했습니다.",
+        },
+      ],
+      "Bundling Tool": [
+        {
+          Vite: "빠른 개발 환경 구축과 빌드를 위해 사용했습니다.",
+        },
+      ],
+      "State Management": [
+        {
+          "React Context API": "가볍고 구조적인 방식으로 상태를 전역으로 공유, 전달하기 위해 사용했습니다.",
+        },
+      ],
+      "Code Analysis Tool": [
+        {
+          "ESLint + Prettier": "코드의 일관성과 가독성을 유지하고, 사소한 문법 오류를 방지하기 위해 적용했습니다.",
+        },
+      ],
+      "API 통신": [
+        {
+          "Fetch API": "비동기 데이터 요청 및 응답 처리를 위해 사용했습니다.",
+        },
+      ],
+      etc: [
+        {
+          Recharts: "데이터를 시각적으로 표현하기 위해 반응형 그래프 라이브러리인 Recharts를 사용했습니다.",
+        },
+        {
+          "date-fns": "날짜 및 시간 관련 기능을 제공하는 라이브러리로, 캘린더 훅 구현에 활용했습니다.",
+        },
+        {
+          GSAP: "고급 애니메이션 효과를 구현하기 위해 사용했습니다.",
+        },
+      ],
     },
     troubleshooting: [
       {
         problem: "fixed 속성의 사이드 네비게이션 바에서 z-index 미적용으로 인한 레이어 겹침 문제",
         solution:
-          "createPortal을 활용하여 네비게이션을 별도 DOM 트리로 분리하고, z-index 계층 구조를 재설계하여 알림 애니메이션과의 충돌 해결",
+          "fixed 속성으로 구현한 사이드 네비게이션 바에서 z-index가 정상적으로 적용되지 않아, 알림 애니메이션과 레이어가 겹치는 문제가 발생했습니다. \n" +
+          "이를 해결하기 위해 createPortal을 사용해 네비게이션을 별도의 DOM 트리로 분리하고, z-index 계층 구조를 재설계하여 충돌을 방지했습니다.",
       },
       {
         problem: "복잡한 상태 관리와 컴포넌트 간 의존성 증가로 인한 관리 복잡도 문제",
         solution:
-          "React Context API를 활용한 전용 API store를 구현하여 데이터 fetching 로직을 중앙화하여 상태 관리 단순화",
+          "상태가 점점 복잡해지고 컴포넌트 간 의존성이 많아지면서 유지보수가 어려워졌습니다. \n" +
+          "이에 React Context API를 기반으로 한 전용 API store를 구현하고, 데이터 fetching 로직을 중앙화해 상태 관리를 단순화했습니다.",
       },
       {
         problem: "QR 코드 기반 가족 정보 연동 시 비로그인 사용자의 접근 권한 문제",
         solution:
-          "QR 코드 접속 여부를 감지하는 라우터 가드를 구현하여, 미인증 사용자의 경우 자동으로 로그인 페이지로 리다이렉트 처리",
+          "QR 코드를 통한 가족 정보 연동 기능에서 로그인하지 않은 사용자가 접근할 경우, 인증 없이 민감한 정보에 접근할 수 있는 문제가 있었습니다. \n" +
+          "이를 방지하기 위해 QR 접속 여부를 감지하는 라우터 가드를 구현하고, 미인증 사용자는 자동으로 로그인 페이지로 리다이렉트되도록 처리했습니다.",
       },
     ],
     retrospective: [
@@ -355,32 +457,34 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: recipediaThumbnailSmall,
       thumbnailMedium: recipediaThumbnailMedium,
       thumbnailLarge: recipediaThumbnailLarge,
-      "mini-duration": "2025. 02 ~ 2025. 04.",
-      duration: "2025. 02. 24. ~ 2025. 04. 11.",
+      "mini-duration": "2025. 02 - 2025. 04.",
+      duration: "2025. 02. 24. - 2025. 04. 11.",
       team: [
         ["Frontend", 2],
         ["Backend", 2],
         ["AI", 2],
       ],
       collaboration_tools: ["GitLab", "JIRA", "Notion", "Mattermost"],
-      usage_tools: [
-        "TypeScript",
-        "HTML5",
-        "CSS",
-        "Node.js",
-        "React.js",
-        "Vite",
-        "Zustand",
-        "React Query",
-        "MSW",
-        "React Router",
-        "ESLint",
-        "Prettier",
-        "React Error Boundary",
-        "Tailwind CSS",
-        "MSW",
-        "Axios API",
-      ],
+      main_feature: {
+        "재료 입출고 및 냉장고 내 식재료 확인": [
+          "보유 식재료 리스트를 UI 상에서 직관적으로 확인 가능",
+          "유통기한 임박 식재료는 색상 또는 알림으로 시각적 구분",
+        ],
+        "생성형 AI 기반 레시피 추천": [
+          "보유 중인 식재료 기반으로 GPT API를 활용한 레시피 자동 생성",
+          "사용자의 알레르기, 선호 식단 및 유통기한 등의 조건 반영",
+          "매 요청마다 새로운 구성으로 다양한 레시피 추천",
+        ],
+        "AI 레시피 상세 가이드": [
+          "AI를 이용한 자막, 타임 스탬프 추출 및 단계별 조리 과정 안내",
+          "조리 중 타이머 자동 설정 기능",
+          "QR코드를 이용한 레시피를 연동 기능",
+        ],
+        "개인화 프로필": [
+          "사용자 프로필별 선호 식재료 및 기피 음식 등록 가능",
+          "사용한 레시피 및 즐겨찾기한 레시피 기록",
+        ],
+      },
       award: "삼성전자 DA사업부 연계 프로젝트 우수상(2위) 수상",
       github: "https://github.com/SJLee-0525/SSAFY_PJT_2",
       presentation: "https://youtu.be/rGmyZMXYjTM",
@@ -444,32 +548,90 @@ export const PROJECTS: ProjectsType = {
       },
     },
     technologies: {
-      "Program Language": ["TypeScript", "HTML5", "Tailwind CSS"],
-      "Language Engine": ["Node.js"],
-      "Web SPA Library": ["React.js"],
-      "Bundling Tool": ["Vite"],
-      "State Management": ["Zustand"],
-      "Code Analysis Tool": ["ESLint", "Prettier"],
-      "API 통신": ["Axios", "React Query"],
-      "비동기 처리 및 오류 복구": ["React Query", "React Error Boundary"],
-      "환경 구성": [".env"],
-      "기타 도구": ["MSW(Mock Service Worker)"],
+      "Program Language": [
+        {
+          TypeScript:
+            "프론트엔드 개발에 사용된 주요 프로그래밍 언어로, 정적 타입 검사를 통해 코드의 안정성과 가독성을 높였습니다.",
+        },
+        {
+          HTML5: "웹 페이지의 구조를 정의하기 위해 사용했습니다.",
+        },
+        {
+          TailwindCSS:
+            "유틸리티 클래스 기반의 CSS 프레임워크로, 빠른 프로토타입 제작과 일관된 UI 스타일링을 위해 사용했습니다.",
+        },
+      ],
+      "Language Engine": [
+        {
+          "Node.js": "",
+        },
+      ],
+      "Web SPA Library": [
+        {
+          "React.js": "컴포넌트 기반 구조와 빠른 개발 속도를 활용하기 위해 사용했습니다",
+        },
+      ],
+      "Bundling Tool": [
+        {
+          Vite: "빠른 개발 환경 구축과 빌드를 위해 사용했습니다.",
+        },
+      ],
+      "State Management": [
+        {
+          Zustand: "전역 상태 관리를 간결하고 직관적으로 구현하기 위해 사용했습니다.",
+        },
+      ],
+      "Code Analysis Tool": [
+        {
+          "ESLint + Prettier": "코드의 일관성과 가독성을 유지하고, 사소한 문법 오류를 방지하기 위해 적용했습니다.",
+        },
+      ],
+      "API 통신": [
+        {
+          Axios:
+            "백엔드 API와의 통신을 위한 HTTP 클라이언트 라이브러리로, 비동기 데이터 요청 및 응답 처리를 위해 사용했습니다.",
+        },
+        {
+          "React Query": "서버 상태(비동기 데이터)를 효율적으로 관리, 캐싱 및 리페칭을 자동화하기 위해 도입했습니다.",
+        },
+      ],
+      "비동기 처리 및 오류 복구": [
+        {
+          "React Error Boundary":
+            "에러로 인한 앱 크래시를 방지하고, 사용자에게 친화적인 에러 UI를 제공하기 위해 사용했습니다.",
+        },
+      ],
+
+      "환경 구성": [
+        {
+          ".env": "환경 변수 파일로, API 키와 같은 민감한 정보를 관리하기 위해 사용했습니다.",
+        },
+      ],
+      "기타 도구": [
+        {
+          "MSW (Mock Service Worker)":
+            "API 서버 없이도 개발 및 테스트가 가능하도록, 네트워크 요청을 가로채서 목 데이터를 제공하는 데 사용했습니다.",
+        },
+      ],
     },
     troubleshooting: [
       {
         problem: "앱 초기 로딩 시 로컬 스토리지 토큰 확인이 렌더링보다 지연되어 에러 페이지 이동",
         solution:
-          "App 컴포넌트에서 토큰 로딩 상태를 관리하고, 토큰 확인이 완료될 때까지 로딩 UI를 표시하여 조건부 렌더링으로 race condition 해결",
+          "앱 초기 로딩 시, 로컬 스토리지의 토큰 확인이 렌더링보다 늦게 이루어져 인증 에러 페이지로 이동하는 문제가 있었습니다. \n" +
+          "이를 해결하기 위해 App 컴포넌트에서 토큰 로딩 상태를 따로 관리하고, 확인이 완료되기 전에는 로딩 화면을 조건부로 렌더링하여 race condition을 방지했습니다.",
       },
       {
         problem: "React Query 캐싱으로 인한 재료 추가/삭제 후 데이터 동기화 문제",
         solution:
-          "재료 CRUD 작업 완료 후 invalidateQueries 메서드를 활용하여 관련 쿼리 캐시를 무효화하고, 최신 데이터로 자동 refetch 되도록 구현",
+          "React Query의 캐시로 인해 재료를 추가하거나 삭제한 후에도 화면에 데이터가 즉시 반영되지 않는 문제가 발생했습니다. \n" +
+          "이를 해결하기 위해 CRUD 작업 후 invalidateQueries를 사용해 관련 쿼리를 무효화하고, 최신 데이터를 자동으로 다시 불러오도록 하여 동기화를 유지했습니다.",
       },
       {
         problem: "재료 출고 후 브라우저 뒤로가기 시 이전 선택 상태가 유지되는 문제",
         solution:
-          "페이지 이동 시점에 선택된 재료 상태를 초기화하고, 필요한 데이터는 페이지 간 props로 전달하여 브라우저 히스토리와 상태 관리를 분리",
+          "재료 출고 후 브라우저 뒤로가기를 하면 이전에 선택했던 항목이 그대로 남아 있어 UX에 혼란을 줬습니다. \n" +
+          "이를 방지하기 위해 페이지 이동 시 선택된 상태를 초기화하고, 필요한 데이터는 props로만 전달하여 상태와 히스토리를 분리했습니다.",
       },
     ],
     retrospective: [
@@ -484,7 +646,7 @@ export const PROJECTS: ProjectsType = {
   mailAt: {
     project: {
       title: "메일앳 (Mail@)",
-      name: "SSAFY 12기 2학기 자율 프로젝트",
+      name: "SSAFY 자율 프로젝트",
       description: "AI 기반의 이메일 관리 서비스",
       background:
         "Outlook과 같은 이메일 서비스는 많은 기능을 제공하지만, 사용하기에 복잡하며 사내 정책에 따라 사용이 제한되는 경우가 많습니다.\n이러한 문제를 해결하기 위해, 로컬 LLM 모델을 탑재한 그래프 기반의 관계형 메일 관리 서비스를 기획하게 되었습니다.",
@@ -496,33 +658,30 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: mailAtThumbnailSmall,
       thumbnailMedium: mailAtThumbnailMedium,
       thumbnailLarge: mailAtThumbnailLarge,
-      "mini-duration": "2025. 04 ~ 2025. 05.",
-      duration: "2025. 04. 14. ~ 2025. 05. 22.",
+      "mini-duration": "2025. 04 - 2025. 05.",
+      duration: "2025. 04. 14. - 2025. 05. 22.",
       team: [
         ["Frontend", 1],
         ["Backend", 2],
         ["AI", 3],
       ],
       collaboration_tools: ["GitLab", "JIRA", "Notion", "Mattermost"],
-      usage_tools: [
-        "TypeScript",
-        "HTML5",
-        "CSS",
-        "Node.js",
-        "Electron",
-        "React.js",
-        "Vite",
-        "Zustand",
-        "React Query",
-        "Axios API",
-        "IPC",
-        "React Quill",
-        "MSW",
-        "React Router",
-        "ESLint",
-        "Prettier",
-        "React Force Graph",
-      ],
+      main_feature: {
+        "Electron 기반 윈도우 앱": [
+          "Electron 기반으로 .exe 실행 파일 형태로 배포 가능",
+          "인터넷 연결 없이도 실행 가능",
+        ],
+        "관계 기반의 메일 분류 및 시각화": [
+          "메일 기록을 기반으로 관계 네트워크 시각화",
+          "React Force Graph로 사용자 간 상호작용 흐름 확인 가능",
+        ],
+        "AI 기반 메일 작성 지원": ["AI 추천을 통한 본문 자동완성 및 초안 생성", "맞춤법 교정 및 오류 추천"],
+        "첨부파일 관리": ["메일 기록 내 첨부파일 수집 및 관리", "쉽게 검색 가능하며, 파일 미리보기 및 다운로드 가능"],
+        "테마 및 UI 커스터마이징": [
+          "커스텀 타이틀바를 사용하여 로고, 앱 제어 버튼, 로딩 정보 표시 등 표시",
+          "다크/라이트 테마 적용",
+        ],
+      },
       award: "",
       github: "",
       presentation: "https://youtu.be/BaK8iC_nm2w",
@@ -601,36 +760,97 @@ export const PROJECTS: ProjectsType = {
       },
     },
     technologies: {
-      "Program Language": ["TypeScript", "HTML5", "Tailwind CSS"],
-      "Language Engine": ["Node.js"],
-      "Web SPA Library": ["Electron", "React.js"],
-      "Bundling Tool": ["Vite"],
-      "State Management": ["Zustand"],
-      "Code Analysis Tool": ["ESLint", "Prettier"],
-      "API 통신": ["Axios", "IPC", "React Query"],
-      "비동기 처리 및 오류 복구": ["React Query"],
-      "환경 구성": [".env"],
-      "기타 도구": ["MSW(Mock Service Worker)", "React Force Graph", "React Quill"],
+      "Program Language": [
+        {
+          TypeScript:
+            "프론트엔드 개발에 사용된 주요 프로그래밍 언어로, 정적 타입 검사를 통해 코드의 안정성과 가독성을 높였습니다.",
+        },
+        {
+          HTML5: "웹 페이지의 구조를 정의하기 위해 사용했습니다.",
+        },
+        {
+          TailwindCSS: "유틸리티 클래스 기반의 CSS 프레임워크로, 빠른 프로토타입 제작을 위해 사용했습니다.",
+        },
+      ],
+      "Language Engine": [
+        {
+          "Node.js": "Electron 애플리케이션의 백엔드 로직을 처리하기 위해 사용했습니다.",
+        },
+      ],
+      "Web SPA Library": [
+        {
+          "Electron + React": "Electron 환경에서 React를 사용하여 데스크톱 애플리케이션을 개발하기 위해 사용했습니다.",
+        },
+      ],
+      "Bundling Tool": [
+        {
+          Vite: "빠른 개발 환경 구축과 빌드를 위해 사용했습니다.",
+        },
+      ],
+      "State Management": [
+        {
+          Zustand: "전역 상태 관리를 간결하고 직관적으로 구현하기 위해 사용했습니다.",
+        },
+      ],
+      "Code Analysis Tool": [
+        {
+          "ESLint + Prettier": "코드의 일관성과 가독성을 유지하고, 사소한 문법 오류를 방지하기 위해 적용했습니다.",
+        },
+      ],
+      "API 통신": [
+        {
+          Axios:
+            "백엔드 API와의 통신을 위한 HTTP 클라이언트 라이브러리로, 비동기 데이터 요청 및 응답 처리를 위해 사용했습니다.",
+        },
+        {
+          "React Query": "서버 상태(비동기 데이터)를 효율적으로 관리, 캐싱 및 리페칭을 자동화하기 위해 도입했습니다.",
+        },
+        {
+          IPC: "Electron의 메인 프로세스와 렌더러 프로세스 간 데이터 전달을 위해 사용했습니다.",
+        },
+      ],
+      "환경 구성": [
+        {
+          ".env": "환경 변수 파일로, API 키와 같은 민감한 정보를 관리하기 위해 사용했습니다.",
+        },
+      ],
+      "기타 도구": [
+        {
+          "MSW (Mock Service Worker)":
+            "API 서버 없이도 개발 및 테스트가 가능하도록, 네트워크 요청을 가로채서 목 데이터를 제공하는 데 사용했습니다.",
+        },
+        {
+          "react-force-graph": "이메일 데이터를 시각적으로 직관적으로 표현하기 위해 그래프 라이브러리를 사용했습니다.",
+        },
+        {
+          "react-quill": "사용자가 입력한 텍스트를 HTML 형식으로 저장 및 처리하기 위해 Quill 에디터를 사용했습니다.",
+        },
+      ],
     },
     troubleshooting: [
       {
         problem: "Electron 환경에서 브라우저 기본 팝업(alert, confirm) 사용 시 입력 블로킹 문제",
-        solution: "브라우저 기본 팝업을 대체할 커스텀 모달 컴포넌트를 구현하여 Electron의 입력 처리 방식과 호환성 확보",
+        solution:
+          "Electron에서 브라우저 기본 팝업을 사용할 경우, 입력이 블로킹되어 전체 앱의 흐름이 멈추는 문제가 발생했습니다. 이는 Electron의 입력 이벤트 처리 방식과 충돌하기 때문이었습니다. \n" +
+          "이를 해결하기 위해 브라우저 팝업을 대체할 커스텀 모달 컴포넌트를 직접 구현하여, Electron 환경에서도 매끄럽게 입력을 처리할 수 있도록 했습니다.",
       },
       {
         problem: "HTML 형식 메일 본문 렌더링 시 애플리케이션 전체 스타일 오염 문제",
         solution:
-          "메일 본문 렌더링 전 스타일 태그를 제거하고, 링크의 target 속성을 _blank로 설정하는 sanitize 함수를 구현하여 스타일 격리",
+          "HTML 메일을 그대로 렌더링하면 메일 내부의 <style> 태그나 전역 CSS가 전체 앱의 레이아웃에 영향을 주는 문제가 발생했습니다. \n" +
+          '이를 방지하기 위해, 렌더링 전에 메일 본문의 스타일 태그를 제거하고, 링크 target="_blank"로 열리도록 수정하는 sanitize 함수를 구현하여 스타일 격리 및 보안성을 확보했습니다.',
       },
       {
         problem: "React Force Graph에서 복잡한 노드 관계 렌더링 시 성능 저하",
         solution:
-          "React.memo로 불필요한 리렌더링을 방지하고, useCallback을 활용하여 이벤트 핸들러 메모이제이션으로 렌더링 최적화",
+          "다량의 노드와 엣지를 가진 관계 시각화 화면을 렌더링할 때 성능 저하가 발생했습니다. \n" +
+          "이를 개선하기 위해, React.memo를 사용해 컴포넌트 리렌더링을 방지하고, useCallback을 통해 이벤트 핸들러를 메모이제이션하여 전체 렌더링 성능을 최적화했습니다.",
       },
       {
         problem: "React Query에서 초기 기본값과 이후 파라미터 변경에 따른 데이터 호출 제어 로직의 복잡성",
         solution:
-          "queryKey에 파라미터를 포함하고 enabled 옵션으로 호출 시점을 제어. 초기 상태와 파라미터 상태를 분리하여 마운트 시에만 기본값으로 fetch하고, 이후에는 명시적 파라미터 변경으로 데이터 갱신",
+          "초기에는 기본값으로 데이터를 fetch하고, 사용자가 조건을 변경하면 그에 따라 데이터를 다시 가져와야 하는 상황에서, queryKey와 enabled 옵션을 조합하여 제어하는 로직이 복잡했습니다. \n" +
+          "이를 해결하기 위해 초기 상태와 이후 파라미터 상태를 명확히 분리하고, queryKey에 파라미터를 포함시켜 파라미터가 변경될 때만 자동 갱신되도록 했으며, 초기 fetch는 enabled 조건으로 제어했습니다.",
       },
     ],
     retrospective: [
@@ -657,23 +877,25 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: portfolioThumbnailSmall,
       thumbnailMedium: portfolioThumbnailMedium,
       thumbnailLarge: portfolioThumbnailLarge,
-      "mini-duration": "2025. 05 ~ 현재",
-      duration: "2025. 05. 23. ~ 현재",
+      "mini-duration": "2025. 05 - 현재",
+      duration: "2025. 05. 23. - 현재",
       team: [["Frontend", 1]],
       collaboration_tools: ["GitHub", "GitLab"],
-      usage_tools: [
-        "TypeScript",
-        "HTML5",
-        "CSS",
-        "React.js",
-        "Vite",
-        "Zustand",
-        "React Router",
-        "ESLint",
-        "Prettier",
-        "GSAP",
-        "clsx",
-      ],
+      main_feature: {
+        "메인/소개/기술/프로젝트 등 페이지별 정보 제공": [
+          "개발자 자기소개, 기술 스택, 프로젝트 목록/상세 등 정보 페이지별 제공",
+          "프로젝트 카드 클릭 시 프로젝트 상세 정보 모달 팝업",
+        ],
+        "애니메이션 및 인터랙션": [
+          "GSAP/CSS 기반 스크롤 및 요소 애니메이션 효과",
+          "페이지 및 섹션 이동 시 전환 애니메이션 제공",
+        ],
+        "네비게이션/스크롤 이동": ["상단 네비게이션 클릭 시 해당 섹션으로 부드럽게 스크롤 이동"],
+        "접근성을 고려한 반응형 웹": [
+          "모바일, 태블릿, 데스크톱 등 다양한 디바이스에서 최적화된 화면 제공",
+          "이미지 Lazy Loading, 코드 분할, SEO 및 접근성 개선 적용",
+        ],
+      },
       award: "",
       github: "https://github.com/SJLee-0525/portfolio",
       presentation: "",
@@ -716,29 +938,71 @@ export const PROJECTS: ProjectsType = {
       },
     },
     technologies: {
-      "Program Language": ["TypeScript", "HTML5", "TailwindCSS"],
-      "Language Engine": ["Node.js"],
-      "Web SPA Library": ["React.js"],
-      "Bundling Tool": ["Vite"],
-      "State Management": ["Zustand"],
-      "Code Analysis Tool": ["ESLint", "Prettier"],
-      etc: ["clsx", "GSAP"],
+      "Program Language": [
+        {
+          TypeScript:
+            "프론트엔드 개발에 사용된 주요 프로그래밍 언어로, 정적 타입 검사를 통해 코드의 안정성과 가독성을 높였습니다.",
+        },
+        {
+          HTML5: "웹 페이지의 구조를 정의하기 위해 사용했습니다.",
+        },
+        {
+          TailwindCSS:
+            "유틸리티 클래스 기반의 CSS 프레임워크로, 빠른 프로토타입 제작과 일관된 UI 스타일링을 위해 사용했습니다.",
+        },
+      ],
+      "Language Engine": [
+        {
+          "Node.js": "",
+        },
+      ],
+      "Web SPA Library": [
+        {
+          "React.js": "컴포넌트 기반 구조와 빠른 개발 속도를 활용하기 위해 사용했습니다",
+        },
+      ],
+      "Bundling Tool": [
+        {
+          Vite: "빠른 개발 환경 구축과 빌드를 위해 사용했습니다.",
+        },
+      ],
+      "State Management": [
+        {
+          Zustand: "전역 상태 관리를 간결하고 직관적으로 구현하기 위해 사용했습니다.",
+        },
+      ],
+      "Code Analysis Tool": [
+        {
+          "ESLint + Prettier": "코드의 일관성과 가독성을 유지하고, 사소한 문법 오류를 방지하기 위해 적용했습니다.",
+        },
+      ],
+      etc: [
+        {
+          clsx: "조건부 클래스 이름을 동적으로 적용하기 위해 사용했습니다.",
+        },
+        {
+          GSAP: "부드럽고 정교한 애니메이션을 통해 사용자 경험을 향상시키기 위해 사용했습니다.",
+        },
+      ],
     },
     troubleshooting: [
       {
         problem: "스크롤 방지 시 스크롤바 제거로 인해 레이아웃이 깨지는 문제",
         solution:
-          "overflow-hidden 클래스를 동적으로 추가하고, 스크롤바 너비만큼 padding을 보정하여 레이아웃 shift 방지",
+          "모달을 띄울 때 overflow-hidden 클래스를 적용하면 스크롤바가 사라지면서 전체 레이아웃이 좌우로 흔들리는 문제가 발생했습니다. \n" +
+          "이를 해결하기 위해, 스크롤을 막는 동시에 스크롤바 너비만큼 padding-right를 동적으로 추가하여 레이아웃의 shift를 방지했습니다.",
       },
       {
         problem: "SPA 환경에서 페이지 새로고침 시 스크롤 위치가 복원되는 문제",
         solution:
-          "scrollRestoration='manual' 설정 후, 컴포넌트 마운트 시점에 location.hash를 초기화하고 setTimeout을 활용해 scrollTo(0,0)를 지연 실행하여 브라우저 복원 동작을 우회",
+          "브라우저가 이전 스크롤 위치를 자동으로 복원하는 바람에, 새로고침 후 화면이 의도치 않은 위치로 이동하는 문제가 있었습니다. \n" +
+          "이를 해결하기 위해 scrollRestoration을 'manual'로 설정하고, 컴포넌트 마운트 시점에 location.hash를 초기화한 후 setTimeout으로 scrollTo(0, 0)을 지연 호출하여 복원 동작을 우회했습니다.",
       },
       {
         problem: "타이핑 효과 구현 시 한글 조합형 문자가 깨져서 출력되는 문제",
         solution:
-          "JavaScript의 문자열 인덱싱이 유니코드 코드 단위로 처리되는 특성을 고려하여, 스프레드 연산자([...text])로 문자열을 배열화해 완성형 한글 기준으로 문자 분리 처리",
+          "타이핑 애니메이션을 구현하던 중, 한글 글자가 조합되기 전에 잘려서 출력되는 현상이 있었습니다. 이 원인은 JavaScript에서 문자열을 인덱싱할 때 유니코드 코드 단위로 처리되기 때문이었습니다. \n" +
+          "이를 해결하기 위해 스프레드 연산자([...text])를 사용하여 문자열을 배열로 변환, 완성형 글자 단위로 안전하게 분리하여 처리했습니다.",
       },
     ],
     retrospective: [

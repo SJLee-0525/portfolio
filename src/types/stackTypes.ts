@@ -25,7 +25,9 @@ export type Portfolio = {
     duration: string;
     team: [string, number][];
     collaboration_tools: string[];
-    usage_tools: string[];
+    main_feature: {
+      [key: string]: string[];
+    };
     award: string;
     github: string;
     presentation: string;
@@ -38,7 +40,7 @@ export type Portfolio = {
     };
   };
   technologies: {
-    [key: string]: string[];
+    [key: string]: { [stack: string]: string }[];
   };
   troubleshooting: {
     problem: string;
