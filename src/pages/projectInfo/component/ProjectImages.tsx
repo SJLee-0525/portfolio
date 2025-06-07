@@ -4,7 +4,7 @@ import { Portfolio } from "@/types/stackTypes";
 
 import useModalStore from "@stores/modalStore";
 
-import ProjectImageDetailModal from "@pages/projectInfo/component/ProjectImageDetailModal";
+import ProjectImageDetail from "@/pages/projectInfo/component/ProjectImageDetail";
 
 import ImageLoadingSpinner from "@components/spinner/ImageLoadingSpinner";
 import CarouselButton from "@components/button/CarouselButton";
@@ -102,11 +102,11 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
         onTouchEnd={handleTouchEnd}
       >
         <button
-          className="absolute bottom-4 right-4 z-20 p-2 flex items-center justify-center rounded-full bg-black/20 transition-all duration-300 ease-in-out cursor-pointer pointer-events-auto hover:bg-black/40"
+          className="absolute bottom-5.5 right-5.5 z-20 p-2 flex items-center justify-center rounded-full bg-black/20 transition-all duration-300 ease-in-out cursor-pointer pointer-events-auto hover:bg-black/40"
           aria-label="확대"
           onClick={() =>
             openImageModal(
-              <ProjectImageDetailModal
+              <ProjectImageDetail
                 PROJECT_IMAGES={PROJECT_IMAGES}
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
@@ -133,12 +133,12 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
           {PROJECT_IMAGES.map((item, index) => (
             <div key={index} className="w-full flex-shrink-0 cursor-pointer" style={{ width: "100%" }}>
               <div
-                className="relative w-full aspect-[16/9] overflow-hidden bg-black/15 pointer-events-auto"
+                className="relative w-full aspect-[16/10] lg:aspect-[16/9] overflow-hidden bg-black/15 pointer-events-auto"
                 title="클릭하시면 크게 보실 수 있습니다."
                 onClick={() => {
                   if (!(item.type === "video" && videoPlayState[index])) {
                     openImageModal(
-                      <ProjectImageDetailModal
+                      <ProjectImageDetail
                         PROJECT_IMAGES={PROJECT_IMAGES}
                         currentIndex={currentIndex}
                         setCurrentIndex={setCurrentIndex}
@@ -200,21 +200,21 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
 
         {PROJECT_IMAGES.length > 1 && (
           <nav
-            className="hidden sm:flex absolute justify-between items-center w-full h-8 px-4 left-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none"
+            className="hidden sm:flex absolute justify-between items-center w-full h-8 px-5.5 left-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none"
             onClick={(e) => e.stopPropagation()} // 버튼 클릭 시 상위 onClick 전파 방지
           >
             <div className="pointer-events-auto flex items-center h-full">
               <CarouselButton
                 isActive={currentIndex > 0}
                 onClick={handlePrevious}
-                icon={<ArrowLeftIcon width={32} height={32} strokeColor="#fff" />}
+                icon={<ArrowLeftIcon width={28} height={28} strokeColor="#fff" />}
               />
             </div>
             <div className="pointer-events-auto flex items-center h-full">
               <CarouselButton
                 isActive={currentIndex < PROJECT_IMAGES.length - 1}
                 onClick={handleNext}
-                icon={<ArrowRightIcon width={32} height={32} strokeColor="#fff" />}
+                icon={<ArrowRightIcon width={28} height={28} strokeColor="#fff" />}
               />
             </div>
           </nav>

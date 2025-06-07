@@ -23,7 +23,7 @@ const ProjectInfoHeader = ({ portfolio }: { portfolio: Portfolio }) => {
             <span className="w-full h-full flex items-center justify-center rounded-full bg-gray-200" />
           )}
         </figure>
-        <figcaption className="flex flex-col items-start justify-start w-fit h-fit gap-1.5 py-4">
+        <figcaption className="flex flex-col items-start justify-start w-fit h-fit gap-0.5 py-3.5">
           <h3 className="text-3xl text-text font-pre-bold">{portfolio.project.title}</h3>
           <span className="flex flex-col items-start justify-start w-full h-fit">
             <p className="text-theme font-pre-bold">{portfolio.project.name}</p>

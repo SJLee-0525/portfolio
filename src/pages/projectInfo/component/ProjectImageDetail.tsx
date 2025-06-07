@@ -10,13 +10,13 @@ import PlayIcon from "@assets/icon/PlayIcon";
 import ArrowLeftIcon from "@assets/icon/ArrowLeftIcon";
 import ArrowRightIcon from "@assets/icon/ArrowRightIcon";
 
-interface ProjectImageDetailModalProps {
+interface ProjectImageDetailProps {
   PROJECT_IMAGES: { type: string; src: string }[];
   currentIndex: number;
   setCurrentIndex: (index: number) => void;
 }
 
-const ProjectImageDetailModal = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: ProjectImageDetailModalProps) => {
+const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: ProjectImageDetailProps) => {
   const { closeImageModal } = useModalStore();
 
   const [modalIndex, setModalIndex] = useState(currentIndex);
@@ -130,18 +130,16 @@ const ProjectImageDetailModal = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex
                 </>
               )}
               {img.type === "video" && img.src && videoPlayState[idx] && (
-                <div className="w-full flex items-center justify-center">
-                  <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full"
-                      src={img.src + (img.src.includes("?") ? "&autoplay=1" : "?autoplay=1")}
-                      title={`Project Video ${idx + 1}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                      style={{ border: "none", display: "block" }}
-                    />
-                  </div>
+                <div className="w-full h-full flex items-center justify-center" style={{ aspectRatio: "16/9" }}>
+                  <iframe
+                    src={img.src + (img.src.includes("?") ? "&autoplay=1" : "?autoplay=1")}
+                    title={`Project Video ${idx + 1}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-auto max-h-full bg-black"
+                    style={{ display: "block", aspectRatio: "16/9" }}
+                  />
                 </div>
               )}
               {img.type === "img" && img.src && <ImageWithSpinner src={img.src} alt={`Project Image ${idx + 1}`} />}
@@ -187,4 +185,4 @@ const ImageWithSpinner = ({ src, alt }: { src: string; alt: string }) => {
   );
 };
 
-export default ProjectImageDetailModal;
+export default ProjectImageDetail;

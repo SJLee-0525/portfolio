@@ -4,7 +4,7 @@ const LoadingProjectInfo = () => {
       <section className="relative w-full h-fit overflow-hidden">
         <figure className="flex transition-transform duration-500 ease-in-out">
           <div className="w-full flex-shrink-0" style={{ width: "100%" }}>
-            <div className="aspect-[16/9] bg-black/15 flex items-center justify-center" />
+            <div className="aspect-[16/10] lg:aspect-[16/9] bg-black/15 flex items-center justify-center" />
           </div>
         </figure>
       </section>
