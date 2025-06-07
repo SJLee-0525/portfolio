@@ -59,11 +59,11 @@ const InterviewLists = () => {
             }}
             className="group flex flex-col justify-start items-start w-full h-fit p-6 transition-all duration-300"
           >
-            <h3 className="text-2xl font-pre-bold mb-1">Q. {interview.question}</h3>
-            <p className="lg:ps-7 text-lg font-pre-light" style={{ whiteSpace: "pre-line", lineHeight: "1.68" }}>
+            <h3 className="text-2xl font-pre-bold mb-2">Q. {interview.question}</h3>
+            <p className="lg:ps-7 text-lg font-pre-light" style={{ whiteSpace: "pre-line", lineHeight: "1.64" }}>
               {interview.answer.map((p, i) => {
                 return (
-                  <span key={i} className="block mt-1.5">
+                  <span key={i} className="block mb-4">
                     {p}
                   </span>
                 );

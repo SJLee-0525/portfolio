@@ -1,19 +1,21 @@
 @keyframes slideDown {
   from {
-    transform: translateY(50vh);
+    transform: translate(-50%, -50%);
+    opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translate(-50%, 50%);
+    opacity: 1;
   }
 }
 
 @keyframes slideUp {
   from {
-    transform: translateY(20px);
+    transform: translate(-50%, 50%);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
     opacity: 1;
   }
 }
