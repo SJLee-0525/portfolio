@@ -20,7 +20,7 @@ import viteIcon from "@assets/stacks/Vite-Light.svg";
 import vueIcon from "@assets/stacks/VueJS-Light.svg";
 import zustandIcon from "@assets/stacks/Zustand.svg";
 
-export const LAST_UPDATE_DATE: string = "Jun 7, 2025";
+export const LAST_UPDATE_DATE: string = "Jun 10, 2025";
 
 export const PROFILE_INFO: ProfileInfoData = {
   innerProfile: {
@@ -41,8 +41,8 @@ export const PROFILE_INFO: ProfileInfoData = {
     {
       type: "Email",
       label: "Email",
-      value: "sungjoon525@naver.com",
-      link: "mailto:sungjoon25@yonsei.ac.kr",
+      value: "sungjoon111@gmail.com",
+      link: "mailto:sungjoon111@gmail.com",
     },
     {
       type: "Github",
@@ -133,7 +133,7 @@ export const PROFILE_INFO: ProfileInfoData = {
       question: "프론트엔드 개발을 시작하게 된 계기는 무엇인가요?",
       answer: [
         "사용자와 직접 소통하며 더 나은 사용자 경험을 만들고 싶어서 프론트엔드 개발을 시작했습니다.",
-        "어린 시절부터 웹 디자인과 사용자 인터페이스에 관심이 많았기 때문에, 프론트엔드 개발을 한다면 제가 생각하는 좋은 인터페이스를 직접 구현할 수 있을 것이라고 생각했기 때문입니다.",
+        "어릴 때부터 웹 디자인과 사용자 인터페이스에 관심이 많았기 때문에, 단순히 보기만 하는 것을 넘어서 직접 만들어보고 싶다는 생각이 컸습니다. 이러한 관심이 자연스럽게 프론트엔드 개발로 이어졌고, 제가 머릿속으로 그렸던 인터페이스를 실제로 구현할 수 있다는 점에서 큰 매력을 느꼈습니다.",
       ],
     },
     {

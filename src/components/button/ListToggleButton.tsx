@@ -1,29 +1,25 @@
-import { useState } from "react";
-
 import ArrowDownIcon from "@assets/icon/ArrowDownIcon";
 import ArrowUpIcon from "@assets/icon/ArrowUpIcon";
 
 interface ProjectTaskProps {
   task: string;
   innerTasks?: string[];
+  isOpen?: boolean;
+  onToggle?: () => void;
 }
 
-const ProjectTask = ({ task, innerTasks }: ProjectTaskProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleToggle() {
-    setIsOpen((prev) => !prev);
-  }
-
+const ListToggleButton = ({ task, innerTasks, isOpen, onToggle }: ProjectTaskProps) => {
   return (
     <article className="flex flex-col items-start justify-start w-full h-fit gap-2">
-      <span className="flex items-center justify-between w-fit h-fit gap-2 cursor-pointer" onClick={handleToggle}>
-        {isOpen ? (
-          <ArrowUpIcon width={24} height={24} strokeColor="#072491" />
-        ) : (
-          <ArrowDownIcon width={24} height={24} strokeColor="#072491" />
-        )}
-        <p className="text-xl text-theme font-pre-semi-bold">{task}</p>
+      <span className="flex items-start justify-between w-fit h-fit gap-2 cursor-pointer" onClick={onToggle}>
+        <span className="py-0.5">
+          {isOpen ? (
+            <ArrowUpIcon width={24} height={24} strokeColor="#072491" />
+          ) : (
+            <ArrowDownIcon width={24} height={24} strokeColor="#072491" />
+          )}
+        </span>
+        <p className="flex-1 text-xl text-theme font-pre-semi-bold">{task}</p>
       </span>
 
       <ul
@@ -44,4 +40,4 @@ const ProjectTask = ({ task, innerTasks }: ProjectTaskProps) => {
   );
 };
 
-export default ProjectTask;
+export default ListToggleButton;
