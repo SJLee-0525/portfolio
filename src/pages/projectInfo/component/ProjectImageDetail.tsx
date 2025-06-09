@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 
 import useModalStore from "@stores/modalStore";
 
-import ImageLoadingSpinner from "@components/spinner/ImageLoadingSpinner";
+import NoImage from "@components/image/NoImage";
 import CarouselButton from "@components/button/CarouselButton";
+import VideoThumbnail from "@components/video/VideoThumbnail";
+import VideoPlayer from "@components/video/VideoPlayer";
+import ImageWithSpinner from "@components/image/ImageWithSpinner";
 
 import CloseIcon from "@assets/icon/CloseIcon";
-import PlayIcon from "@assets/icon/PlayIcon";
 import ArrowLeftIcon from "@assets/icon/ArrowLeftIcon";
 import ArrowRightIcon from "@assets/icon/ArrowRightIcon";
 
@@ -72,12 +74,6 @@ const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: P
     setTouchEndX(null);
   }
 
-  function getYoutubeThumbnail(url: string) {
-    // embed, watch 등 다양한 형태 지원
-    const match = url.match(/(?:youtube\.com\/(?:embed\/|watch\?v=)|youtu\.be\/)([\w-]{11})/);
-    return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : undefined;
-  }
-
   return (
     <div className="flex items-center justify-center w-full h-full">
       <button
@@ -106,45 +102,21 @@ const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: P
           className="flex w-full h-full transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${modalIndex * 100}%)` }}
         >
-          {PROJECT_IMAGES.map((img, idx) => (
-            <div key={idx} className="w-full flex-shrink-0 flex items-center justify-center" style={{ width: "100%" }}>
-              {img.type === "video" && img.src && !videoPlayState[idx] && (
-                <>
-                  <img
-                    src={getYoutubeThumbnail(img.src) || ""}
-                    alt="YouTube 썸네일"
-                    className="w-full h-auto max-h-full object-contain"
-                    style={{ aspectRatio: "16/9", background: "#000" }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <button
-                      className="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center hover:scale-110 transition-transform"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setVideoPlayState((prev) => ({ ...prev, [idx]: true }));
-                      }}
-                    >
-                      <PlayIcon width={40} height={40} strokeColor="#fff" />
-                    </button>
-                  </div>
-                </>
-              )}
-              {img.type === "video" && img.src && videoPlayState[idx] && (
-                <div className="w-full h-full flex items-center justify-center" style={{ aspectRatio: "16/9" }}>
-                  <iframe
-                    src={img.src + (img.src.includes("?") ? "&autoplay=1" : "?autoplay=1")}
-                    title={`Project Video ${idx + 1}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    className="w-full h-auto max-h-full bg-black"
-                    style={{ display: "block", aspectRatio: "16/9" }}
-                  />
-                </div>
-              )}
-              {img.type === "img" && img.src && <ImageWithSpinner src={img.src} alt={`Project Image ${idx + 1}`} />}
-            </div>
-          ))}
+          {PROJECT_IMAGES.length === 0 && <NoImage />}
+          {PROJECT_IMAGES.length > 0 &&
+            PROJECT_IMAGES.map((img, idx) => (
+              <div
+                key={idx}
+                className="w-full flex-shrink-0 flex items-center justify-center"
+                style={{ width: "100%" }}
+              >
+                {img.type === "video" && img.src && !videoPlayState[idx] && (
+                  <VideoThumbnail url={img.src} index={idx} setVideoPlayState={setVideoPlayState} />
+                )}
+                {img.type === "video" && img.src && videoPlayState[idx] && <VideoPlayer url={img.src} index={idx} />}
+                {img.type === "img" && img.src && <ImageWithSpinner src={img.src} alt={`Project Image ${idx + 1}`} />}
+              </div>
+            ))}
         </figure>
 
         {PROJECT_IMAGES.length > 1 && (
@@ -163,25 +135,6 @@ const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: P
         )}
       </section>
     </div>
-  );
-};
-
-const ImageWithSpinner = ({ src, alt }: { src: string; alt: string }) => {
-  const [loading, setLoading] = useState(true);
-
-  return (
-    <>
-      {loading && <ImageLoadingSpinner />}
-      <img
-        src={src}
-        alt={alt}
-        className={`max-h-full w-auto max-w-full object-contain mx-auto transition-opacity duration-300 ${loading ? "opacity-0" : "opacity-100"}`}
-        style={{ display: "block" }}
-        onLoad={() => setLoading(false)}
-        onError={() => setLoading(false)}
-        draggable={false}
-      />
-    </>
   );
 };
 
