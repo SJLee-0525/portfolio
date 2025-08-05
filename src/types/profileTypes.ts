@@ -35,12 +35,13 @@ export interface StackItem {
   icon: string;
   scale: string;
   level?: number;
+  description?: string[];
 }
 
 export interface Stacks {
-  Languages: StackItem[];
-  Libraries: StackItem[];
-  Tools: StackItem[];
+  languages: StackItem[];
+  libraries: StackItem[];
+  tools: StackItem[];
 }
 
 export interface Interviews {
