@@ -13,14 +13,14 @@ import pythonIcon from "@assets/stacks/Python-Light.svg";
 import ReactQueryIcon from "@assets/stacks/React-query.svg";
 import ReactRouterIcon from "@assets/stacks/React-router.svg";
 import reactIcon from "@assets/stacks/React-Light.svg";
-import reduxIcon from "@assets/stacks/Redux.svg";
+// import reduxIcon from "@assets/stacks/Redux.svg";
 import tailwindCssIcon from "@assets/stacks/TailwindCSS-Light.svg";
 import typescriptIcon from "@assets/stacks/TypeScript.svg";
 import viteIcon from "@assets/stacks/Vite-Light.svg";
 import vueIcon from "@assets/stacks/VueJS-Light.svg";
 import zustandIcon from "@assets/stacks/Zustand.svg";
 
-export const LAST_UPDATE_DATE: string = "Jun 10, 2025";
+export const LAST_UPDATE_DATE: string = "Aug 5, 2025";
 
 export const PROFILE_INFO: ProfileInfoData = {
   innerProfile: {
@@ -220,15 +220,6 @@ export const PROFILE_INFO: ProfileInfoData = {
         description: [
           "Bootstrap을 활용하여 빠른 반응형 웹 디자인과 UI 컴포넌트 구현을 경험했습니다.",
           "제공되는 다양한 UI 컴포넌트를 활용해 빠르게 프로토타입을 제작하고, 사용자 친화적인 인터페이스를 구축했습니다.",
-        ],
-      },
-      {
-        name: "Redux",
-        icon: reduxIcon,
-        scale: "100%",
-        level: 2,
-        description: [
-          "Redux를 활용한 상태 관리 경험이 있으며, 복잡한 상태 흐름을 예측 가능하게 구성하는 데 도움을 주었습니다.",
         ],
       },
       // {

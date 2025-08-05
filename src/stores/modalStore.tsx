@@ -16,6 +16,13 @@ interface ModalState {
     modalContent: React.ReactNode;
   }) => void;
   closeModal: () => void;
+
+  stackModalIsOpen: boolean;
+  stackModalIsClosing: boolean;
+  stackModalContent: React.ReactNode | null;
+  openStackModal: (content: React.ReactNode) => void;
+  closeStackModal: () => void;
+
   imageModalIsOpen: boolean;
   imageModalIsClosing: boolean;
   imageModalContent: React.ReactNode | null;
@@ -38,6 +45,21 @@ const useModalStore = create<ModalState>((set) => ({
       set({ isOpen: false, isClosing: false, loadingContent: null, modalContent: null });
     }, 300);
   },
+
+  stackModalIsOpen: false,
+  stackModalIsClosing: false,
+  stackModalContent: null,
+  openStackModal: (content) => {
+    set({ stackModalIsOpen: true, stackModalIsClosing: false, stackModalContent: content });
+  },
+  closeStackModal: () => {
+    set({ stackModalIsClosing: true });
+
+    setTimeout(() => {
+      set({ stackModalIsOpen: false, stackModalIsClosing: false, stackModalContent: null });
+    }, 300);
+  },
+
   imageModalIsOpen: false,
   imageModalIsClosing: false,
   imageModalContent: null,

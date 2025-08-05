@@ -7,7 +7,11 @@ import clsx from "clsx";
 
 import { StackItem } from "@/types/profileTypes";
 
+import useModalStore from "@stores/modalStore";
+
 import StarIcon from "@assets/icon/StarIcon";
+
+import StackModalContent from "@pages/stacks/component/StackModalContent";
 
 interface StackProps {
   stackType: string;
@@ -15,6 +19,8 @@ interface StackProps {
 }
 
 const Stack = ({ stackType, stackItems }: StackProps) => {
+  const { openStackModal } = useModalStore();
+
   const stackItemRefs = useRef<(HTMLElement | null)[]>([]);
   const stackAnimRefs = useRef<gsap.core.Tween[]>([]);
 
@@ -56,11 +62,11 @@ const Stack = ({ stackType, stackItems }: StackProps) => {
 
   function getStackType(stackType: string): string {
     switch (stackType) {
-      case "Languages":
+      case "languages":
         return "언어";
-      case "Libraries":
+      case "libraries":
         return "라이브러리 / 프레임워크";
-      case "Tools":
+      case "tools":
         return "도구";
       default:
         return stackType;
@@ -76,7 +82,7 @@ const Stack = ({ stackType, stackItems }: StackProps) => {
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-6">
         {stackItems &&
           stackItems.map((stack, i) => {
-            const imageClass = clsx("flex items-center justify-center", {
+            const imageClass = clsx("flex items-center justify-center cursor-pointer", {
               "w-[100%] h-[100%]": stack.scale === "100%",
               "w-[90%] h-[90%]": stack.scale === "90%",
               "w-[80%] h-[80%]": stack.scale === "80%",
@@ -92,7 +98,7 @@ const Stack = ({ stackType, stackItems }: StackProps) => {
                 className="flex flex-col items-center justify-center w-fit h-fit gap-1 transform-all duration-300 ease-in-out hover:scale-110"
               >
                 <div className="flex items-center justify-center w-20 h-20 rounded-3xl bg-light aspect-[1] overflow-hidden">
-                  <div className={imageClass}>
+                  <div className={imageClass} onClick={() => openStackModal(<StackModalContent stack={stack} />)}>
                     <img src={stack.icon} alt={stack.name} className="w-full h-full object-contain" />
                   </div>
                 </div>
