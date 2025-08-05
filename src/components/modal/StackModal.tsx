@@ -1,6 +1,6 @@
 import "@components/modal/Modal.css";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 import useModalStore from "@stores/modalStore";
@@ -9,8 +9,6 @@ import CloseIcon from "@assets/icon/CloseIcon";
 
 const StackModal = () => {
   const { stackModalIsOpen, stackModalIsClosing, stackModalContent, closeStackModal } = useModalStore();
-
-  const [uiPhase, setUiPhase] = useState<"initial" | "loading" | "transitioning" | "content">("initial");
 
   const dialog = useRef<HTMLDialogElement>(null);
   const contentRef = useRef<HTMLElement>(null);
@@ -35,30 +33,6 @@ const StackModal = () => {
   }, [stackModalIsOpen, stackModalIsClosing]);
 
   useEffect(() => {
-    let phaseTimer1: NodeJS.Timeout;
-    let phaseTimer2: NodeJS.Timeout;
-
-    if (stackModalIsOpen) {
-      setUiPhase("loading");
-
-      phaseTimer1 = setTimeout(() => {
-        setUiPhase("transitioning");
-      }, 500);
-
-      phaseTimer2 = setTimeout(() => {
-        setUiPhase("content");
-      }, 1200);
-    } else {
-      setUiPhase("initial");
-    }
-
-    return () => {
-      clearTimeout(phaseTimer1);
-      clearTimeout(phaseTimer2);
-    };
-  }, [stackModalIsOpen]);
-
-  useEffect(() => {
     if (stackModalIsOpen) {
       const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
@@ -69,6 +43,7 @@ const StackModal = () => {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
     }
+
     return () => {
       document.body.style.overflow = "";
       document.body.style.paddingRight = "";
@@ -102,12 +77,7 @@ const StackModal = () => {
         className="relative w-full h-full overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden bg-white" // Added bg-white
       >
         {stackModalContent && (
-          <div
-            className={`w-full h-full transition-opacity duration-700 ease-in-out
-                        ${uiPhase === "transitioning" || uiPhase === "content" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-          >
-            {stackModalContent}
-          </div>
+          <div className="w-full h-full transition-opacity duration-700 ease-in-out">{stackModalContent}</div>
         )}
       </section>
     </dialog>,
