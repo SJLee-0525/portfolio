@@ -181,7 +181,7 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
         <Profile
           infoReady={animationReady}
           setInfoReady={setAnimationReady}
-          onScrollToInterview={() => scrollToSection(interviewRef)}
+          // onScrollToInterview={() => scrollToSection(interviewRef)}
         />
       </section>
 

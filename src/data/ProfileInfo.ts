@@ -81,7 +81,7 @@ export const PROFILE_INFO: ProfileInfoData = {
   ],
   awards: [
     {
-      title: "삼성전자 DA사업부 연계 프로젝트 우수상",
+      title: "삼성전자 연계 프로젝트 우수상",
       where: "삼성전자",
       date: "2025.04.11.",
     },

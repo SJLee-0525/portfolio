@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+import ProfileInfo from "@pages/profile/component/ProfileInfo";
 import InterviewLists from "@pages/Interview/component/InterviewList";
 
 const Interview = () => {
@@ -8,6 +9,7 @@ const Interview = () => {
 
   useEffect(() => {
     const elem = InterviewHeaderRef.current;
+
     if (!elem) return;
 
     const observer = new IntersectionObserver(
@@ -19,6 +21,7 @@ const Interview = () => {
       },
       { threshold: 0.2 }
     );
+
     observer.observe(elem);
 
     return () => observer.disconnect();
@@ -30,6 +33,7 @@ const Interview = () => {
         <h1 className="text-5xl lg:text-6xl inter-350 text-center">ABOUT ME</h1>
       </header>
 
+      <ProfileInfo />
       <InterviewLists />
     </section>
   );
