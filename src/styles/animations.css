@@ -1,10 +1,12 @@
 @keyframes slideDown {
   from {
     transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
     opacity: 0;
   }
   to {
     transform: translate(-50%, 50%);
+    background: transparent;
     opacity: 1;
   }
 }
@@ -12,10 +14,12 @@
 @keyframes slideUp {
   from {
     transform: translate(-50%, 50%);
+    background: transparent;
     opacity: 0;
   }
   to {
     transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
     opacity: 1;
   }
 }

@@ -20,7 +20,7 @@ import viteIcon from "@assets/stacks/Vite-Light.svg";
 import vueIcon from "@assets/stacks/VueJS-Light.svg";
 import zustandIcon from "@assets/stacks/Zustand.svg";
 
-export const LAST_UPDATE_DATE: string = "Aug 5, 2025";
+export const LAST_UPDATE_DATE: string = "Oct 8, 2025";
 
 export const PROFILE_INFO: ProfileInfoData = {
   innerProfile: {
@@ -60,45 +60,45 @@ export const PROFILE_INFO: ProfileInfoData = {
   educations: [
     {
       school: "삼성 청년 SW 아카데미",
-      major: "12기 교육 수료",
-      period: "2024.07. - 2025.06.",
+      major: "12기 우수 수료",
+      period: "2024. 07. - 2025. 06.",
     },
     {
       school: "연세대학교",
       major: "피아노과 졸업",
-      period: "2017.03. - 2023.08.",
+      period: "2017. 03. - 2023. 08.",
     },
     {
       school: "서울예술고등학교",
       major: "피아노과 졸업",
-      period: "2013.03. - 2016.02.",
+      period: "2013. 03. - 2016. 02.",
     },
     {
       school: "예원학교",
       major: "피아노과 졸업",
-      period: "2010.03. - 2013.02.",
+      period: "2010. 03. - 2013. 02.",
     },
   ],
   awards: [
     {
-      title: "삼성전자 DA사업부 연계 프로젝트 우수상",
+      title: "삼성전자 연계 프로젝트 우수상",
       where: "삼성전자",
-      date: "2025.04.11.",
+      date: "2025. 04. 11.",
     },
     {
       title: "공통 프로젝트 우수상",
       where: "삼성전자",
-      date: "2025.02.21.",
+      date: "2025. 02. 21.",
     },
     {
       title: "1학기 프로젝트 최우수상",
       where: "삼성전자",
-      date: "2024.11.29.",
+      date: "2024. 11. 29.",
     },
     {
       title: "1학기 성적우수상",
       where: "삼성전자",
-      date: "2024.11.29.",
+      date: "2024. 11. 29.",
     },
   ],
   stacks: {

@@ -35,7 +35,7 @@ dialog.photo-modal {
   border: none;
   padding: 0;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: transparent;
   box-shadow: none;
 }
 
@@ -49,10 +49,8 @@ dialog.photo-modal.is-closing {
 
 dialog.photo-modal::backdrop {
   animation: fadeBackdrop 0.5s forwards;
-  background: rgba(0, 0, 0, 0.3);
 }
 
 dialog.photo-modal.is-closing::backdrop {
   animation: fadeBackdropOut 0.3s forwards;
-  background: rgba(0, 0, 0, 0.3);
 }

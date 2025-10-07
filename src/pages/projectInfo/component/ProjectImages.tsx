@@ -85,7 +85,7 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
         onTouchEnd={handleTouchEnd}
       >
         <figure
-          className="flex transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-150 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {PROJECT_IMAGES.length === 0 && <NoImage />}
@@ -93,7 +93,7 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
             PROJECT_IMAGES.map((item, index) => (
               <div key={index} className="w-full flex-shrink-0 cursor-pointer" style={{ width: "100%" }}>
                 <div
-                  className="relative w-full aspect-[16/10] lg:aspect-[16/9] overflow-hidden bg-black/15 pointer-events-auto"
+                  className="relative flex justify-center items-center w-full aspect-[3/2] lg:aspect-[16/9] overflow-hidden bg-black/15 pointer-events-auto"
                   title="클릭하시면 크게 보실 수 있습니다."
                   onClick={() => {
                     if (!(item.type === "video" && videoPlayState[index])) {

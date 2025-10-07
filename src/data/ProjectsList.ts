@@ -120,7 +120,7 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: aidapTumbnailSmall,
       thumbnailMedium: aidapTumbnailMedium,
       thumbnailLarge: aidapTumbnailLarge,
-      "mini-duration": "2024. 11 - 2024. 11.",
+      "mini-duration": "2024. 11. - 2024. 11.",
       duration: "2024. 11. 18. - 2024. 11. 26.",
       team: [
         ["Frontend", 1],
@@ -283,7 +283,7 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: heroThumbnailSmall,
       thumbnailMedium: heroThumbnailMedium,
       thumbnailLarge: heroThumbnailLarge,
-      "mini-duration": "2025. 01 - 2025. 02.",
+      "mini-duration": "2025. 01. - 2025. 02.",
       duration: "2025. 01. 06. - 2025. 02. 21.",
       team: [
         ["Frontend", 2],
@@ -457,7 +457,7 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: recipediaThumbnailSmall,
       thumbnailMedium: recipediaThumbnailMedium,
       thumbnailLarge: recipediaThumbnailLarge,
-      "mini-duration": "2025. 02 - 2025. 04.",
+      "mini-duration": "2025. 02. - 2025. 04.",
       duration: "2025. 02. 24. - 2025. 04. 11.",
       team: [
         ["Frontend", 2],
@@ -658,7 +658,7 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: mailAtThumbnailSmall,
       thumbnailMedium: mailAtThumbnailMedium,
       thumbnailLarge: mailAtThumbnailLarge,
-      "mini-duration": "2025. 04 - 2025. 05.",
+      "mini-duration": "2025. 04. - 2025. 05.",
       duration: "2025. 04. 14. - 2025. 05. 22.",
       team: [
         ["Frontend", 1],
@@ -877,7 +877,7 @@ export const PROJECTS: ProjectsType = {
       thumbnailSmall: portfolioThumbnailSmall,
       thumbnailMedium: portfolioThumbnailMedium,
       thumbnailLarge: portfolioThumbnailLarge,
-      "mini-duration": "2025. 05 - 현재",
+      "mini-duration": "2025. 05. - 현재",
       duration: "2025. 05. 23. - 현재",
       team: [["Frontend", 1]],
       collaboration_tools: ["GitHub", "GitLab"],

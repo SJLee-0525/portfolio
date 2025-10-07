@@ -43,6 +43,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:7.37.5"],\
           ["eslint-plugin-react-hooks", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:5.2.0"],\
           ["eslint-plugin-react-refresh", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:0.4.20"],\
+          ["framer-motion", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:12.23.22"],\
           ["globals", "npm:16.1.0"],\
           ["gsap", "npm:3.13.0"],\
           ["prettier", "npm:3.5.3"],\
@@ -2862,6 +2863,39 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["framer-motion", [\
+      ["npm:12.23.22", {\
+        "packageLocation": "./.yarn/cache/framer-motion-npm-12.23.22-4c1c04cf18-66d0e8cd0b.zip/node_modules/framer-motion/",\
+        "packageDependencies": [\
+          ["framer-motion", "npm:12.23.22"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:12.23.22", {\
+        "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-6893cae61d/0/cache/framer-motion-npm-12.23.22-4c1c04cf18-66d0e8cd0b.zip/node_modules/framer-motion/",\
+        "packageDependencies": [\
+          ["@emotion/is-prop-valid", null],\
+          ["@types/emotion__is-prop-valid", null],\
+          ["@types/react", "npm:19.1.5"],\
+          ["@types/react-dom", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:19.1.5"],\
+          ["framer-motion", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:12.23.22"],\
+          ["motion-dom", "npm:12.23.21"],\
+          ["motion-utils", "npm:12.23.6"],\
+          ["react", "npm:19.1.0"],\
+          ["react-dom", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:19.1.0"],\
+          ["tslib", "npm:2.8.1"]\
+        ],\
+        "packagePeers": [\
+          "@emotion/is-prop-valid",\
+          "@types/emotion__is-prop-valid",\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["fs-minipass", [\
       ["npm:3.0.3", {\
         "packageLocation": "./.yarn/cache/fs-minipass-npm-3.0.3-d148d6ac19-63e80da2ff.zip/node_modules/fs-minipass/",\
@@ -3989,6 +4023,25 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["motion-dom", [\
+      ["npm:12.23.21", {\
+        "packageLocation": "./.yarn/cache/motion-dom-npm-12.23.21-2bda9088d7-0eee880c95.zip/node_modules/motion-dom/",\
+        "packageDependencies": [\
+          ["motion-dom", "npm:12.23.21"],\
+          ["motion-utils", "npm:12.23.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["motion-utils", [\
+      ["npm:12.23.6", {\
+        "packageLocation": "./.yarn/cache/motion-utils-npm-12.23.6-c060c881d0-c058e8ba64.zip/node_modules/motion-utils/",\
+        "packageDependencies": [\
+          ["motion-utils", "npm:12.23.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["ms", [\
       ["npm:2.1.3", {\
         "packageLocation": "./.yarn/cache/ms-npm-2.1.3-81ff3cfac1-d924b57e73.zip/node_modules/ms/",\
@@ -4753,6 +4806,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:7.37.5"],\
           ["eslint-plugin-react-hooks", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:5.2.0"],\
           ["eslint-plugin-react-refresh", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:0.4.20"],\
+          ["framer-motion", "virtual:b20bc79e1d4fef53096f270f7405083e4b16078e09a7dd5ab3d29de677566d96cc447ec0ea0aac680879f33f3cfdeddf0b9acb5b426fc0b706dace273f18b43e#npm:12.23.22"],\
           ["globals", "npm:16.1.0"],\
           ["gsap", "npm:3.13.0"],\
           ["prettier", "npm:3.5.3"],\

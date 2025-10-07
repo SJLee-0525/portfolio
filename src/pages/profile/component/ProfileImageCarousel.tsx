@@ -51,8 +51,13 @@ const ProfileImageCarousel = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
-      <div className="w-full h-full" onClick={handleImageClick} style={{ cursor: "pointer", position: "relative" }}>
+    <section className="relative flex flex-col items-center justify-center w-full h-full md:p-1.5 md:hover:p-0 md:transition-all md:duration-500 overflow-hidden">
+      <figure
+        className="flex justify-center items-center h-full xl:h-fit xl:w-full aspect-[1/1] rounded-full"
+        onClick={handleImageClick}
+        style={{ cursor: "pointer", position: "relative" }}
+        onDragStart={(e) => e.preventDefault()}
+      >
         {emojis.map((emo) => (
           <span
             key={emo.id}
@@ -63,8 +68,12 @@ const ProfileImageCarousel = () => {
           </span>
         ))}
 
-        <img src={PROFILE_IMAGES[0].src} alt={PROFILE_IMAGES[0].alt} className="object-cover w-full h-full" />
-      </div>
+        <img
+          src={PROFILE_IMAGES[0].src}
+          alt={PROFILE_IMAGES[0].alt}
+          className="w-full h-full xl:h-fit aspect-[1/1] rounded-full object-cover ease-in-out select-none"
+        />
+      </figure>
 
       {/* <div className="absolute flex justify-between items-center w-full px-4 left-0 top-1/2 -translate-y-1/2">
         <CarouselButton
@@ -78,7 +87,7 @@ const ProfileImageCarousel = () => {
           icon={<ArrowRightIcon width={32} height={32} strokeColor="#fff" />}
         />
       </div> */}
-    </div>
+    </section>
   );
 };
 

@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/*
+이 파일 하나만 import("tailwindcss") 하시면,
+Tailwind 플러그인이 자동으로 @theme 블록을 읽어
+text-primary, bg-error 같은 유틸리티에 위 변수들을 매핑해 줍니다.
+
+container.center 설정, 스크롤바 숨기기 플러그인(scrollbarHide) 등
+Tailwind 자체 플러그인 설정은 여전히 JS config에서 해 주셔야 합니다.
+*/
+
 @font-face {
   font-family: Pretendard-Light;
   font-weight: 100;
@@ -52,6 +61,48 @@
     local("Pretendard ExtraBold"),
     url("./assets/fonts/Pretendard-ExtraBold.woff") format("woff"),
     url("./assets/fonts/Pretendard-ExtraBold.woff2") format("woff2");
+}
+
+.inter-200 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.inter-300 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.inter-350 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
+.inter-500 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.inter-700 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.inter-900 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
 }
 
 @theme {
@@ -126,15 +177,6 @@ html.theme-night #root {
   animation: spaceBackground 16s ease infinite;
 }
 
-/*
-이 파일 하나만 import("tailwindcss") 하시면,
-Tailwind 플러그인이 자동으로 @theme 블록을 읽어
-text-primary, bg-error 같은 유틸리티에 위 변수들을 매핑해 줍니다.
-
-container.center 설정, 스크롤바 숨기기 플러그인(scrollbarHide) 등
-Tailwind 자체 플러그인 설정은 여전히 JS config에서 해 주셔야 합니다.
-*/
-
 /* .hide-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #a8a8a8 #00000000; 
@@ -153,45 +195,3 @@ Tailwind 자체 플러그인 설정은 여전히 JS config에서 해 주셔야 �
 .hide-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #432532;
 } */
-
-.inter-200 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.inter-300 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.inter-350 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 350;
-  font-style: normal;
-}
-
-.inter-500 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.inter-700 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.inter-900 {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-}

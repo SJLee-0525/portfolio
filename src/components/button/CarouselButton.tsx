@@ -1,13 +1,13 @@
 interface CarouselButtonProps {
-  isActive: boolean;
+  isActive?: boolean;
   onClick: () => void;
   icon: React.ReactNode;
 }
 
-const CarouselButton = ({ isActive, onClick, icon }: CarouselButtonProps) => {
+const CarouselButton = ({ isActive = true, onClick, icon }: CarouselButtonProps) => {
   return (
     <button
-      className={`bg-black/20 rounded-full p-2 transition-all duration-300 ease-in-out cursor-pointer pointer-events-auto hover:bg-black/40 ${isActive ? "opacity-100" : "opacity-0"}`}
+      className={`bg-black/20 rounded-full p-2 transition-all duration-300 ease-in-out cursor-pointer pointer-events-auto hover:bg-white/35 ${isActive ? "opacity-100" : "opacity-0"}`}
       onClick={onClick}
     >
       {icon}

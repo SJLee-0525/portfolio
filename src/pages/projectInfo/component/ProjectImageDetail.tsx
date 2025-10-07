@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import useModalStore from "@stores/modalStore";
 
@@ -18,122 +19,209 @@ interface ProjectImageDetailProps {
   setCurrentIndex: (index: number) => void;
 }
 
+const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
+
 const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: ProjectImageDetailProps) => {
   const { closeImageModal } = useModalStore();
 
-  const [modalIndex, setModalIndex] = useState(currentIndex);
+  const TOTAL = PROJECT_IMAGES.length;
+
+  const [index, setIndex] = useState(currentIndex);
+  const [dir, setDir] = useState<1 | -1>(1);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
   const [videoPlayState, setVideoPlayState] = useState<Record<number, boolean>>({});
 
-  useEffect(() => {
-    setCurrentIndex(modalIndex);
-  }, [modalIndex, setCurrentIndex]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft") {
-        handlePrev();
-      } else if (e.key === "ArrowRight") {
-        handleNext();
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [modalIndex]);
+    setCurrentIndex(index);
+  }, [index, setCurrentIndex]);
 
-  function handleNext() {
-    if (modalIndex < PROJECT_IMAGES.length - 1) setModalIndex(modalIndex + 1);
-  }
+  // 키보드 네비게이션
+  const goNext = useCallback(() => {
+    if (!TOTAL) return;
+    setDir(1);
+    setIndex((i) => (i + 1) % TOTAL);
+  }, [TOTAL]);
 
-  function handlePrev() {
-    if (modalIndex > 0) setModalIndex(modalIndex - 1);
-  }
+  const goPrev = useCallback(() => {
+    if (!TOTAL) return;
+    setDir(-1);
+    setIndex((i) => (i - 1 + TOTAL) % TOTAL);
+  }, [TOTAL]);
 
-  function handleTouchStart(e: React.TouchEvent) {
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].clientX);
     setTouchEndX(null);
-  }
+  }, []);
 
-  function handleTouchMove(e: React.TouchEvent) {
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
     setTouchEndX(e.touches[0].clientX);
-  }
+  }, []);
 
-  function handleTouchEnd() {
+  const handleTouchEnd = useCallback(() => {
     if (touchStartX !== null && touchEndX !== null) {
       const distance = touchStartX - touchEndX;
       const threshold = 50; // 스와이프 인식 임계값(px)
 
       if (distance > threshold) {
-        handleNext();
+        goNext();
       } else if (distance < -threshold) {
-        handlePrev();
+        goPrev();
       }
     }
     setTouchStartX(null);
     setTouchEndX(null);
+  }, [touchStartX, touchEndX, goNext, goPrev]);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "ArrowRight") goNext();
+      else if (e.key === "ArrowLeft") goPrev();
+    }
+
+    window.addEventListener("keydown", onKey);
+
+    return () => window.removeEventListener("keydown", onKey);
+  }, [goNext, goPrev]);
+
+  // peek 카드 개수
+  const peekCount = clamp(TOTAL - 1, 0, 3);
+
+  const layers = useMemo(() => {
+    const arr = Array.from({ length: 1 + peekCount }, (_, i) => (index + i) % TOTAL);
+    const conf = [
+      { scale: 1, tx: 0, ty: 0, z: 30, blur: 0 },
+      { scale: 0.975, tx: 16, ty: -16, z: 20, blur: 1 },
+      { scale: 0.95, tx: 32, ty: -26, z: 10, blur: 2 },
+      { scale: 0.925, tx: 46, ty: -34, z: 5, blur: 2.5 },
+    ];
+
+    return arr.map((idx, i) => ({ idx, style: conf[i] }));
+  }, [index, peekCount, TOTAL]);
+
+  const variants = {
+    enter: (direction: 1 | -1) => ({
+      x: direction === 1 ? 40 : -40,
+      opacity: 0.6,
+      rotate: direction === 1 ? 0.6 : -0.6,
+    }),
+    center: { x: 0, opacity: 1, rotate: 0 },
+    exit: (direction: 1 | -1) => ({
+      x: direction === 1 ? -120 : 120,
+      opacity: 0,
+      rotate: direction === 1 ? -0.6 : 0.6,
+    }),
+  } as const;
+
+  if (!TOTAL) {
+    return <NoImage />;
   }
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div ref={containerRef} className="relative w-full h-full select-none" aria-roledescription="carousel">
       <button
-        className="absolute top-5 right-5 z-10 p-2 rounded-full bg-white/35 hover:bg-red-500 transition-colors duration-300 ease-in-out"
+        className="absolute top-5 right-5 z-100 p-2 rounded-full bg-white/35 hover:bg-red-500 transition-colors duration-300 ease-in-out"
         onClick={closeImageModal}
       >
         <CloseIcon />
       </button>
 
-      <aside className="absolute top-5">
-        <div className="flex items-center justify-center mb-4">
-          <span className="text-white text-lg font-pre-light">
-            {modalIndex + 1} / {PROJECT_IMAGES.length}
-          </span>
-        </div>
-      </aside>
-
+      {/* 카드들이 겹쳐서 보이는 부분 */}
       <section
-        className="relative w-[95vw] h-[85vh] overflow-hidden flex items-center justify-center"
+        className="absolute inset-0"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* 슬라이드 애니메이션 이미지/비디오 영역 */}
-        <figure
-          className="flex w-full h-full transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${modalIndex * 100}%)` }}
-        >
-          {PROJECT_IMAGES.length === 0 && <NoImage />}
-          {PROJECT_IMAGES.length > 0 &&
-            PROJECT_IMAGES.map((img, idx) => (
-              <div
-                key={idx}
-                className="w-full flex-shrink-0 flex items-center justify-center"
-                style={{ width: "100%" }}
-              >
-                {img.type === "video" && img.src && !videoPlayState[idx] && (
-                  <VideoThumbnail url={img.src} index={idx} setVideoPlayState={setVideoPlayState} />
-                )}
-                {img.type === "video" && img.src && videoPlayState[idx] && <VideoPlayer url={img.src} index={idx} />}
-                {img.type === "img" && img.src && <ImageWithSpinner src={img.src} alt={`Project Image ${idx + 1}`} />}
-              </div>
-            ))}
-        </figure>
+        {/* 뒤에 살짝 보일 카드들 */}
+        {layers.slice(1).map(({ idx, style }) => (
+          <section
+            key={`peek-${idx}`}
+            className="hidden xl:flex absolute inset-0"
+            style={{ zIndex: style.z }}
+            aria-hidden
+          >
+            <figure
+              className="flex justify-center items-center w-260 max-w-[95vw] h-200 max-h-[80vh] bg-black m-auto origin-top-right rounded-2xl overflow-hidden"
+              style={{
+                transform: `translate(${style.tx}px, ${style.ty}px) scale(${style.scale})`,
+                filter: `blur(${style.blur}px)`,
+              }}
+            >
+              {PROJECT_IMAGES[idx].type === "video" && PROJECT_IMAGES[idx].src && !videoPlayState[idx] && (
+                <VideoThumbnail url={PROJECT_IMAGES[idx].src} index={idx} setVideoPlayState={setVideoPlayState} />
+              )}
+              {PROJECT_IMAGES[idx].type === "video" && PROJECT_IMAGES[idx].src && videoPlayState[idx] && (
+                <VideoPlayer url={PROJECT_IMAGES[idx].src} index={idx} />
+              )}
+              {PROJECT_IMAGES[idx].type === "img" && PROJECT_IMAGES[idx].src && (
+                <ImageWithSpinner src={PROJECT_IMAGES[idx].src} alt={`Project Image ${idx + 1}`} />
+              )}
+            </figure>
+          </section>
+        ))}
 
-        {PROJECT_IMAGES.length > 1 && (
-          <nav className="hidden sm:flex absolute justify-between items-center w-full px-4 left-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-            <CarouselButton
-              isActive={modalIndex > 0}
-              onClick={handlePrev}
-              icon={<ArrowLeftIcon width={32} height={32} strokeColor="#fff" />}
-            />
-            <CarouselButton
-              isActive={modalIndex < PROJECT_IMAGES.length - 1}
-              onClick={handleNext}
-              icon={<ArrowRightIcon width={32} height={32} strokeColor="#fff" />}
-            />
-          </nav>
-        )}
+        {/* 최상단 카드 */}
+        <AnimatePresence initial={false} custom={dir}>
+          <motion.div
+            key={`top-${layers[0].idx}`}
+            className="absolute inset-0 flex z-40"
+            custom={dir}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ type: "spring", stiffness: 420, damping: 48, mass: 0.8 }}
+          >
+            <div className="flex justify-center items-center w-260 max-w-[95vw] h-200 max-h-[80vh] bg-black m-auto origin-center rounded-2xl overflow-hidden">
+              {PROJECT_IMAGES[layers[0].idx].type === "video" &&
+                PROJECT_IMAGES[layers[0].idx].src &&
+                !videoPlayState[layers[0].idx] && (
+                  <VideoThumbnail
+                    url={PROJECT_IMAGES[layers[0].idx].src}
+                    index={layers[0].idx}
+                    setVideoPlayState={setVideoPlayState}
+                  />
+                )}
+              {PROJECT_IMAGES[layers[0].idx].type === "video" &&
+                PROJECT_IMAGES[layers[0].idx].src &&
+                videoPlayState[layers[0].idx] && (
+                  <VideoPlayer url={PROJECT_IMAGES[layers[0].idx].src} index={layers[0].idx} />
+                )}
+              {PROJECT_IMAGES[layers[0].idx].type === "img" && PROJECT_IMAGES[layers[0].idx].src && (
+                <ImageWithSpinner src={PROJECT_IMAGES[layers[0].idx].src} alt={`Project Image ${layers[0].idx + 1}`} />
+              )}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </section>
+
+      {/* 좌/우 네비게이션 버튼 */}
+      <div className="absolute inset-0 hidden sm:flex items-center justify-between px-8 z-100 pointer-events-none">
+        <CarouselButton
+          // isActive={index > 0}
+          onClick={goPrev}
+          icon={<ArrowLeftIcon width={24} height={24} strokeColor="#fff" />}
+        />
+        <CarouselButton
+          // isActive={index < PROJECT_IMAGES.length - 1}
+          onClick={goNext}
+          icon={<ArrowRightIcon width={24} height={24} strokeColor="#fff" />}
+        />
+      </div>
+
+      {/* 페이지 인디케이터 */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center px-2.5 py-2 gap-2 z-50 rounded-full bg-black/70">
+        {PROJECT_IMAGES.map((_, i) => (
+          <span
+            key={i}
+            className={`${i === index ? "w-2 h-2 bg-white" : "w-1.5 h-1.5 hover:w-2 hover:h-2 bg-white/60"} rounded-full transition-all duration-300 cursor-pointer`}
+            onClick={() => setIndex(i)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
