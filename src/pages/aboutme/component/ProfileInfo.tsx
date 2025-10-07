@@ -5,8 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { PROFILE_INFO } from "@data/ProfileInfo";
 
-import ProfileEducation from "@pages/profile/component/ProfileEducation";
-import ProfileAwards from "@pages/profile/component/ProfileAwards";
+import ProfileEducation from "@pages/aboutme/component/ProfileEducation";
+import ProfileAwards from "@pages/aboutme/component/ProfileAwards";
 
 const ProfileInfo = () => {
   const educationRef = useRef<HTMLDivElement>(null);

@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Profile from "@pages/profile/Profile";
 import Projects from "@pages/projects/Projects";
-import Interview from "@pages/Interview/Interview";
+import AboutMe from "@pages/aboutme/AboutMe";
 import Stacks from "@pages/stacks/Stacks";
 import Footer from "@pages/footer/Footer";
 
@@ -176,7 +176,7 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
   }, [animationReady]);
 
   return (
-    <main ref={mainRef} className="flex flex-col justify-start items-center w-full h-fit bg-white ">
+    <main ref={mainRef} className="flex flex-col justify-start items-center w-full h-fit bg-white overflow-x-hidden">
       <section ref={profileRef} className="relative w-full h-screen z-[1] bg-gray-100">
         <Profile
           infoReady={animationReady}
@@ -201,7 +201,7 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
 
         <section className="flex-1 w-full h-fit relative lg:px-16">
           <section ref={interviewRef} className="w-full">
-            <Interview />
+            <AboutMe />
           </section>
           <section ref={stacksRef} className="w-full">
             <Stacks />

@@ -23,13 +23,17 @@ const Profile = ({
 
   useEffect(() => {
     if (carouselRef.current) {
-      gsap.set(carouselRef.current, { opacity: 0, x: -60 });
+      if (window.innerWidth <= 1280) {
+        gsap.set(carouselRef.current, { opacity: 0, y: -60 });
+      } else {
+        gsap.set(carouselRef.current, { opacity: 0, x: -60 });
+      }
     }
   }, []);
 
   useEffect(() => {
     if (infoReady && carouselRef.current) {
-      gsap.to(carouselRef.current, { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" });
+      gsap.to(carouselRef.current, { opacity: 1, x: 0, y: 0, duration: 0.7, ease: "power2.out" });
       setShowScroll(true);
     }
   }, [infoReady]);

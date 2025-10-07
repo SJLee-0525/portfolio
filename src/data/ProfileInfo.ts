@@ -60,7 +60,7 @@ export const PROFILE_INFO: ProfileInfoData = {
   educations: [
     {
       school: "삼성 청년 SW 아카데미",
-      major: "12기 교육 수료",
+      major: "12기 우수 수료",
       period: "2024.07. - 2025.06.",
     },
     {

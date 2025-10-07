@@ -43,7 +43,7 @@ const PhotoModal = () => {
           closeImageModal();
         }
       }}
-      className={`photo-modal z-50 w-screen h-screen ${imageModalIsClosing ? "is-closing" : ""}`}
+      className={`photo-modal z-50 w-screen h-screen ${imageModalIsClosing ? "is-closing" : ""} overflow-hidden`}
       style={{ width: "100vw", height: "100vh", maxWidth: "100vw", maxHeight: "100vh", margin: 0, padding: 0 }}
     >
       <section

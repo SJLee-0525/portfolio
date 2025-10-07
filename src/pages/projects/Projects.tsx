@@ -28,7 +28,7 @@ const Projects = () => {
 
   return (
     <section className="flex flex-col justify-between items-center w-full min-h-screen h-fit gap-18 py-24 bg-white">
-      <header className="w-full h-fit bg-white xl:hidden" ref={projectsHeaderRef}>
+      <header className="sticky top-0 w-full h-fit z-10 pt-8 pb-4 bg-white xl:hidden" ref={projectsHeaderRef}>
         <h1 className="text-5xl lg:text-6xl inter-350 text-center">MY WORKS</h1>
       </header>
 
