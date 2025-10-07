@@ -51,7 +51,7 @@ const ProfileImageCarousel = () => {
   }
 
   return (
-    <section className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center w-full h-full md:p-1.5 md:hover:p-0 md:transition-all md:duration-500 overflow-hidden">
       <figure
         className="flex justify-center items-center h-full xl:h-fit xl:w-full aspect-[1/1] rounded-full"
         onClick={handleImageClick}
@@ -71,7 +71,7 @@ const ProfileImageCarousel = () => {
         <img
           src={PROFILE_IMAGES[0].src}
           alt={PROFILE_IMAGES[0].alt}
-          className="w-full h-full xl:h-fit aspect-[1/1] rounded-full object-cover"
+          className="w-full h-full xl:h-fit aspect-[1/1] rounded-full object-cover ease-in-out select-none"
         />
       </figure>
 

@@ -14,7 +14,7 @@ interface ProfileInnerProfileProps {
   onAnimationEnd?: () => void;
   showScroll: boolean;
   setShowScroll: (show: boolean) => void;
-  // onScrollToInterview: () => void;
+  onScrollToInterview: () => void;
 }
 
 const ProfileInnerProfile = ({
@@ -22,7 +22,7 @@ const ProfileInnerProfile = ({
   onAnimationEnd,
   showScroll,
   setShowScroll,
-  // onScrollToInterview,
+  onScrollToInterview,
 }: ProfileInnerProfileProps) => {
   const [profileReady, setProfileReady] = useState(false);
 
@@ -199,8 +199,8 @@ const ProfileInnerProfile = ({
       {showScroll && (
         <div
           ref={scrollableSectionRef}
-          className="fixed bottom-6 left-0 flex justify-center w-full h-fit p-2 z-50 pointer-events-none"
-          // onClick={onScrollToInterview}
+          className="fixed bottom-6 left-0 flex justify-center w-full h-fit p-2 z-50 cursor-pointer pointer-events-auto"
+          onClick={onScrollToInterview}
         >
           <ArrowDownDoubleIcon width={24} height={24} strokeColor="#bcc0c3" />
         </div>
@@ -210,7 +210,7 @@ const ProfileInnerProfile = ({
       <div
         ref={shadowRef}
         className="hidden xl:block pointer-events-none absolute left-0 bottom-0 w-full h-10"
-        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))" }}
+        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.05))" }}
       />
     </>
   );

@@ -93,7 +93,7 @@ const ProjectImages = ({ portfolio }: { portfolio: Portfolio }) => {
             PROJECT_IMAGES.map((item, index) => (
               <div key={index} className="w-full flex-shrink-0 cursor-pointer" style={{ width: "100%" }}>
                 <div
-                  className="relative flex justify-center items-center w-full aspect-[16/10] lg:aspect-[16/9] overflow-hidden bg-black/15 pointer-events-auto"
+                  className="relative flex justify-center items-center w-full aspect-[3/2] lg:aspect-[16/9] overflow-hidden bg-black/15 pointer-events-auto"
                   title="클릭하시면 크게 보실 수 있습니다."
                   onClick={() => {
                     if (!(item.type === "video" && videoPlayState[index])) {

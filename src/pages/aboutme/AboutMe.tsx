@@ -29,7 +29,7 @@ const AboutMe = () => {
 
   return (
     <section className="relative flex flex-col justify-start items-center w-full min-h-screen h-fit py-24 gap-24 bg-white">
-      <header className="sticky top-0 w-full h-fit z-10 pt-8 pb-4 bg-white xl:hidden" ref={AboutMeHeaderRef}>
+      <header className="w-full h-fit z-10 pt-8 pb-4 bg-white xl:hidden" ref={AboutMeHeaderRef}>
         <h1 className="text-5xl lg:text-6xl inter-350 text-center">ABOUT ME</h1>
       </header>
 

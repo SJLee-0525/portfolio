@@ -9,14 +9,10 @@ import ProfileInnerProfile from "@pages/profile/component/ProfileInnerProfile";
 interface ProfileProps {
   infoReady: boolean;
   setInfoReady: (info: boolean) => void;
-  // onScrollToInterview: () => void;
+  onScrollToInterview: () => void;
 }
 
-const Profile = ({
-  infoReady,
-  setInfoReady,
-  // onScrollToInterview
-}: ProfileProps) => {
+const Profile = ({ infoReady, setInfoReady, onScrollToInterview }: ProfileProps) => {
   const [showScroll, setShowScroll] = useState(false);
 
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -52,7 +48,7 @@ const Profile = ({
         onAnimationEnd={() => setInfoReady(true)}
         showScroll={showScroll}
         setShowScroll={setShowScroll}
-        // onScrollToInterview={onScrollToInterview}
+        onScrollToInterview={onScrollToInterview}
       />
     </section>
   );

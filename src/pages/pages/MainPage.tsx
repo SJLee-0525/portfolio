@@ -176,20 +176,25 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
   }, [animationReady]);
 
   return (
-    <main ref={mainRef} className="flex flex-col justify-start items-center w-full h-fit bg-white overflow-x-hidden">
+    <main
+      ref={mainRef}
+      className="flex flex-col justify-start items-center w-full h-fit bg-white overflow-x-hidden xl:overflow-x-visible"
+    >
+      {/* 부모 요소에 overflow 속성: sticky는 부모에 overflow: hidden/auto/scroll이 있으면 동작하지 않습니다. */}
+
       <section ref={profileRef} className="relative w-full h-screen z-[1] bg-gray-100">
         <Profile
           infoReady={animationReady}
           setInfoReady={setAnimationReady}
-          // onScrollToInterview={() => scrollToSection(interviewRef)}
+          onScrollToInterview={() => scrollToSection(interviewRef)}
         />
       </section>
 
       <section
         ref={contentWrapperRef}
-        className="w-full min-h-fit flex justify-between z-[2] bg-white lg:px-12 xl:px-32"
+        className="flex justify-between z-[2] bg-white lg:px-12 xl:px-32 w-full min-h-fit h-full"
       >
-        <aside className="relative hidden xl:block xl:relative w-1/4 min-h-full py-24">
+        <aside className="hidden xl:block w-1/4 min-h-full py-24">
           <MainNavigation
             activeSection={activeSection}
             onScrollToInterview={() => scrollToSection(interviewRef)}
