@@ -48,7 +48,7 @@ const PhotoModal = () => {
     >
       <section
         ref={contentRef}
-        className="relative w-full h-full bg-transparent overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="relative w-full h-full bg-transparent overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {imageModalContent && <>{imageModalContent}</>}
       </section>
