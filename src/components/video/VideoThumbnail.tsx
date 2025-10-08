@@ -15,10 +15,10 @@ const VideoThumbnail = ({ url, index, setVideoPlayState }: VideoThumbnailProps) 
       <img
         src={getYoutubeThumbnail(url) || ""}
         alt="YouTube 썸네일"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute w-260 max-w-[95vw] h-200 max-h-[80vh] object-contain rounded-2xl"
         style={{ background: "#000" }}
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
+      <div className="inset-0 flex items-center justify-center z-10">
         <button
           className="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center hover:scale-110 transition-transform"
           onClick={(e) => {

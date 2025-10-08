@@ -144,7 +144,7 @@ const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: P
             aria-hidden
           >
             <figure
-              className="flex justify-center items-center w-260 max-w-[95vw] h-200 max-h-[80vh] bg-black m-auto origin-top-right rounded-2xl overflow-hidden"
+              className="relative flex justify-center items-center w-260 max-w-[95vw] h-200 max-h-[80vh] bg-black m-auto origin-top-right rounded-2xl overflow-hidden"
               style={{
                 transform: `translate(${style.tx}px, ${style.ty}px) scale(${style.scale})`,
                 filter: `blur(${style.blur}px)`,
