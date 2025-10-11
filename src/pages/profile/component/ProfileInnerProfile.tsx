@@ -199,7 +199,7 @@ const ProfileInnerProfile = ({
       {showScroll && (
         <div
           ref={scrollableSectionRef}
-          className="fixed bottom-6 left-0 flex justify-center w-full h-fit p-2 z-50 cursor-pointer pointer-events-auto"
+          className="hidden xl:flex justify-center fixed bottom-6 left-0 w-full h-fit p-2 z-50 cursor-pointer pointer-events-auto"
           onClick={onScrollToInterview}
         >
           <ArrowDownDoubleIcon width={24} height={24} strokeColor="#bcc0c3" />

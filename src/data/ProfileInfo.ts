@@ -20,7 +20,7 @@ import viteIcon from "@assets/stacks/Vite-Light.svg";
 import vueIcon from "@assets/stacks/VueJS-Light.svg";
 import zustandIcon from "@assets/stacks/Zustand.svg";
 
-export const LAST_UPDATE_DATE: string = "Oct 8, 2025";
+export const LAST_UPDATE_DATE: string = "Oct 12, 2025";
 
 export const PROFILE_INFO: ProfileInfoData = {
   innerProfile: {

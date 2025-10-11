@@ -9,6 +9,7 @@ import AboutMe from "@pages/aboutme/AboutMe";
 import Stacks from "@pages/stacks/Stacks";
 import Footer from "@pages/footer/Footer";
 
+import MobileNavigation from "@components/nav/MobileNavigation";
 import MainNavigation from "@components/nav/MainNavigation";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,11 +28,7 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
   const interviewRef = useRef<HTMLElement>(null);
   const stacksRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
-
-  // 맨 위로 이동
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  const footerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
     const scopeElement = mainRef.current;
@@ -81,6 +78,11 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
     };
   }, [mainRef, profileRef, contentWrapperRef]);
 
+  // 맨 위로 이동
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   // 네비게이션바 스크롤 이동 함수 (정확한 위치로 이동, 스크롤 보정)
   function scrollToSection(ref: React.RefObject<HTMLElement | null>) {
     if (ref.current) {
@@ -114,6 +116,7 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
       { name: "interview", ref: interviewRef },
       { name: "stacks", ref: stacksRef },
       { name: "projects", ref: projectsRef },
+      { name: "footer", ref: footerRef },
     ];
 
     function handleScroll() {
@@ -139,6 +142,7 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
           }
         }
       }
+
       setActiveSection(newActiveSection);
     }
 
@@ -181,6 +185,14 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
       className="flex flex-col justify-start items-center w-full h-fit bg-white overflow-x-hidden xl:overflow-x-visible"
     >
       {/* 부모 요소에 overflow 속성: sticky는 부모에 overflow: hidden/auto/scroll이 있으면 동작하지 않습니다. */}
+      <MobileNavigation
+        infoReady={animationReady}
+        activeSection={activeSection}
+        onScrollToTop={scrollToTop}
+        onScrollToInterview={() => scrollToSection(interviewRef)}
+        onScrollToSkills={() => scrollToSection(stacksRef)}
+        onScrollToMyWorks={() => scrollToSection(projectsRef)}
+      />
 
       <section ref={profileRef} className="relative w-full h-screen z-[1] bg-gray-100">
         <Profile
@@ -217,7 +229,9 @@ const MainPage = ({ animationReady, setAnimationReady }: MainPageProps) => {
         </section>
       </section>
 
-      <Footer onScrollToTop={scrollToTop} />
+      <section ref={footerRef} className="w-full">
+        <Footer onScrollToTop={scrollToTop} />
+      </section>
     </main>
   );
 };
