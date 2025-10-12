@@ -71,6 +71,7 @@ const ProfileImageCarousel = () => {
           src={PROFILE_IMAGES[0].src}
           alt={PROFILE_IMAGES[0].alt}
           className="w-full h-full xl:h-fit aspect-[1/1] rounded-full object-cover ease-in-out select-none"
+          draggable={false}
           onDragStart={(e) => e.preventDefault()}
         />
       </figure>

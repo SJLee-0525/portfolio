@@ -6,8 +6,9 @@ const ImageWithSpinner = ({ src, alt }: { src: string; alt: string }) => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <>
+    <figure className="flex items-center justify-center w-full h-full bg-white/20">
       {loading && <ImageLoadingSpinner />}
+
       <img
         src={src}
         alt={alt}
@@ -17,7 +18,7 @@ const ImageWithSpinner = ({ src, alt }: { src: string; alt: string }) => {
         onError={() => setLoading(false)}
         draggable={false}
       />
-    </>
+    </figure>
   );
 };
 
