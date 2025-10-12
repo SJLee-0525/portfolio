@@ -56,7 +56,6 @@ const ProfileImageCarousel = () => {
         className="flex justify-center items-center h-full xl:h-fit xl:w-full aspect-[1/1] rounded-full"
         onClick={handleImageClick}
         style={{ cursor: "pointer", position: "relative" }}
-        onDragStart={(e) => e.preventDefault()}
       >
         {emojis.map((emo) => (
           <span
@@ -72,6 +71,7 @@ const ProfileImageCarousel = () => {
           src={PROFILE_IMAGES[0].src}
           alt={PROFILE_IMAGES[0].alt}
           className="w-full h-full xl:h-fit aspect-[1/1] rounded-full object-cover ease-in-out select-none"
+          onDragStart={(e) => e.preventDefault()}
         />
       </figure>
 

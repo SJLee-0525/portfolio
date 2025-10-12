@@ -63,10 +63,10 @@ const StackModal = () => {
           closeStackModal();
         }
       }}
-      className={`modal z-50 w-[95vw] max-w-200 lg:w-2xl h-fit max-h-[90vh] rounded-3xl ${stackModalIsClosing ? "is-closing" : ""}`}
+      className={`modal z-50 w-[95vw] max-w-200 lg:w-2xl h-fit max-h-[90vh] rounded-3xl outline-none ${stackModalIsClosing ? "is-closing" : ""}`}
     >
       <button
-        className="absolute top-5.5 right-5.5 w-11 h-11 z-60 rounded-full cursor-pointer bg-black/65 transition-all duration-300 ease-in-out flex justify-center items-center hover:bg-red-500 focus:outline-none"
+        className="absolute top-5.5 right-5.5 w-11 h-11 z-60 rounded-full cursor-pointer outline-none bg-black/65 transition-all duration-300 ease-in-out flex justify-center items-center hover:bg-red-500 focus:outline-none"
         onClick={closeStackModal}
       >
         <CloseIcon />

@@ -32,12 +32,12 @@ export const PROFILE_INFO: ProfileInfoData = {
     detail: "저는 프론트엔드 개발자로서 사용자 경험을 최우선으로 생각하며, ",
   },
   contacts: [
-    {
-      type: "TEL",
-      label: "TEL",
-      value: "010-4950-9213",
-      link: "tel:010-4950-9213",
-    },
+    // {
+    //   type: "TEL",
+    //   label: "TEL",
+    //   value: "",
+    //   link: "tel:",
+    // },
     {
       type: "Email",
       label: "Email",

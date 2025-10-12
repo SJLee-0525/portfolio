@@ -122,7 +122,7 @@ const ProjectImageDetail = ({ PROJECT_IMAGES, currentIndex, setCurrentIndex }: P
   return (
     <div ref={containerRef} className="relative w-full h-full select-none" aria-roledescription="carousel">
       <button
-        className="absolute top-5 right-5 z-100 p-2 rounded-full bg-white/35 hover:bg-red-500 transition-colors duration-300 ease-in-out"
+        className="absolute top-5 right-5 z-100 p-2 rounded-full cursor-pointer outline-none bg-white/35 hover:bg-red-500 transition-colors duration-300 ease-in-out"
         onClick={closeImageModal}
       >
         <CloseIcon />

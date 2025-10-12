@@ -23,13 +23,16 @@ const generateId = () => {
   return "liquid-glass-" + Math.random().toString(36).slice(2, 9);
 };
 
-type FragmentFn = (uv: { x: number; y: number }, mouse?: { x: number; y: number }) => { x: number; y: number };
-type ShaderOpts = {
+interface FragmentFn {
+  (uv: { x: number; y: number }, mouse?: { x: number; y: number }): { x: number; y: number };
+}
+
+interface ShaderOpts {
   width?: number;
   height?: number;
   fragment?: FragmentFn;
   element?: HTMLElement | null; // 요소를 직접 전달
-};
+}
 
 export class Shader {
   width: number;
@@ -62,17 +65,30 @@ export class Shader {
   }
 
   private createElement() {
+    function isSafari() {
+      const ua = navigator.userAgent;
+      const isAppleVendor = navigator.vendor === "Apple Computer, Inc.";
+      const isSafariLike = /Safari/.test(ua) && !/Chrome|Chromium|CriOS|Edg|OPR/.test(ua);
+
+      return isAppleVendor && isSafariLike;
+    }
+
     // 외부 요소가 있으면 그걸 컨테이너로 사용
     if (this.externalElement) {
       this.container = this.externalElement;
+
       // 필요한 기본 스타일 보정 (투명도 있어야 backdrop가 보임)
-      this.container.style.backdropFilter = `url(#${this.id}_filter) blur(1.5px) brightness(1.5) saturate(1.2)`;
       this.container.style.boxShadow = `
-        4px 4px 6px rgba(0, 0, 0, 0.125),
+        4px 4px 6px rgba(0, 0, 0, 0.15),
         0 -10px 25px inset rgba(0, 0, 0, 0.01),
-        0 -1px 4px 1px inset rgba(255, 255, 255, 0.85)
+        0 -1px 2px 1px inset rgba(255, 255, 255, 0.5)
       `;
-      (this.container.style as any).webkitBackdropFilter = this.container.style.backdropFilter;
+
+      // 비-Safari만 SVG 필터 추가 (Safari는 충돌/미지원 케이스 많음)
+      if (!isSafari())
+        this.container.style.backdropFilter = `url(#${this.id}_filter) blur(2px) brightness(1.5) saturate(1.75)`;
+      else (this.container.style as any).webkitBackdropFilter = `blur(6px) brightness(1.4) saturate(1.2)`;
+
       this.container.style.overflow = this.container.style.overflow || "hidden";
     } else {
       // 없으면 새로 만듦
@@ -144,12 +160,12 @@ export class Shader {
     window.addEventListener("resize", this.handleResize);
   }
 
-  private handleResize = () => {
+  private handleResize() {
     const rect = this.container.getBoundingClientRect();
     this.width = Math.round(rect.width);
     this.height = Math.round(rect.height);
     this.updateShader();
-  };
+  }
 
   updateShader() {
     const w = this.width * this.canvasDPI;
@@ -202,6 +218,7 @@ export class Shader {
   destroy() {
     window.removeEventListener("resize", this.handleResize);
     this.svg.remove();
+
     if (!this.externalElement) this.container.remove();
     this.canvas.remove();
   }
@@ -211,6 +228,7 @@ export class Shader {
 export const attachLiquidGlassToElement = (el: HTMLElement, opts: Omit<ShaderOpts, "element"> = {}) => {
   const shader = new Shader({ ...opts, element: el });
   shader.appendTo(document.body);
+
   return () => shader.destroy();
 };
 
@@ -221,5 +239,6 @@ export const defaultFragment: FragmentFn = (uv) => {
   const distanceToEdge = roundedRectSDF(ix, iy, 0.3, 0.2, 0.6);
   const displacement = smoothStep(0.8, 0, distanceToEdge - 0.15);
   const scaled = smoothStep(0, 1, displacement);
+
   return texture(ix * scaled + 0.5, iy * scaled + 0.5);
 };
